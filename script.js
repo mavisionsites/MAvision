@@ -31,6 +31,6 @@ $$(".sv article").forEach(a=>a.addEventListener("pointermove",e=>{const r=a.getB
 r.addEventListener("pointerdown",()=>u=true);r.addEventListener("input",()=>{u=true;set(r.value)});
 if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
 const o=new IntersectionObserver(e=>{if(!e[0].isIntersecting)return;o.disconnect();const t0=performance.now();(function f(t){if(u)return;const k=(t-t0)/2800;if(k>=1){set(50);return}set(Math.round(50+30*Math.sin(k*Math.PI*2)*(1-k)));requestAnimationFrame(f)})(t0)},{threshold:.6});o.observe(c)})();
-(function(){const d=$("#ex"),f=$("#exf");const op=a=>{const u=a.dataset.ex;f.src=u;$("#exu").textContent="mavision · "+u.replace("/exemplos/","exemplo/");$("#exo").href=u;d.showModal();document.body.style.overflow="hidden"};
+(function(){const d=$("#ex"),f=$("#exf");const op=a=>{const u=a.dataset.ex;f.src=u;$("#exu").textContent="mavision · "+u.replace(/^.*exemplos\//,"exemplo/");$("#exo").href=u;d.showModal();document.body.style.overflow="hidden"};
 $$(".sv .ex").forEach(a=>{a.onclick=()=>op(a);a.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();op(a)}}});
 const cl=()=>d.close();$("#exc").onclick=cl;d.addEventListener("click",e=>{if(e.target==d)cl()});d.addEventListener("close",()=>{f.src="about:blank";document.body.style.overflow=""})})();

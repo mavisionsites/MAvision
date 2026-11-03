@@ -1,6 +1,7 @@
 // Gera as páginas do site em cada idioma, com todo o texto já escrito no HTML (bom para o Google).
 //   src/index.template.html + i18n.js  ->  index.html (PT), en/index.html, es/index.html, sitemap.xml, robots.txt
 // Uso: node build.js
+// Caminhos dos arquivos são relativos ({{base}}), então o site funciona tanto em mavision.com.br quanto numa subpasta (GitHub Pages).
 const fs = require("fs"), path = require("path");
 const T = require("./i18n.js");
 
@@ -47,6 +48,7 @@ function page(l) {
   const t = T[l], need = k => { if (!(k in t)) throw new Error(`Texto "${k}" não existe em ${l} (i18n.js)`); return t[k]; };
   let h = tpl
     .replace("{{hl}}", () => LANGS[l].hl).replace("{{head}}", () => head(l)).replace("{{ld}}", () => ld(l)).replace("{{lc}}", () => l.toUpperCase())
+    .split("{{base}}").join(LANGS[l].dir ? "../" : "").split("{{home}}").join(LANGS[l].dir ? "../" : "./")
     .split("{{wa}}").join(esc(`https://wa.me/${WA}?text=${encodeURIComponent(t.wam)}`));
   h = h.replace(/(<(\w+)\b[^>]*\sdata-t="(\w+)"[^>]*>)(<\/\2>)/g, (m, open, tag, k, close) => open + esc(need(k)) + close);
   h = h.replace(/(<\w+\b[^>]*\sdata-p="(\w+)")/g, (m, a, k) => `${a} placeholder="${esc(need(k))}"`);
