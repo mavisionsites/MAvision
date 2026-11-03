@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gerador de Contratos | Atlas Serviços</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0e0b18;--pn:#171326;--ln:rgba(255,255,255,.1);--tx:#f1eff8;--mu:#a49fb8;--p:#6c47ff;--p2:#9a82ff;--pp:#fbfaf7;--ink:#26222f}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 14px/1.6 Montserrat,system-ui,sans-serif}
+.tag{position:fixed;right:12px;bottom:12px;z-index:9;background:rgba(0,0,0,.75);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px;border:1px solid var(--ln)}
+.app{display:grid;grid-template-columns:360px 1fr;min-height:100%}
+aside{background:var(--pn);border-right:1px solid var(--ln);padding:26px 24px 70px}
+.lg{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;margin-bottom:6px}
+.lg i{width:30px;height:30px;border-radius:8px;background:var(--p);display:grid;place-items:center;font-style:normal}
+aside>p{color:var(--mu);font-size:13px;margin:0 0 22px}
+label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin:14px 0 6px;letter-spacing:.02em}
+input,select{width:100%;font:500 14px Montserrat,sans-serif;color:var(--tx);background:rgba(255,255,255,.05);border:1px solid var(--ln);border-radius:10px;padding:11px 12px;outline:none}
+input:focus,select:focus{border-color:var(--p2)}
+select option{background:var(--pn)}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.go{margin-top:22px;width:100%;font:600 15px Montserrat,sans-serif;color:#fff;background:var(--p);border:0;border-radius:12px;padding:14px;cursor:pointer;box-shadow:0 8px 30px rgba(108,71,255,.4);display:flex;justify-content:center;align-items:center;gap:10px}
+.go:hover{background:#7d5cff}.go:disabled{opacity:.7;cursor:wait}
+.st{margin-top:12px;font-size:12px;color:var(--mu);min-height:20px}
+main{padding:30px clamp(16px,4vw,50px) 70px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.bar{width:min(760px,100%);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.bar span{font-size:12px;color:var(--mu)}
+.bar b{font-size:12px;padding:5px 12px;border-radius:99px;background:rgba(31,157,99,.18);color:#5fd49b}
+.doc{width:min(760px,100%);background:var(--pp);color:var(--ink);border-radius:6px;padding:clamp(26px,5vw,60px);font:400 15px/1.75 "Source Serif 4",Georgia,serif;box-shadow:0 30px 90px rgba(0,0,0,.5);position:relative}
+.doc h1{font:600 18px/1.3 "Source Serif 4",serif;text-align:center;letter-spacing:.06em;text-transform:uppercase;margin:0 0 26px}
+.doc h2{font:600 15px "Source Serif 4",serif;margin:22px 0 6px}
+.doc p{margin:0 0 10px;text-align:justify}
+.doc mark{background:rgba(108,71,255,.16);color:inherit;padding:0 2px;border-radius:3px;transition:background 1.2s}
+.doc.done mark{background:transparent}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px;text-align:center;font-size:13px}
+.sg div{border-top:1px solid var(--ink);padding-top:8px}
+.cur::after{content:"▍";color:var(--p);animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.sp{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:rt .8s linear infinite;display:none}
+.go:disabled .sp{display:block}
+@keyframes rt{to{transform:rotate(1turn)}}
+@media(max-width:860px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--ln);padding-bottom:26px}}
+</style>
+</head>
+<body>
+<span class="tag">Exemplo · empresa fictícia</span>
+<div class="app">
+<aside>
+<div class="lg"><i>A</i>Atlas Serviços</div>
+<p>Preencha os dados e a IA monta o contrato pronto para assinar.</p>
+<form id="f">
+<label for="cl">Nome do cliente</label><input id="cl" value="Mariana Souza Lima">
+<label for="dc">CPF ou CNPJ (fictício)</label><input id="dc" value="000.000.000-00">
+<label for="sv">Serviço</label><select id="sv"><option>Pintura residencial</option><option>Reforma de banheiro</option><option>Instalação elétrica</option><option>Manutenção de jardim</option></select>
+<div class="r2"><div><label for="vl">Valor (R$)</label><input id="vl" inputmode="numeric" value="4800"></div><div><label for="pz">Prazo (dias)</label><input id="pz" inputmode="numeric" value="15"></div></div>
+<div class="r2"><div><label for="dt">Início</label><input id="dt" type="date"></div><div><label for="pg">Pagamento</label><select id="pg"><option>À vista</option><option>50% + 50%</option><option>3x sem juros</option></select></div></div>
+<button class="go" id="go" type="submit"><span class="sp"></span><span id="gl">Gerar contrato com IA</span></button>
+<div class="st" id="st">Edite os campos e gere de novo para ver a mudança.</div>
+</form>
+</aside>
+<main>
+<div class="bar"><span>Pré-visualização do documento</span><b id="ok" hidden>✓ Contrato gerado</b></div>
+<article class="doc" id="doc"></article>
+</main>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const U=["","um","dois","três","quatro","cinco","seis","sete","oito","nove","dez","onze","doze","treze","quatorze","quinze","dezesseis","dezessete","dezoito","dezenove"],D=["","","vinte","trinta","quarenta","cinquenta","sessenta","setenta","oitenta","noventa"],C=["","cento","duzentos","trezentos","quatrocentos","quinhentos","seiscentos","setecentos","oitocentos","novecentos"];
+function c3(n){if(n==100)return"cem";const c=Math.floor(n/100),r=n%100,p=[];if(c)p.push(C[c]);if(r<20){if(r)p.push(U[r])}else{p.push(D[Math.floor(r/10)]+(r%10?" e "+U[r%10]:""))}return p.join(" e ")}
+function ext(n){n=Math.floor(n);if(!n)return"zero reais";const m=Math.floor(n/1000),r=n%1000,p=[];if(m)p.push(m==1?"mil":c3(m)+" mil");if(r)p.push(c3(r));let s=p.join(r&&(r<100||r%100==0)?" e ":" ");return s+(n==1?" real":(r==0&&m>=1000?" de reais":" reais"))}
+const br=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const fd=s=>{if(!s)return"a combinar";const[y,m,d]=s.split("-");return`${d}/${m}/${y}`};
+const pgT={"À vista":"em parcela única, na assinatura deste contrato","50% + 50%":"50% na assinatura deste contrato e 50% na entrega do serviço","3x sem juros":"em 3 parcelas mensais e iguais, sem juros, sendo a primeira na assinatura"};
+function build(){const v=+($("vl").value.replace(/\D/g,""))||0,mk=t=>`<mark>${t}</mark>`;
+return[`<h1>Contrato de prestação de serviços</h1>`,
+`<p>Pelo presente instrumento, de um lado <b>ATLAS SERVIÇOS GERAIS LTDA.</b>, empresa fictícia, doravante CONTRATADA, e de outro ${mk($("cl").value||"[cliente]")}, inscrito(a) sob o nº ${mk($("dc").value||"[documento]")}, doravante CONTRATANTE, ajustam o seguinte:</p>`,
+`<h2>Cláusula 1ª – Do objeto</h2><p>A CONTRATADA prestará ao CONTRATANTE o serviço de ${mk($("sv").value.toLowerCase())}, conforme orçamento aprovado entre as partes.</p>`,
+`<h2>Cláusula 2ª – Do prazo</h2><p>O serviço terá início em ${mk(fd($("dt").value))} e será concluído em até ${mk(($("pz").value||"0")+" dias corridos")}, salvo atrasos causados por terceiros ou condições climáticas.</p>`,
+`<h2>Cláusula 3ª – Do valor e pagamento</h2><p>Pelo serviço, o CONTRATANTE pagará ${mk(br(v)+" ("+ext(v)+")")}, ${mk(pgT[$("pg").value])}.</p>`,
+`<h2>Cláusula 4ª – Da rescisão</h2><p>Qualquer das partes poderá rescindir este contrato mediante aviso por escrito com 5 dias de antecedência, sendo devidos os valores dos serviços já executados.</p>`,
+`<h2>Cláusula 5ª – Do foro</h2><p>Fica eleito o foro da comarca de Belo Horizonte, MG, para dirimir quaisquer dúvidas oriundas deste contrato.</p>`,
+`<div class="sg"><div>ATLAS SERVIÇOS GERAIS LTDA.<br>Contratada</div><div>${$("cl").value||"Contratante"}<br>Contratante</div></div>`]}
+let tm;
+function gen(anim){clearTimeout(tm);const d=$("doc"),parts=build();d.classList.remove("done");$("ok").hidden=true;
+if(!anim||matchMedia("(prefers-reduced-motion:reduce)").matches){d.innerHTML=parts.join("");$("ok").hidden=false;return}
+$("go").disabled=true;$("gl").textContent="Gerando...";$("st").textContent="Lendo dados e aplicando o modelo de contrato...";d.innerHTML="";let i=0;
+(function step(){d.innerHTML=parts.slice(0,i+1).join("");d.lastElementChild.classList.add("cur");i++;
+if(i<parts.length){tm=setTimeout(step,280)}else{d.lastElementChild.classList.remove("cur");$("go").disabled=false;$("gl").textContent="Gerar contrato com IA";$("st").textContent="Pronto. Os campos destacados vieram do formulário.";$("ok").hidden=false;setTimeout(()=>d.classList.add("done"),2500)}})()}
+const t=new Date();t.setDate(t.getDate()+7);$("dt").value=t.toISOString().slice(0,10);
+$("f").addEventListener("submit",e=>{e.preventDefault();gen(true)});gen(false);
+</script>
+</body>
+</html>

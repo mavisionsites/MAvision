@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /exemplos/
+Disallow: /src/
+
+Sitemap: https://mavision.com.br/sitemap.xml

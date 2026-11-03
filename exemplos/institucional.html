@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valor Contábil | Contabilidade em Belo Horizonte</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--nv:#0d2640;--nv2:#123354;--bl:#1f5f99;--bl2:#2b74b8;--sk:#eaf1f8;--sk2:#f5f8fb;--tx:#1b2633;--mu:#5b6876;--ln:#dde5ed;--gr:#1f9d6b;--gd:#e3a72f;--wh:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font:400 16px/1.65 "Libre Franklin",system-ui,sans-serif;color:var(--tx);background:var(--wh);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+h1,h2,h3,h4{margin:0;line-height:1.15;color:var(--nv);letter-spacing:-.015em}
+p{margin:0 0 12px;color:var(--mu)}
+.w{width:min(1140px,92%);margin:auto}
+.tag{position:fixed;right:12px;bottom:12px;z-index:90;background:rgba(13,38,64,.92);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+.ey{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--bl);margin-bottom:12px}
+.h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:12px}
+.tt{max-width:620px;margin-bottom:44px}
+.tt.c{text-align:center;margin-inline:auto}
+.bt{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:10px;background:var(--bl);color:#fff;font-weight:600;font-size:15px;border:1px solid var(--bl);cursor:pointer;transition:.25s}
+.bt:hover{background:var(--nv);border-color:var(--nv);transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,38,64,.18)}
+.bt.o{background:transparent;color:var(--nv);border-color:var(--nv)}
+.bt.o:hover{background:var(--nv);color:#fff}
+.bt.w2{background:#fff;color:var(--nv);border-color:#fff}
+.bt.w2:hover{background:var(--sk)}
+.ck{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ck li{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.ck li::before{content:"";flex-shrink:0;width:20px;height:20px;margin-top:2px;border-radius:50%;background:var(--gr) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+/* top bar + header */
+.tb{background:var(--nv);color:#c6d4e2;font-size:13px}
+.tb .w{display:flex;justify-content:space-between;gap:16px;padding:8px 0;flex-wrap:wrap}
+.tb span{display:inline-flex;align-items:center;gap:6px;margin-right:18px}
+.tb svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln);transition:box-shadow .3s}
+header.s{box-shadow:0 6px 24px rgba(13,38,64,.08)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:74px;gap:20px}
+.lg{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--nv);font-size:20px;letter-spacing:-.02em}
+.lg i{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--bl2),var(--nv));display:grid;place-items:center;color:#fff;font-style:normal;font-size:17px}
+.lg small{display:block;font-size:11px;font-weight:500;color:var(--mu);letter-spacing:.04em;margin-top:-3px}
+nav{display:flex;gap:28px;font-size:15px;font-weight:500}
+nav a{position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--bl);transition:.25s}
+nav a:hover::after{right:0}
+.mb{display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--ln);background:#fff;cursor:pointer;font-size:20px;color:var(--nv)}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--sk) 0,var(--sk2) 100%);padding:80px 0 140px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(rgba(43,116,184,.18),transparent 65%)}
+.hg{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.bd{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--ln);border-radius:99px;padding:6px 14px 6px 6px;font-size:13px;font-weight:500;margin-bottom:22px}
+.bd b{background:var(--gr);color:#fff;border-radius:99px;padding:3px 10px;font-size:12px}
+.hero h1{font-size:clamp(34px,4.6vw,54px);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--bl)}
+.hero .ld{font-size:18px;max-width:520px;margin-bottom:28px}
+.ac{display:flex;gap:12px;flex-wrap:wrap}
+.pf{display:flex;align-items:center;gap:14px;margin-top:34px;font-size:14px;color:var(--mu)}
+.av{display:flex}.av i{width:38px;height:38px;border-radius:50%;border:3px solid var(--sk2);margin-left:-10px;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:13px;color:#fff}
+.av i:first-child{margin-left:0}
+.pf b{display:block;color:var(--nv);font-size:15px}
+.st{color:var(--gd);letter-spacing:1px}
+/* dashboard visual */
+.dsh{position:relative}
+.pn{background:#fff;border-radius:18px;box-shadow:0 30px 70px rgba(13,38,64,.14);padding:24px;border:1px solid var(--ln)}
+.pn .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.pn .h b{font-size:15px;color:var(--nv)}.pn .h span{font-size:12px;color:var(--mu);background:var(--sk2);padding:4px 10px;border-radius:99px}
+.kp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.kp div{background:var(--sk2);border-radius:12px;padding:14px}
+.kp span{font-size:12px;color:var(--mu)}.kp strong{display:block;font-size:22px;color:var(--nv);font-variant-numeric:tabular-nums}
+.kp em{font-style:normal;font-size:12px;font-weight:600;color:var(--gr)}
+.ch{display:flex;align-items:flex-end;gap:10px;height:130px;padding:0 4px;border-bottom:1px solid var(--ln)}
+.ch i{flex:1;border-radius:6px 6px 0 0;background:linear-gradient(var(--bl2),var(--bl));height:var(--h);transform-origin:bottom;animation:gr 1.2s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--n)*.08s)}
+.ch i:last-child{background:linear-gradient(#36c08a,var(--gr))}
+@keyframes gr{from{transform:scaleY(0)}}
+.cl{display:flex;justify-content:space-between;font-size:11px;color:var(--mu);margin-top:6px;padding:0 4px}
+.fl{position:absolute;background:#fff;border-radius:14px;box-shadow:0 18px 40px rgba(13,38,64,.16);border:1px solid var(--ln);padding:14px 16px;font-size:13px}
+.fl.a{left:-40px;bottom:-104px;width:250px;animation:fy 5s ease-in-out infinite}
+.fl.b{right:-24px;top:-26px;display:flex;gap:10px;align-items:center;animation:fy 5s 1.2s ease-in-out infinite}
+.fl.b i{width:34px;height:34px;border-radius:50%;background:#e4f6ee;display:grid;place-items:center;color:var(--gr);font-style:normal;font-weight:800}
+@keyframes fy{50%{transform:translateY(-8px)}}
+.fl h4{font-size:13px;margin-bottom:8px}
+.fl li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--ln)}
+.fl li:last-child{border:0}.fl li b{color:var(--bl)}
+.fl ul{list-style:none;margin:0;padding:0}
+/* trust strip */
+.tr{border-bottom:1px solid var(--ln);padding:26px 0}
+.tr .w{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.tr small{font-size:13px;color:var(--mu);font-weight:500}
+.tr ul{list-style:none;margin:0;padding:0;display:flex;gap:34px;flex-wrap:wrap}
+.tr li{font-weight:700;color:#8796a6;font-size:15px;letter-spacing:.02em;display:flex;align-items:center;gap:8px}
+.tr li i{width:8px;height:8px;border-radius:2px;background:#b9c6d3;transform:rotate(45deg)}
+section{padding:90px 0}
+/* services */
+.sv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sc{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:28px;transition:.3s;position:relative;overflow:hidden}
+.sc::after{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--bl);transition:.4s}
+.sc:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(13,38,64,.1);border-color:transparent}
+.sc:hover::after{width:100%}
+.sc .ic{width:48px;height:48px;border-radius:12px;background:var(--sk);display:grid;place-items:center;margin-bottom:18px;transition:.3s}
+.sc:hover .ic{background:var(--bl)}
+.sc svg{width:24px;height:24px;fill:none;stroke:var(--bl);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:.3s}
+.sc:hover svg{stroke:#fff}
+.sc h3{font-size:19px;margin-bottom:8px}.sc p{font-size:15px;margin-bottom:14px}
+.sc a{font-size:14px;font-weight:600;color:var(--bl)}
+/* about */
+.ab{background:var(--sk2)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.ph{position:relative;aspect-ratio:5/4;border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#1d4a75,var(--nv))}
+.ph svg{position:absolute;inset:0;width:100%;height:100%}
+.ph .yr{position:absolute;right:20px;bottom:20px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 14px 34px rgba(0,0,0,.2)}
+.ph .yr b{display:block;font-size:30px;color:var(--nv);line-height:1}.ph .yr span{font-size:12px;color:var(--mu)}
+.ag .ck{margin:22px 0 28px}
+.nm{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px}
+.nm div{background:#fff;border:1px solid var(--ln);border-radius:14px;padding:22px;text-align:center}
+.nm b{display:block;font-size:34px;font-weight:800;color:var(--nv);font-variant-numeric:tabular-nums}
+.nm span{font-size:14px;color:var(--mu)}
+/* plans */
+.pt{display:inline-flex;background:var(--sk);border-radius:12px;padding:5px;margin:0 auto 36px;gap:4px;flex-wrap:wrap;justify-content:center}
+.pt button{border:0;background:transparent;padding:10px 20px;border-radius:9px;font-size:15px;font-weight:600;color:var(--mu);cursor:pointer;transition:.25s}
+.pt button[aria-selected=true]{background:#fff;color:var(--nv);box-shadow:0 4px 12px rgba(13,38,64,.1)}
+.pw{text-align:center}
+.pl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
+.pc{border:1px solid var(--ln);border-radius:18px;padding:30px;background:#fff;display:flex;flex-direction:column;position:relative}
+.pc.f{border:2px solid var(--bl);box-shadow:0 24px 50px rgba(31,95,153,.16)}
+.pc.f::before{content:"Mais escolhido";position:absolute;top:-13px;left:30px;background:var(--bl);color:#fff;font-size:12px;font-weight:600;padding:4px 12px;border-radius:99px}
+.pc h3{font-size:20px;margin-bottom:4px}.pc>p{font-size:14px;min-height:44px}
+.pr{margin:14px 0 20px;color:var(--nv)}
+.pr small{font-size:13px;color:var(--mu)}.pr b{font-size:38px;font-weight:800;letter-spacing:-.02em}.pr span{font-size:14px;color:var(--mu)}
+.pc .ck{margin-bottom:26px;flex:1}
+.pc .bt{justify-content:center}
+.pn2{font-size:13px;color:var(--mu);margin-top:20px;text-align:center}
+/* steps */
+.sp{background:var(--nv);color:#fff}
+.sp .h2,.sp h3{color:#fff}.sp p{color:#b8c7d6}.sp .ey{color:#7fb6ea}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s;position:relative}
+.sg::before{content:"";position:absolute;top:26px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 8px,transparent 8px 16px)}
+.sg div{position:relative;text-align:center;padding:0 8px}
+.sg div::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:54px;height:54px;margin:0 auto 18px;border-radius:50%;background:var(--bl2);font-weight:800;font-size:20px;box-shadow:0 0 0 8px var(--nv),0 0 0 9px rgba(255,255,255,.15);position:relative}
+.sg h3{font-size:18px;margin-bottom:8px}.sg p{font-size:15px}
+/* testimonials */
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tc{background:#fff;border:1px solid var(--ln);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+.tc .st{font-size:16px;margin-bottom:12px}
+.tc blockquote{margin:0 0 22px;font-size:16px;color:var(--tx);flex:1}
+.tc figcaption{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--mu)}
+.tc figcaption i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:700;color:#fff}
+.tc figcaption b{display:block;color:var(--nv)}
+/* faq */
+.fq{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}
+details{border:1px solid var(--ln);border-radius:12px;margin-bottom:12px;background:#fff;transition:.25s}
+details[open]{border-color:var(--bl);box-shadow:0 10px 26px rgba(13,38,64,.07)}
+summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;color:var(--nv);display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--bl);transition:.25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 22px 18px;margin:0}
+/* cta */
+.cta{background:linear-gradient(120deg,var(--bl),var(--nv));border-radius:22px;padding:50px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta::after{content:"";position:absolute;right:-60px;bottom:-120px;width:320px;height:320px;border-radius:50%;border:40px solid rgba(255,255,255,.06)}
+.cta h2{color:#fff;font-size:clamp(24px,3vw,34px);margin-bottom:8px}.cta p{color:#cfe0f0;margin:0}
+.cta>*{position:relative;z-index:1}
+/* contact */
+.cg{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.ci{display:grid;gap:14px;margin:26px 0}
+.ci>div{display:flex;gap:14px;align-items:flex-start}
+.ci i{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--sk);display:grid;place-items:center}
+.ci svg{width:20px;height:20px;fill:none;stroke:var(--bl);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ci b{display:block;color:var(--nv);font-size:15px}.ci span{font-size:14px;color:var(--mu)}
+.map{height:180px;border-radius:14px;overflow:hidden;position:relative;background:#dfe8f1}
+.map svg{width:100%;height:100%}
+.map .pin{position:absolute;left:52%;top:42%;width:16px;height:16px;margin:-8px;border-radius:50%;background:var(--bl);border:3px solid #fff;box-shadow:0 0 0 0 rgba(31,95,153,.5);animation:pu 2s infinite}
+@keyframes pu{to{box-shadow:0 0 0 18px rgba(31,95,153,0)}}
+.fm{background:#fff;border:1px solid var(--ln);border-radius:18px;padding:32px;box-shadow:0 20px 50px rgba(13,38,64,.07)}
+.fm h3{font-size:22px;margin-bottom:6px}.fm>p{font-size:14px;margin-bottom:22px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg .full{grid-column:1/-1}
+label{display:block;font-size:13px;font-weight:600;color:var(--nv);margin-bottom:6px}
+input,select,textarea{width:100%;font:400 15px "Libre Franklin",sans-serif;color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:12px 14px;background:var(--sk2);outline:none;transition:.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--bl);background:#fff;box-shadow:0 0 0 3px rgba(31,95,153,.12)}
+textarea{min-height:110px;resize:vertical}
+.fm .bt{width:100%;justify-content:center;margin-top:18px}
+.fm small{display:block;text-align:center;font-size:12px;color:var(--mu);margin-top:10px}
+.ok{display:none;text-align:center;padding:30px 10px}
+.ok i{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 14px;border-radius:50%;background:#e4f6ee;color:var(--gr);font-size:30px;font-style:normal;font-weight:800}
+.done .fb{display:none}.done .ok{display:block}
+/* footer */
+footer{background:var(--nv);color:#b8c7d6;padding:64px 0 26px;font-size:14px}
+.fc{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:44px}
+footer .lg{color:#fff}footer .lg small{color:#8ea3b8}
+footer h5{margin:0 0 14px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+footer a,footer span{display:block;margin-bottom:8px;color:#b8c7d6;transition:.2s}footer a:hover{color:#fff}
+.cp{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#8ea3b8}
+.wa{position:fixed;left:20px;bottom:20px;z-index:80;width:56px;height:56px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(37,211,102,.4);transition:.25s}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:28px;height:28px;fill:#fff}
+@media(max-width:980px){
+nav{position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;padding:8px 4%;border-bottom:1px solid var(--ln);display:none;box-shadow:0 16px 30px rgba(13,38,64,.1)}
+nav.o{display:flex}nav a{padding:14px 0;border-bottom:1px solid var(--ln)}nav a:last-child{border:0}
+.mb{display:block}.hd>.bt{display:none}
+.hg,.ag,.fq,.cg{grid-template-columns:1fr}.hg{gap:70px}
+.dsh{max-width:520px;margin:0 auto;width:100%}
+.sv,.pl,.tg{grid-template-columns:1fr 1fr}.nm{grid-template-columns:1fr 1fr}
+.sg{grid-template-columns:1fr 1fr;gap:40px 24px}.sg::before{display:none}
+.fc{grid-template-columns:1fr 1fr}.fq{gap:30px}}
+@media(max-width:620px){
+section{padding:70px 0}.hero{padding:56px 0 80px}
+.sv,.pl,.tg,.fg{grid-template-columns:1fr}.sg{grid-template-columns:1fr}
+.fl.a{left:-8px;width:220px}.fl.b{right:-6px}
+.tb .w>span:last-child{display:none}.cta{padding:34px 26px}.fc{grid-template-columns:1fr}
+.tr ul{gap:16px 24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+<span class="tag">Exemplo · empresa fictícia</span>
+
+<div class="tb"><div class="w"><div><span><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.4 1.8.7 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.7.7a2 2 0 011.7 2z"/></svg>(31) 0000-0000</span><span><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>contato@valorcontabil.com.br</span></div><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Seg. a sex., 8h às 18h</span></div></div>
+
+<header id="hd"><div class="w hd">
+<a class="lg" href="#topo"><i>V</i><div>Valor Contábil<small>Contabilidade e consultoria</small></div></a>
+<nav id="nv"><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#planos">Planos</a><a href="#depoimentos">Clientes</a><a href="#contato">Contato</a></nav>
+<a class="bt" href="#contato">Fale com um contador</a>
+<button class="mb" id="mb" aria-label="Abrir menu" aria-expanded="false" aria-controls="nv">☰</button>
+</div></header>
+
+<section class="hero" id="topo"><div class="w hg">
+<div>
+<span class="bd"><b>Novo</b>Abertura de empresa grátis no plano anual</span>
+<h1>Sua empresa em dia com o fisco, <em>sem dor de cabeça.</em></h1>
+<p class="ld">Cuidamos da contabilidade, dos impostos e da folha de pagamento de pequenas e médias empresas, para você focar no que realmente importa: o seu negócio.</p>
+<div class="ac"><a class="bt" href="#contato">Solicitar proposta grátis →</a><a class="bt o" href="#planos">Ver planos</a></div>
+<div class="pf"><div class="av"><i style="background:#1f5f99">AM</i><i style="background:#1f9d6b">RS</i><i style="background:#e3a72f">JP</i><i style="background:#0d2640">+</i></div><div><b>180+ empresas atendidas</b><span class="st">★★★★★</span> 4,9 no Google</div></div>
+</div>
+<div class="dsh" aria-hidden="true">
+<div class="pn"><div class="h"><b>Resumo do mês</b><span>Novembro</span></div>
+<div class="kp"><div><span>Faturamento</span><strong>R$ 84.320</strong><em>▲ 12% no mês</em></div><div><span>Impostos economizados</span><strong>R$ 3.940</strong><em>com planejamento</em></div></div>
+<div class="ch"><i style="--h:42%;--n:0"></i><i style="--h:55%;--n:1"></i><i style="--h:48%;--n:2"></i><i style="--h:66%;--n:3"></i><i style="--h:60%;--n:4"></i><i style="--h:78%;--n:5"></i><i style="--h:92%;--n:6"></i></div>
+<div class="cl"><span>Mai</span><span>Jun</span><span>Jul</span><span>Ago</span><span>Set</span><span>Out</span><span>Nov</span></div></div>
+<div class="fl a"><h4>Agenda fiscal de novembro</h4><ul><li>DAS (Simples Nacional)<b>dia 20</b></li><li>FGTS Digital<b>dia 20</b></li><li>13º salário, 1ª parcela<b>dia 30</b></li></ul></div>
+<div class="fl b"><i>✓</i><div><b style="color:var(--nv)">12 de 12 guias</b><br>pagas em dia</div></div>
+</div>
+</div></section>
+
+<div class="tr"><div class="w"><small>Atendemos empresas de todos os regimes</small><ul><li><i></i>MEI</li><li><i></i>Simples Nacional</li><li><i></i>Lucro Presumido</li><li><i></i>Lucro Real</li><li><i></i>Terceiro setor</li></ul></div></div>
+
+<section id="servicos"><div class="w">
+<div class="tt c rv"><span class="ey">Serviços</span><h2 class="h2">Tudo o que sua empresa precisa, em um só lugar</h2><p>Serviços contábeis completos, com atendimento próximo, prazos cumpridos e um contador que conhece o seu negócio.</p></div>
+<div class="sv">
+<article class="sc rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h3>Abertura de empresa</h3><p>CNPJ, alvará, inscrições e o enquadramento no regime tributário ideal, sem burocracia.</p><a href="#contato">Saiba mais →</a></article>
+<article class="sc rv" style="--d:.08s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div><h3>Contabilidade mensal</h3><p>Escrituração, balancetes e relatórios claros para você tomar decisões com segurança.</p><a href="#contato">Saiba mais →</a></article>
+<article class="sc rv" style="--d:.16s"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0113 0M16 4.5a3.5 3.5 0 010 7M21.5 20a6.5 6.5 0 00-4-6"/></svg></div><h3>Departamento pessoal</h3><p>Folha de pagamento, eSocial, admissões, férias e rescisões feitos dentro do prazo.</p><a href="#contato">Saiba mais →</a></article>
+<article class="sc rv"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h3>Planejamento tributário</h3><p>Análise do regime e das alíquotas para pagar apenas o imposto que é devido.</p><a href="#contato">Saiba mais →</a></article>
+<article class="sc rv" style="--d:.08s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><h3>Regularização fiscal</h3><p>Certidões negativas, parcelamentos e regularização de pendências com a Receita.</p><a href="#contato">Saiba mais →</a></article>
+<article class="sc rv" style="--d:.16s"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/><path d="M8 9h8M8 13h5"/></svg></div><h3>Consultoria empresarial</h3><p>Fluxo de caixa, precificação e indicadores para sua empresa crescer com saúde.</p><a href="#contato">Saiba mais →</a></article>
+</div>
+</div></section>
+
+<section class="ab" id="sobre"><div class="w">
+<div class="ag">
+<div class="ph rv" aria-hidden="true"><svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice"><rect x="60" y="250" width="380" height="16" rx="4" fill="#0a1d31"/><rect x="90" y="110" width="200" height="130" rx="10" fill="#0a1d31"/><rect x="100" y="120" width="180" height="110" rx="6" fill="#2b74b8"/><path d="M115 205l35-30 30 18 40-45 45 25" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="175" y="240" width="30" height="12" fill="#0a1d31"/><rect x="320" y="160" width="90" height="80" rx="8" fill="#eaf1f8"/><path d="M335 185h60M335 200h45M335 215h52" stroke="#1f5f99" stroke-width="6" stroke-linecap="round"/><circle cx="380" cy="120" r="26" fill="#e3a72f"/><path d="M370 120l7 7 13-14" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="300" y="266" width="20" height="90" fill="#0a1d31"/><rect x="180" y="266" width="20" height="90" fill="#0a1d31"/></svg><div class="yr"><b>12 anos</b><span>de mercado em BH</span></div></div>
+<div class="rv" style="--d:.1s"><span class="ey">Sobre nós</span><h2 class="h2">Contabilidade feita por gente que atende.</h2>
+<p>A Valor Contábil atende empresas da região metropolitana de Belo Horizonte desde 2012. Cada cliente tem um contador responsável, que conhece o negócio pelo nome e responde pelo WhatsApp.</p>
+<ul class="ck"><li>Contador dedicado para a sua empresa</li><li>Resposta em até 24 horas úteis</li><li>Relatórios mensais em linguagem simples</li><li>Atendimento presencial ou 100% online</li></ul>
+<a class="bt" href="#contato">Conhecer a equipe</a></div>
+</div>
+<div class="nm" id="nm">
+<div class="rv"><b data-n="12">12</b><span>anos de mercado</span></div>
+<div class="rv" style="--d:.08s"><b data-n="180" data-s="+">180+</b><span>empresas atendidas</span></div>
+<div class="rv" style="--d:.16s"><b data-n="98" data-s="%">98%</b><span>de clientes satisfeitos</span></div>
+<div class="rv" style="--d:.24s"><b data-n="24" data-s="h">24h</b><span>prazo de resposta</span></div>
+</div>
+</div></section>
+
+<section id="planos"><div class="w pw">
+<div class="tt c rv"><span class="ey">Planos</span><h2 class="h2">Um plano para cada momento da sua empresa</h2><p>Valores mensais de referência. A proposta final considera o faturamento e o número de funcionários.</p></div>
+<div class="pt rv" role="tablist" id="pt"><button role="tab" aria-selected="true" data-p="0">MEI e autônomos</button><button role="tab" aria-selected="false" data-p="1">Simples Nacional</button><button role="tab" aria-selected="false" data-p="2">Lucro Presumido</button></div>
+<div class="pl" id="pl"></div>
+<p class="pn2">Valores fictícios, apenas para demonstração.</p>
+</div></section>
+
+<section class="sp"><div class="w">
+<div class="tt c rv"><span class="ey">Como funciona</span><h2 class="h2">Trocar de contador é mais simples do que parece</h2><p>Cuidamos de toda a transição. Você não precisa falar com o contador antigo.</p></div>
+<div class="sg">
+<div class="rv"><h3>Conversa inicial</h3><p>Entendemos sua empresa, seu regime e suas necessidades.</p></div>
+<div class="rv" style="--d:.1s"><h3>Proposta sob medida</h3><p>Você recebe um orçamento claro, sem taxas escondidas.</p></div>
+<div class="rv" style="--d:.2s"><h3>Transição completa</h3><p>Buscamos os documentos e assumimos tudo em até 15 dias.</p></div>
+<div class="rv" style="--d:.3s"><h3>Acompanhamento</h3><p>Relatório todo mês e um contador sempre à disposição.</p></div>
+</div>
+</div></section>
+
+<section id="depoimentos" style="background:var(--sk2)"><div class="w">
+<div class="tt c rv"><span class="ey">Depoimentos</span><h2 class="h2">Quem é cliente, recomenda</h2></div>
+<div class="tg">
+<figure class="tc rv"><span class="st">★★★★★</span><blockquote>“Desde que mudamos para a Valor, nunca mais pagamos multa. O planejamento tributário reduziu nossos impostos já no primeiro trimestre.”</blockquote><figcaption><i style="background:#1f5f99">AM</i><div><b>Ana Martins</b>Clínica Bem-Estar</div></figcaption></figure>
+<figure class="tc rv" style="--d:.1s"><span class="st">★★★★★</span><blockquote>“Atendimento rápido pelo WhatsApp e relatórios que eu realmente entendo. Parece que tenho um financeiro dentro da empresa.”</blockquote><figcaption><i style="background:#1f9d6b">RS</i><div><b>Rafael Souza</b>RS Engenharia</div></figcaption></figure>
+<figure class="tc rv" style="--d:.2s"><span class="st">★★★★★</span><blockquote>“Abriram meu CNPJ em poucos dias e me explicaram tudo sobre o Simples. Indico para qualquer pessoa que está começando.”</blockquote><figcaption><i style="background:#e3a72f">JP</i><div><b>Juliana Pereira</b>Estúdio JP Design</div></figcaption></figure>
+</div>
+<p class="pn2">Depoimentos e empresas fictícios, apenas para demonstração.</p>
+</div></section>
+
+<section><div class="w fq">
+<div class="rv"><span class="ey">Dúvidas frequentes</span><h2 class="h2">Perguntas que sempre recebemos</h2><p>Não encontrou o que procurava? Fale com a gente pelo WhatsApp.</p><a class="bt o" href="#contato" style="margin-top:10px">Tirar minha dúvida</a></div>
+<div class="rv" style="--d:.1s">
+<details open><summary>Como funciona a troca de contador?</summary><p>Basta assinar a proposta. Nós entramos em contato com o contador atual, buscamos os documentos e assumimos a contabilidade em até 15 dias, sem interromper suas obrigações.</p></details>
+<details><summary>Atendem empresas fora de Belo Horizonte?</summary><p>Sim. Atendemos empresas de todo o Brasil de forma 100% online, com reuniões por vídeo e envio digital de documentos.</p></details>
+<details><summary>Qual regime tributário é melhor para mim?</summary><p>Depende do faturamento, da atividade e da folha de pagamento. Fazemos essa análise gratuitamente na proposta.</p></details>
+<details><summary>Existe fidelidade ou multa para cancelar?</summary><p>Não. Os planos mensais podem ser cancelados com 30 dias de aviso, sem multa.</p></details>
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="w"><div class="cta rv"><div><h2>Pronto para organizar sua contabilidade?</h2><p>Receba uma proposta personalizada em até 24 horas.</p></div><a class="bt w2" href="#contato">Quero minha proposta →</a></div></div></section>
+
+<section id="contato" style="padding-top:20px"><div class="w cg">
+<div class="rv"><span class="ey">Contato</span><h2 class="h2">Vamos conversar sobre a sua empresa</h2><p>Escolha o canal que preferir. Respondemos rápido.</p>
+<div class="ci">
+<div><i><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1121 11.5z"/></svg></i><div><b>WhatsApp</b><span>(31) 9 0000-0000</span></div></div>
+<div><i><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg></i><div><b>E-mail</b><span>contato@valorcontabil.com.br</span></div></div>
+<div><i><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-12a7 7 0 0114 0c0 5.9-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i><div><b>Endereço</b><span>Av. do Contorno, 0000, sala 000 · Funcionários, Belo Horizonte</span></div></div>
+</div>
+<div class="map" aria-hidden="true"><svg viewBox="0 0 400 180" preserveAspectRatio="none"><path d="M0 50h400M0 120h400M90 0v180M230 0v180M330 0l-80 180" stroke="#fff" stroke-width="10"/><path d="M0 85c120 15 220-30 400 10" stroke="#c9d7e6" stroke-width="16" fill="none"/><rect x="110" y="62" width="100" height="44" rx="4" fill="#cfdceb"/><rect x="250" y="130" width="60" height="40" rx="4" fill="#cfdceb"/></svg><span class="pin"></span></div>
+</div>
+<form class="fm rv" id="fm" novalidate style="--d:.1s"><div class="fb">
+<h3>Solicite uma proposta</h3><p>Leva menos de 1 minuto. Sem compromisso.</p>
+<div class="fg">
+<div><label for="fn">Nome</label><input id="fn" autocomplete="name" placeholder="Seu nome"></div>
+<div><label for="fe">Empresa</label><input id="fe" autocomplete="organization" placeholder="Nome da empresa"></div>
+<div><label for="fw">WhatsApp</label><input id="fw" inputmode="tel" autocomplete="tel" placeholder="(31) 9 0000-0000"></div>
+<div><label for="fr">Regime</label><select id="fr"><option>Ainda não sei</option><option>MEI</option><option>Simples Nacional</option><option>Lucro Presumido</option><option>Lucro Real</option></select></div>
+<div class="full"><label for="fx">Como podemos ajudar?</label><textarea id="fx" placeholder="Conte rapidamente o que você precisa"></textarea></div>
+</div>
+<button class="bt" type="submit">Enviar e receber proposta →</button><small>Seus dados são usados apenas para retornar o contato.</small></div>
+<div class="ok"><i>✓</i><h3>Recebemos sua mensagem!</h3><p>Esta é uma simulação. Em um site real, o pedido chegaria no WhatsApp ou no e-mail do escritório.</p><button class="bt o" type="button" id="again">Enviar outra mensagem</button></div>
+</form>
+</div></section>
+
+<footer><div class="w">
+<div class="fc">
+<div><a class="lg" href="#topo"><i>V</i><div>Valor Contábil<small>Contabilidade e consultoria</small></div></a><p style="color:#b8c7d6;margin-top:16px;max-width:300px">Contabilidade para pequenas e médias empresas em Belo Horizonte e em todo o Brasil.</p></div>
+<div><h5>Serviços</h5><a href="#servicos">Abertura de empresa</a><a href="#servicos">Contabilidade mensal</a><a href="#servicos">Departamento pessoal</a><a href="#servicos">Planejamento tributário</a></div>
+<div><h5>Empresa</h5><a href="#sobre">Sobre nós</a><a href="#planos">Planos</a><a href="#depoimentos">Depoimentos</a><a href="#contato">Contato</a></div>
+<div><h5>Atendimento</h5><span>(31) 0000-0000</span><span>contato@valorcontabil.com.br</span><span>Seg. a sex., 8h às 18h</span></div>
+</div>
+<div class="cp"><span>© Valor Contábil · CRC-MG 000000/O. Empresa fictícia criada pela MAvision como exemplo.</span><span>Site institucional · MAvision</span></div>
+</div></footer>
+<a class="wa" href="#contato" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"/></svg></a>
+
+<script>
+const $=id=>document.getElementById(id),RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+addEventListener("scroll",()=>$("hd").classList.toggle("s",scrollY>10),{passive:true});
+$("mb").onclick=()=>{const o=$("nv").classList.toggle("o");$("mb").setAttribute("aria-expanded",o)};
+document.querySelectorAll("#nv a").forEach(a=>a.onclick=()=>{$("nv").classList.remove("o");$("mb").setAttribute("aria-expanded",false)});
+/* plans */
+const P=[
+[["Essencial","Para MEI que quer tranquilidade.","89",["Emissão do DAS mensal","Declaração anual do MEI","Suporte pelo WhatsApp"]],["MEI Plus","MEI com funcionário ou notas frequentes.","149",["Tudo do Essencial","Folha de 1 funcionário","Emissão de notas fiscais"]],["Migração","Para quem vai deixar de ser MEI.","199",["Análise do novo regime","Transformação em ME","3 meses de acompanhamento"]]],
+[["Start","Prestadores de serviço até R$ 30 mil/mês.","349",["Contabilidade completa","Apuração do Simples","Pró-labore dos sócios"]],["Business","Empresas em crescimento.","590",["Tudo do Start","Folha até 5 funcionários","Relatório gerencial mensal"]],["Premium","Empresas com equipe maior.","990",["Tudo do Business","Folha até 15 funcionários","Reunião mensal com o contador"]]],
+[["Presumido","Serviços com margem alta.","890",["Apuração de IRPJ, CSLL, PIS e Cofins","Obrigações acessórias","Pró-labore dos sócios"]],["Presumido Plus","Serviços e comércio.","1.290",["Tudo do Presumido","Folha até 10 funcionários","Planejamento tributário anual"]],["Corporate","Operação mais complexa.","1.990",["Tudo do Presumido Plus","Folha até 30 funcionários","Consultoria dedicada"]]]];
+function plans(i){$("pl").innerHTML=P[i].map(([n,d,v,it],k)=>`<div class="pc${k==1?" f":""}"><h3>${n}</h3><p>${d}</p><div class="pr"><small>a partir de</small><br><b>R$ ${v}</b><span>/mês</span></div><ul class="ck">${it.map(x=>`<li>${x}</li>`).join("")}</ul><a class="bt${k==1?"":" o"}" href="#contato">Contratar ${n}</a></div>`).join("");document.querySelectorAll("#pt button").forEach(b=>b.setAttribute("aria-selected",b.dataset.p==i))}
+document.querySelectorAll("#pt button").forEach(b=>b.onclick=()=>plans(+b.dataset.p));plans(1);
+/* reveal + counters */
+function cnt(el){const n=+el.dataset.n,s=el.dataset.s||"",t0=performance.now();if(RM){el.textContent=n+s;return}(function f(t){const k=Math.min((t-t0)/1600,1);el.textContent=Math.round(n*(1-Math.pow(1-k,3)))+s;if(k<1)requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add("in");io.unobserve(e.target);e.target.querySelectorAll("[data-n]").forEach(cnt)}),{threshold:.15});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+/* phone mask + form */
+$("fw").oninput=e=>{const d=e.target.value.replace(/\D/g,"").slice(0,11);let o="";if(d.length)o="("+d.slice(0,2);if(d.length>2)o+=") "+d.slice(2,3);if(d.length>3)o+=" "+d.slice(3,7);if(d.length>7)o+="-"+d.slice(7);e.target.value=o};
+$("fm").onsubmit=e=>{e.preventDefault();let ok=true;["fn","fw"].forEach(id=>{const v=$(id).value.trim(),bad=id=="fw"?v.replace(/\D/g,"").length<10:!v;$(id).style.borderColor=bad?"#d14343":"";if(bad)ok=false});if(ok)$("fm").classList.add("done")};
+$("again").onclick=()=>{$("fm").reset();$("fm").classList.remove("done")};
+</script>
+</body>
+</html>

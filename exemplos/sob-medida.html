@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lenha Viva | Cozinha mineira no fogão a lenha</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#100905;--bg2:#1a0f08;--bg3:#24150c;--cr:#f6ead9;--cr2:#efe0c9;--ink:#2a1a10;--em:#ff7a2f;--em2:#ffa05a;--gd:#e8b36a;--mu:#b5a08b;--mu2:#7b6450;--ln:rgba(246,234,217,.12);--ln2:rgba(42,26,16,.14);--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--cr);font:300 17px/1.7 Outfit,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit}
+h1,h2,h3,h4{font-family:"DM Serif Display",Georgia,serif;font-weight:400;margin:0;line-height:1.02}
+p{margin:0 0 14px;color:var(--mu)}
+.w{width:min(1240px,92%);margin:auto}
+::selection{background:var(--em);color:#1a0d05}
+/* film grain over everything */
+body::after{content:"";position:fixed;inset:-50%;z-index:100;pointer-events:none;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:gn .9s steps(4) infinite}
+@keyframes gn{25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-5%)}75%{transform:translate(-2%,-3%)}}
+.ey{display:inline-flex;align-items:center;gap:12px;font:500 12px/1 Outfit,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gd);margin-bottom:24px}
+.ey::before{content:"";width:30px;height:1px;background:currentColor}
+.h2{font-size:clamp(42px,6.4vw,96px);letter-spacing:-.02em}
+.h2 em{color:var(--em)}
+.bt{display:inline-flex;align-items:center;gap:12px;padding:18px 32px;border-radius:99px;background:var(--em);color:#1a0d05;font-weight:600;font-size:15px;border:0;cursor:pointer;transition:background .35s,box-shadow .35s;position:relative;overflow:hidden;will-change:transform}
+.bt span{transition:transform .35s var(--ease)}
+.bt:hover{background:var(--em2);box-shadow:0 14px 44px rgba(255,122,47,.4)}.bt:hover span{transform:translateX(4px)}
+.bt.gh{background:transparent;color:var(--cr);box-shadow:inset 0 0 0 1px var(--ln)}.bt.gh:hover{box-shadow:inset 0 0 0 1px var(--cr)}
+.tag{position:fixed;right:12px;bottom:12px;z-index:95;background:rgba(0,0,0,.75);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px;border:1px solid var(--ln)}
+.pg{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gd),var(--em));z-index:90}
+.js .rv{opacity:0;transform:translateY(46px);transition:opacity 1s var(--ease),transform 1s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.on{opacity:1;transform:none}
+/* preloader */
+.pl{display:none}
+.js .pl{display:flex;position:fixed;inset:0;z-index:200;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:transform 1s var(--ease) .1s}
+.pl.out{transform:translateY(-100%)}
+.pl svg{width:54px;height:54px;animation:fk 1.2s ease-in-out infinite alternate}
+.pl b{font:400 clamp(60px,10vw,120px)/1 "DM Serif Display",serif;font-variant-numeric:tabular-nums;color:var(--cr)}
+.pl small{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mu)}
+@keyframes fk{to{transform:scaleY(1.12) translateY(-2px)}}
+/* cursor */
+.cu{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(246,234,217,.55);border-radius:50%;pointer-events:none;z-index:150;transition:width .3s,height .3s,margin .3s,background .3s,border-color .3s;display:none}
+.cu.big{width:70px;height:70px;margin:-35px 0 0 -35px;background:rgba(255,122,47,.15);border-color:var(--em)}
+@media(pointer:fine){.cu{display:block}}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:60;transition:background .4s,border-color .4s}
+header.s{background:rgba(16,9,5,.78);border-bottom:1px solid var(--ln)}
+header.s::before{content:"";position:absolute;inset:0;z-index:-1;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:92px;transition:height .4s}
+header.s .hd{height:70px}
+.lg{display:flex;align-items:center;gap:10px;font-family:"DM Serif Display",serif;font-size:28px}
+.lg em{color:var(--em)}.lg svg{width:30px;height:30px}
+nav{display:flex;align-items:center;gap:36px;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+nav a{position:relative;opacity:.78;transition:opacity .25s}
+nav a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--em);transition:right .35s var(--ease)}
+nav a:hover{opacity:1}nav a:hover::after{right:0}
+.hd .bt{padding:13px 24px;font-size:14px}
+.mb{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--cr);cursor:pointer;position:relative;z-index:2}
+.mb i{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:.3s}
+/* hero */
+.hero{position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% 100%,#5a1c06 0,#2a1008 45%,var(--bg) 80%)}
+#fire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .w{position:relative;z-index:2;padding-bottom:70px}
+.st{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:7px 15px;border-radius:99px;border:1px solid var(--ln);background:rgba(16,9,5,.4);backdrop-filter:blur(6px);margin-bottom:28px}
+.st i{width:8px;height:8px;border-radius:50%;background:#59d18f;box-shadow:0 0 10px #59d18f}
+.st.cl i{background:#e2574c;box-shadow:0 0 10px #e2574c}
+.hero h1{font-size:clamp(60px,11.5vw,190px);letter-spacing:-.035em;line-height:.9;will-change:transform}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.hero h1 span i{display:block;font-style:normal}
+.js .hero h1 span i{transform:translateY(110%)}
+.ld .hero h1 span i{transform:none;transition:transform 1.3s var(--ease)}
+.ld .hero h1 span:nth-child(2) i{transition-delay:.12s}
+.hero h1 em{font-style:italic;color:var(--em);text-shadow:0 0 60px rgba(255,122,47,.35)}
+.hb{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:40px;flex-wrap:wrap}
+.hb p{max-width:440px;font-size:18px;margin:0;color:#e6d6c4;text-shadow:0 2px 14px rgba(16,9,5,.9)}
+.ac{display:flex;gap:12px;flex-wrap:wrap}
+.js .hb,.js .st{opacity:0;transform:translateY(20px)}
+.ld .hb,.ld .st{opacity:1;transform:none;transition:opacity 1s .6s,transform 1s .6s var(--ease)}
+.hm{position:absolute;right:4%;top:120px;z-index:2;text-align:right;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);line-height:2}
+.hm b{color:var(--cr);font-weight:500}
+.badge{position:absolute;right:4%;top:230px;z-index:2;width:120px;height:120px}
+.badge svg{width:100%;height:100%;animation:sp 22s linear infinite}
+.badge text{font:500 10.5px Outfit,sans-serif;letter-spacing:.34em;fill:var(--gd);text-transform:uppercase}
+.badge b{position:absolute;inset:0;display:grid;place-items:center;font:italic 400 30px "DM Serif Display",serif;color:var(--em)}
+@keyframes sp{to{transform:rotate(1turn)}}
+/* marquee */
+.mq{background:var(--em);color:#1a0d05;overflow:hidden;white-space:nowrap;padding:22px 0;transform:rotate(-1.6deg) scaleX(1.04);margin-top:-20px;position:relative;z-index:3}
+.mq div{display:inline-block;animation:mq 34s linear infinite;font:400 32px "DM Serif Display",serif}
+.mq span{margin:0 24px}.mq b{font-weight:400;opacity:.5}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:150px 0;position:relative}
+/* manifesto: words light up while scrolling */
+.mf p{font:400 clamp(32px,4.6vw,68px)/1.15 "DM Serif Display",serif;color:var(--cr);max-width:20ch;margin:0;letter-spacing:-.01em}
+.mf .wd{color:rgba(246,234,217,.16);transition:color .4s}
+.mf .wd.lit{color:var(--cr)}.mf .wd.hot.lit{color:var(--em);font-style:italic}
+.mf .sg{display:flex;align-items:center;gap:16px;margin-top:50px;color:var(--mu);font-size:15px}
+.mf .sg i{width:54px;height:54px;border-radius:50%;background:var(--bg3);display:grid;place-items:center;font:italic 400 24px "DM Serif Display",serif;color:var(--em);font-style:normal}
+.mf .sg b{display:block;color:var(--cr);font:italic 400 24px "DM Serif Display",serif}
+/* sticky story */
+.lt{background:var(--cr);color:var(--ink)}
+.lt p{color:var(--mu2)}.lt .ey{color:#b4561d}
+.sy{display:grid;grid-template-columns:1fr 1fr;gap:90px}
+.vis{position:sticky;top:12vh;height:76vh;border-radius:300px 300px 24px 24px;overflow:hidden;background:var(--ink)}
+.vis>div{position:absolute;inset:0;opacity:0;transform:scale(1.08);transition:opacity 1s var(--ease),transform 1.4s var(--ease)}
+.vis>div.on{opacity:1;transform:none}
+.vis svg{position:absolute;inset:0;width:100%;height:100%}
+.vis .cap{position:absolute;left:24px;bottom:24px;z-index:2;background:rgba(246,234,217,.92);color:var(--ink);padding:12px 18px;border-radius:14px;font-size:13px}
+.vis .cap b{display:block;font:400 30px/1 "DM Serif Display",serif;color:#b4561d}
+.stp{min-height:76vh;display:flex;flex-direction:column;justify-content:center}
+.stp .yr{font:400 clamp(70px,9vw,130px)/1 "DM Serif Display",serif;color:transparent;-webkit-text-stroke:1.2px #b4561d;margin-bottom:18px}
+.stp h3{font-size:clamp(32px,3.4vw,48px);margin-bottom:18px;color:var(--ink)}.stp h3 em{color:#c4561b}
+.stp p{max-width:460px;font-size:18px}
+.sigx{font:italic 400 32px "DM Serif Display",serif;color:var(--ink);margin-top:14px}
+.sigx small{display:block;font:400 13px Outfit,sans-serif;color:var(--mu2);letter-spacing:.1em;text-transform:uppercase}
+/* numbers */
+.nm{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.nm div{padding:56px 26px;border-right:1px solid var(--ln);transition:background .4s}
+.nm div:last-child{border:0}.nm div:hover{background:rgba(255,122,47,.06)}
+.nm b{display:block;font:400 clamp(56px,6vw,96px)/1 "DM Serif Display",serif;color:var(--cr);margin-bottom:12px;font-variant-numeric:tabular-nums}
+.nm b small{font-size:.45em;color:var(--em)}
+.nm span{font-size:14px;color:var(--mu);letter-spacing:.04em}
+/* menu */
+.mh{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:56px;flex-wrap:wrap}
+.tb{display:flex;gap:6px;padding:6px;border:1px solid var(--ln);border-radius:99px;max-width:100%;overflow-x:auto;scrollbar-width:none}.tb::-webkit-scrollbar{display:none}
+.tb button{flex-shrink:0;font-size:15px;color:var(--cr);background:transparent;border:0;padding:12px 24px;border-radius:99px;cursor:pointer;transition:.3s}
+.tb button[aria-selected=true]{background:var(--cr);color:var(--bg)}
+.tb button:not([aria-selected=true]):hover{background:rgba(246,234,217,.08)}
+.ml{border-top:1px solid var(--ln)}
+.mi{display:grid;grid-template-columns:70px 1fr auto;gap:4px 28px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--ln);position:relative;opacity:0;transform:translateY(16px);animation:mi .6s var(--ease) forwards}
+@keyframes mi{to{opacity:1;transform:none}}
+.mi::before{content:"";position:absolute;inset:0 -2%;background:linear-gradient(90deg,rgba(255,122,47,.08),transparent);opacity:0;transition:opacity .4s}
+.mi:hover::before{opacity:1}
+.mi .n{font:500 12px Outfit,sans-serif;color:var(--em);letter-spacing:.12em}
+.mi h3{font-size:clamp(28px,3vw,42px);transition:transform .5s var(--ease),color .3s}
+.mi:hover h3{transform:translateX(14px);color:var(--gd)}
+.mi .pr{font:400 28px "DM Serif Display",serif;color:var(--gd)}
+.mi p{grid-column:2/4;margin:0;font-size:15px}
+.mi .tg{grid-column:2/4;display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.mi .tg span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid var(--ln);color:var(--mu)}
+.mi .tg .h{border-color:var(--em);color:var(--em)}
+.plate{position:fixed;left:0;top:0;width:220px;height:220px;margin:-110px 0 0 -110px;pointer-events:none;z-index:40;opacity:0;transition:opacity .35s}
+.plate.on{opacity:1}
+.plate svg{width:100%;height:100%;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+/* dish of the week */
+.sp{display:grid;grid-template-columns:1fr 1fr;border-radius:36px;overflow:hidden;background:var(--bg2);border:1px solid var(--ln);margin-top:130px}
+.sp .vs{position:relative;min-height:500px;background:radial-gradient(circle at 50% 55%,#4a1f0c 0,#1a0d06 70%)}
+.sp .vs svg{position:absolute;inset:0;margin:auto;width:74%;height:74%;animation:sp 60s linear infinite}
+.sp .vs .lb{position:absolute;top:28px;left:28px;background:var(--em);color:#1a0d05;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:99px}
+.sp .tx{padding:clamp(34px,5vw,70px)}
+.sp h3{font-size:clamp(38px,4.2vw,60px);margin-bottom:18px}.sp h3 em{color:var(--em)}
+.ig{list-style:none;padding:0;margin:26px 0 30px;display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;font-size:15px}
+.ig li{display:flex;gap:10px;align-items:center}.ig li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--em)}
+.cd{display:flex;gap:10px;margin-bottom:32px}
+.cd div{flex:1;text-align:center;border:1px solid var(--ln);border-radius:16px;padding:14px 6px}
+.cd b{display:block;font:400 34px/1.1 "DM Serif Display",serif;font-variant-numeric:tabular-nums}
+.cd span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+/* horizontal experiences */
+.hx{padding:0;background:var(--bg2)}
+.hx .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.hx .hh{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:46px;flex-wrap:wrap}
+.hx .cnt{font:400 18px Outfit,sans-serif;color:var(--mu);font-variant-numeric:tabular-nums}.hx .cnt b{color:var(--cr);font-weight:500}
+.trk{display:flex;gap:28px;padding-left:4%;will-change:transform}
+.ec{flex:0 0 min(560px,78vw);height:min(62vh,520px);border-radius:28px;overflow:hidden;position:relative;padding:38px;display:flex;flex-direction:column;justify-content:flex-end}
+.ec::before{content:"";position:absolute;inset:0;background:var(--g);transition:transform 1.2s var(--ease)}
+.ec:hover::before{transform:scale(1.06)}
+.ec::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(16,9,5,.92))}
+.ec>*{position:relative;z-index:1}
+.ec .nr{position:absolute;top:30px;left:38px;font:400 90px/1 "DM Serif Display",serif;color:transparent;-webkit-text-stroke:1px rgba(246,234,217,.5)}
+.ec small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gd)}
+.ec h3{font-size:clamp(36px,3.4vw,50px);margin:10px 0 12px}
+.ec p{color:#d8c6b2;font-size:16px;margin:0 0 20px;max-width:380px}
+.ec .ar{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:14px}
+.ec .ar i{width:44px;height:44px;border-radius:50%;border:1px solid rgba(246,234,217,.4);display:grid;place-items:center;font-style:normal;transition:.4s}
+.ec:hover .ar i{background:var(--em);border-color:var(--em);color:#1a0d05;transform:rotate(-45deg)}
+/* testimonials */
+.ts{overflow:hidden;margin-top:56px}
+.tt{display:flex;transition:transform .9s var(--ease)}
+.tt figure{flex:0 0 100%;margin:0}
+.tt blockquote{margin:0;font:400 clamp(30px,4vw,56px)/1.18 "DM Serif Display",serif;color:var(--ink);max-width:22ch}
+.tt blockquote::before{content:"“";display:block;font-size:2.4em;line-height:.6;color:var(--em)}
+.tt figcaption{margin-top:34px;display:flex;align-items:center;gap:16px;color:var(--mu2);font-size:15px}
+.tt figcaption i{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font:400 22px "DM Serif Display",serif;font-style:normal;color:var(--cr);background:var(--ink)}
+.tt figcaption b{display:block;color:var(--ink);font-weight:500}
+.sr{color:#e0a325;letter-spacing:2px}
+.tc{display:flex;align-items:center;justify-content:space-between;margin-top:54px;gap:20px}
+.dots{display:flex;gap:8px}
+.dots button{width:30px;height:4px;border-radius:4px;border:0;background:var(--ln2);cursor:pointer;padding:0;transition:.4s}
+.dots button[aria-current=true]{width:64px;background:var(--em)}
+.arw{display:flex;gap:10px}
+.arw button{width:58px;height:58px;border-radius:50%;border:1px solid var(--ln2);background:transparent;color:var(--ink);font-size:20px;cursor:pointer;transition:.3s}
+.arw button:hover{background:var(--ink);color:var(--cr)}
+.gr{display:flex;align-items:center;gap:18px;padding:18px 24px;border-radius:18px;background:#fff;box-shadow:0 20px 50px rgba(42,26,16,.08);width:max-content;max-width:100%}
+.gr b{font:400 46px/1 "DM Serif Display",serif;color:var(--ink)}
+.gr span{font-size:13px;color:var(--mu2);line-height:1.4}
+/* producers */
+.pd{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:26px;overflow:hidden;margin-top:56px}
+.pd div{background:var(--bg);padding:34px 28px;transition:background .4s}
+.pd div:hover{background:var(--bg2)}
+.pd i{display:block;font-style:normal;font-size:12px;color:var(--em);letter-spacing:.14em;text-transform:uppercase;margin-bottom:46px}
+.pd h4{font-size:28px;margin-bottom:6px}.pd p{font-size:14px;margin:0}
+/* reservation */
+.rs{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start;margin-top:56px}
+.fm{background:#fff;border-radius:30px;padding:clamp(24px,4vw,46px);box-shadow:0 30px 80px rgba(42,26,16,.1);color:var(--ink)}
+.fm label,.fm .lb{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mu2);margin:0 0 10px}
+.fm .row{margin-bottom:26px}
+.fm input[type=date],.fm input[type=text]{width:100%;font:400 16px Outfit,sans-serif;color:var(--ink);background:var(--cr);border:1px solid transparent;border-radius:14px;padding:14px 16px;outline:none;transition:.25s}
+.fm input:focus{border-color:var(--em);background:#fff}
+.chs{display:flex;flex-wrap:wrap;gap:8px}
+.chs button{font-size:15px;color:var(--ink);background:var(--cr);border:1px solid transparent;border-radius:12px;padding:10px 16px;cursor:pointer;transition:.25s}
+.chs button:hover{border-color:var(--em)}
+.chs button[aria-pressed=true]{background:var(--ink);color:var(--cr)}
+.chs button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.sx{display:inline-flex;align-items:center;gap:6px;background:var(--cr);border-radius:14px;padding:6px}
+.sx button{width:42px;height:42px;border-radius:10px;border:0;background:#fff;color:var(--ink);font-size:20px;cursor:pointer}
+.sx button:hover{background:var(--ink);color:var(--cr)}
+.sx output{min-width:110px;text-align:center;font:400 22px "DM Serif Display",serif}
+.fm .bt{width:100%;justify-content:center}
+.sm2{position:sticky;top:100px;background:var(--ink);color:var(--cr);border-radius:30px;padding:clamp(24px,4vw,42px);overflow:hidden}
+.sm2::before{content:"";position:absolute;right:-30%;top:-30%;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(rgba(255,122,47,.45),transparent 65%)}
+.sm2>*{position:relative}
+.sm2 small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gd)}
+.sm2 h3{font-size:36px;margin:8px 0 26px}
+.sm2 dl{margin:0}
+.sm2 dl div{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px dashed var(--ln)}
+.sm2 dt{color:var(--mu);font-size:15px}.sm2 dd{margin:0;text-align:right;font-weight:500}
+.sm2 .nt{font-size:13px;color:var(--mu);margin:22px 0 0}
+.ok{display:none;text-align:center;padding:30px 0}
+.ok i{display:grid;place-items:center;width:76px;height:76px;margin:0 auto 18px;border-radius:50%;background:#59d18f;color:#0d2a1b;font-size:34px;font-style:normal;animation:pop .6s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(0)}}
+.done .ok{display:block}.done .fbody{display:none}
+/* visit */
+.inf{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.inf>div{border:1px solid var(--ln);border-radius:26px;padding:32px;background:var(--bg2)}
+.inf h4{font-size:28px;margin-bottom:16px}
+.hr{list-style:none;margin:0;padding:0;font-size:15px}
+.hr li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--ln);color:var(--mu)}
+.hr li.td{color:var(--cr);font-weight:500}.hr li.td::after{content:"hoje";font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--em);margin-left:8px}
+.hr li span:last-child{margin-left:auto}
+.map{position:relative;height:160px;border-radius:16px;overflow:hidden;margin-top:18px;background:#24160d}
+.map svg{width:100%;height:100%}
+.pin2{position:absolute;left:56%;top:44%;width:18px;height:18px;margin:-9px;border-radius:50%;background:var(--em);box-shadow:0 0 0 0 rgba(255,122,47,.6);animation:pu 2s infinite}
+@keyframes pu{to{box-shadow:0 0 0 22px rgba(255,122,47,0)}}
+details{border-bottom:1px solid var(--ln)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:26px 0;font:400 26px "DM Serif Display",serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:300 32px/1 Outfit,sans-serif;color:var(--em);transition:.3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:24px;margin:0;max-width:62ch}
+/* footer */
+footer{background:#0a0503;padding:110px 0 30px;overflow:hidden}
+.fct{text-align:center;margin-bottom:100px}
+.fct h2{font-size:clamp(44px,7vw,110px);letter-spacing:-.02em;margin-bottom:34px}.fct h2 em{color:var(--em)}
+.fc{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.fc h5{margin:0 0 18px;font:500 12px Outfit,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--gd)}
+.fc a,.fc span{display:block;color:var(--mu);font-size:15px;margin-bottom:8px;transition:.25s}.fc a:hover{color:var(--cr)}
+.nl{display:flex;margin-top:20px;border:1px solid var(--ln);border-radius:99px;padding:5px}
+.nl input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--cr);font:400 15px Outfit,sans-serif;padding:0 16px}
+.nl button{border:0;border-radius:99px;background:var(--cr);color:var(--bg);padding:11px 20px;font-weight:600;cursor:pointer}
+.big{font:400 clamp(80px,20vw,320px)/.8 "DM Serif Display",serif;letter-spacing:-.045em;margin:90px 0 30px;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(246,234,217,.2);text-align:center}
+.big em{-webkit-text-stroke:0;color:var(--em)}
+.cp{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--mu2);padding-top:26px;border-top:1px solid var(--ln)}
+.tp{position:fixed;right:20px;bottom:56px;z-index:70;width:50px;height:50px;border-radius:50%;border:1px solid var(--ln);background:rgba(16,9,5,.8);backdrop-filter:blur(8px);color:var(--cr);cursor:pointer;opacity:0;transform:translateY(14px);transition:.35s;pointer-events:none}
+.tp.s{opacity:1;transform:none;pointer-events:auto}.tp:hover{background:var(--em);color:#1a0d05}
+@media(max-width:980px){
+nav{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;gap:30px;font-size:24px;opacity:0;pointer-events:none;transition:opacity .4s}
+nav.o{opacity:1;pointer-events:auto}
+.mb{display:block}.mb.o i:first-child{transform:translateY(5.5px) rotate(45deg)}.mb.o i:nth-child(2){opacity:0}.mb.o i:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+.hd>.bt{display:none}
+.hm,.badge{display:none}
+.sy,.sp,.rs{grid-template-columns:1fr}
+.vis{position:relative;top:0;height:60vh;margin-bottom:20px}
+.stp{min-height:0;padding:40px 0}
+.nm{grid-template-columns:1fr 1fr}.nm div:nth-child(2){border-right:0}.nm div:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+.pd{grid-template-columns:1fr 1fr}.inf{grid-template-columns:1fr}.fc{grid-template-columns:1fr 1fr}.sm2{position:static}
+.hx{padding:110px 0}.hx .pin{position:static;height:auto}.trk{flex-direction:column;padding:0 4%;transform:none!important}.ec{flex:none;width:100%;height:420px}
+section{padding:110px 0}.plate{display:none}}
+@media(max-width:560px){.pd,.ig{grid-template-columns:1fr}.fc{grid-template-columns:1fr}.mi{grid-template-columns:40px 1fr}.mi .pr{grid-column:2}.ec{height:380px;padding:28px}.ec .nr{left:28px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv,.js .hb,.js .st{opacity:1;transform:none}.js .hero h1 span i{transform:none}.js .pl{display:none}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add("js")</script>
+<div class="pl" id="pl" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 3c3 5 8 8 8 15a8 8 0 01-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-8 1-12z" fill="#ff7a2f"/><path d="M16 17c2 2 3 3 3 6a3 3 0 01-6 0c0-2 1-4 3-6z" fill="#ffd08a"/></svg><b id="plc">0</b><small>Acendendo o fogo</small></div>
+<div class="pg" id="pg"></div><div class="cu" id="cu"></div><div class="plate" id="plate" aria-hidden="true"></div>
+<span class="tag">Exemplo · empresa fictícia</span>
+
+<header id="hd"><div class="w hd">
+<a class="lg" href="#topo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3c3 5 8 8 8 15a8 8 0 01-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-8 1-12z" fill="#ff7a2f"/><path d="M16 17c2 2 3 3 3 6a3 3 0 01-6 0c0-2 1-4 3-6z" fill="#ffd08a"/></svg>Lenha <em>Viva</em></a>
+<nav id="nv"><a href="#historia">História</a><a href="#cardapio">Cardápio</a><a href="#experiencias">Experiências</a><a href="#visite">Visite</a></nav>
+<a class="bt mg" href="#reserva">Reservar mesa <span>→</span></a>
+<button class="mb" id="mb" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</div></header>
+
+<section class="hero" id="topo"><canvas id="fire"></canvas>
+<div class="badge" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="cc" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#cc">Fogão a lenha · desde 1998 · Tiradentes ·</textPath></text></svg><b>98</b></div>
+<div class="hm">Cozinha mineira<br><b>Tiradentes · MG</b><br>Quinta a domingo</div>
+<div class="w">
+<span class="st" id="st"><i></i><span id="stt">Aberto agora</span></span>
+<h1 id="h1"><span><i>Comida feita</i></span><span><i>no tempo do <em>fogo.</em></i></span></h1>
+<div class="hb"><p>Panelas de pedra, lenha de eucalipto e receitas que passam de mãe para filha há três gerações.</p><div class="ac"><a class="bt mg" href="#reserva">Reservar mesa <span>→</span></a><a class="bt gh mg" href="#cardapio">Ver cardápio</a></div></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div><span>Tutu de feijão</span><b>✦</b><span>Frango com quiabo</span><b>✦</b><span>Leitão à pururuca</span><b>✦</b><span>Doce de leite de tacho</span><b>✦</b><span>Pão de queijo na hora</span><b>✦</b><span>Tutu de feijão</span><b>✦</b><span>Frango com quiabo</span><b>✦</b><span>Leitão à pururuca</span><b>✦</b><span>Doce de leite de tacho</span><b>✦</b><span>Pão de queijo na hora</span><b>✦</b></div></div>
+
+<section class="mf"><div class="w">
+<span class="ey rv">Manifesto</span>
+<p id="mft">Aqui o fogo acende às cinco da manhã. O feijão cozinha devagar, o queijo vem da serra e ninguém tem pressa. Porque comida boa não se apressa: <span class="hot">se espera.</span></p>
+<div class="sg rv"><i>C</i><div><b>Dona Cida</b>fundadora e cozinheira desde 1998</div></div>
+</div></section>
+
+<section class="lt" id="historia"><div class="w sy">
+<div class="vis" id="vis" aria-hidden="true">
+<div class="on" data-v="0"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g0" cx="50%" cy="75%" r="70%"><stop offset="0" stop-color="#ffb066"/><stop offset=".25" stop-color="#e2581a"/><stop offset=".55" stop-color="#6a2208"/><stop offset="1" stop-color="#1c0c05"/></radialGradient></defs><rect width="400" height="600" fill="url(#g0)"/><rect x="40" y="380" width="320" height="220" fill="#1c0c05"/><rect x="40" y="366" width="320" height="18" fill="#3a1a0c"/><circle cx="120" cy="366" r="30" fill="#120804"/><circle cx="280" cy="366" r="30" fill="#120804"/><rect x="140" y="440" width="120" height="80" rx="10" fill="#0a0402"/><path d="M160 520c-8-30 10-44 8-70 18 16 26 36 20 70z" fill="#ff7a2f"/><path d="M196 520c-12-40 8-58 12-92 20 24 32 56 18 92z" fill="#ffb04a"/><path d="M232 520c-8-26 8-42 8-60 14 16 22 34 14 60z" fill="#ff7a2f"/><path d="M110 330c-10-18 10-26 0-44s8-26 0-40M280 330c-10-18 10-26 0-44s8-26 0-40" stroke="rgba(246,234,217,.4)" stroke-width="4" fill="none" stroke-linecap="round"/><rect x="330" y="60" width="30" height="306" fill="#2a120a"/></svg><span class="cap"><b>1998</b>o primeiro fogão</span></div>
+<div data-v="1"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice"><rect width="400" height="600" fill="#2f4a1e"/><g fill="#4f7a2c"><ellipse cx="80" cy="120" rx="90" ry="40" transform="rotate(-30 80 120)"/><ellipse cx="330" cy="200" rx="100" ry="44" transform="rotate(25 330 200)"/><ellipse cx="120" cy="420" rx="110" ry="46" transform="rotate(20 120 420)"/><ellipse cx="320" cy="520" rx="100" ry="40" transform="rotate(-25 320 520)"/></g><g fill="#7aa83f"><ellipse cx="220" cy="300" rx="120" ry="52" transform="rotate(-15 220 300)"/><ellipse cx="60" cy="280" rx="60" ry="26" transform="rotate(40 60 280)"/></g><g stroke="#2f4a1e" stroke-width="3" fill="none"><path d="M110 330l220-60M150 316l20 40M210 300l20 40M270 284l20 40"/></g><circle cx="300" cy="400" r="22" fill="#c0392b"/><circle cx="330" cy="420" r="16" fill="#e74c3c"/><circle cx="90" cy="520" r="18" fill="#e8b36a"/></svg><span class="cap"><b>2018</b>a horta e os produtores</span></div>
+<div data-v="2"><svg viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice"><rect width="400" height="600" fill="#6e3d1d"/><g stroke="#5a3016" stroke-width="3">
+<path d="M0 80h400M0 200h400M0 320h400M0 440h400M0 560h400"/></g><circle cx="130" cy="160" r="70" fill="#f1e3cc"/><circle cx="130" cy="160" r="52" fill="#b0652a"/><circle cx="290" cy="300" r="80" fill="#f1e3cc"/><circle cx="290" cy="300" r="60" fill="#3a2a1a"/><circle cx="290" cy="300" r="30" fill="#e8b36a"/><circle cx="120" cy="430" r="66" fill="#f1e3cc"/><circle cx="120" cy="430" r="48" fill="#8a4a1c"/><path d="M90 420c14 8 30 0 44 8" stroke="#3d7a2a" stroke-width="7" fill="none" stroke-linecap="round"/><rect x="250" y="450" width="18" height="110" rx="9" fill="#d9c3a3"/><rect x="290" y="450" width="18" height="110" rx="9" fill="#d9c3a3"/></svg><span class="cap"><b>Hoje</b>40 mesas, mesma receita</span></div>
+</div>
+<div>
+<div class="stp" data-s="0"><span class="ey">Nossa história</span><div class="yr">1998</div><h3>Começou na <em>varanda de casa.</em></h3><p>Dona Cida abriu a varanda para os vizinhos, com um fogão de seis bocas e uma mesa comprida. Eles vinham pelo cheiro do feijão e ficavam pela conversa.</p></div>
+<div class="stp" data-s="1"><div class="yr">2018</div><h3>Da serra <em>direto para a panela.</em></h3><p>Firmamos parceria com nove produtores da Serra de São José. O cardápio passou a mudar com a colheita, e o queijo chega curado do jeito certo.</p></div>
+<div class="stp" data-s="2"><div class="yr">Hoje</div><h3>Quarenta mesas, <em>o mesmo fogo.</em></h3><p>A terceira geração está na cozinha. O fogão continua aceso às cinco da manhã, alimentado com lenha de reflorestamento.</p><div class="sigx">Maria Aparecida Lopes<small>Dona Cida · fundadora</small></div></div>
+</div>
+</div></section>
+
+<section style="padding:0"><div class="nm rv">
+<div><b data-n="26">26</b><span>anos com o fogo aceso</span></div>
+<div><b data-n="38">38</b><span>receitas no cardápio</span></div>
+<div><b data-n="9">9</b><span>produtores parceiros</span></div>
+<div><b><span data-n="4.9" data-f="1">4,9</span><small> ★</small></b><span>média de 1.240 avaliações</span></div>
+</div></section>
+
+<section id="cardapio"><div class="w">
+<div class="mh"><div class="rv"><span class="ey">Cardápio</span><h2 class="h2">Do fogão <em>para a mesa.</em></h2></div>
+<div class="tb rv" role="tablist" id="tbs"><button role="tab" aria-selected="true" data-c="0">Entradas</button><button role="tab" aria-selected="false" data-c="1">Pratos</button><button role="tab" aria-selected="false" data-c="2">Sobremesas</button><button role="tab" aria-selected="false" data-c="3">Bebidas</button></div></div>
+<div class="ml" id="ml" role="tabpanel"></div>
+
+<div class="sp rv">
+<div class="vs"><span class="lb">Prato da semana</span>
+<svg viewBox="0 0 300 300" aria-hidden="true"><circle cx="150" cy="150" r="140" fill="#f1e3cc"/><circle cx="150" cy="150" r="122" fill="none" stroke="#e2cfae" stroke-width="3"/><circle cx="150" cy="150" r="104" fill="#e9c98a"/><circle cx="150" cy="150" r="104" fill="url(#cj)" opacity=".5"/><defs><radialGradient id="cj"><stop offset="0" stop-color="#fff3cf"/><stop offset="1" stop-color="#c99a4a"/></radialGradient></defs><g fill="#8a3e14"><rect x="96" y="104" width="110" height="34" rx="16" transform="rotate(-18 150 120)"/><rect x="104" y="150" width="104" height="32" rx="15" transform="rotate(-12 150 165)"/></g><g fill="#b4561d" opacity=".7"><rect x="102" y="108" width="96" height="8" rx="4" transform="rotate(-18 150 112)"/><rect x="110" y="154" width="90" height="8" rx="4" transform="rotate(-12 150 158)"/></g><path d="M92 205c20 10 44-2 64 8s40 0 56 8" stroke="#2f6a22" stroke-width="12" fill="none" stroke-linecap="round"/><circle cx="196" cy="98" r="7" fill="#e74c3c"/><circle cx="208" cy="110" r="6" fill="#e74c3c"/><circle cx="104" cy="220" r="6" fill="#e74c3c"/></svg></div>
+<div class="tx"><span class="ey">Só até domingo</span><h3>Costelinha na <em>lenha</em> com canjiquinha</h3>
+<p>Costelinha suína marinada por 24 horas, assada lentamente no forno a lenha e servida com canjiquinha cremosa e couve na manteiga.</p>
+<ul class="ig"><li>Costelinha da Fazenda Boa Vista</li><li>Milho canjica moído na pedra</li><li>Couve da horta da casa</li><li>Pimenta biquinho em conserva</li></ul>
+<div class="cd"><div><b id="cdd">0</b><span>dias</span></div><div><b id="cdh">00</b><span>horas</span></div><div><b id="cdm">00</b><span>min</span></div></div>
+<a class="bt mg" href="#reserva">Garantir o meu · R$ 82 <span>→</span></a></div>
+</div>
+</div></section>
+
+<section class="hx" id="experiencias"><div class="pin">
+<div class="w hh"><div><span class="ey">Experiências</span><h2 class="h2">Mais que um <em>almoço.</em></h2></div><div class="cnt"><b id="xn">01</b> / 03</div></div>
+<div class="trk" id="trk">
+<a class="ec" href="#reserva" style="--g:radial-gradient(circle at 30% 25%,#ffb066,#c4420c 38%,#3a1708 75%)"><span class="nr">01</span><small>Domingos · 12h</small><h3>Almoço de família</h3><p>Mesa comprida, travessas no centro e repetição à vontade. Crianças até 6 anos não pagam.</p><span class="ar"><i>→</i>Reservar</span></a>
+<a class="ec" href="#reserva" style="--g:radial-gradient(circle at 70% 25%,#f0d29a,#8a5a2a 40%,#2a170c 78%)"><span class="nr">02</span><small>Sábados · 8h às 11h</small><h3>Café da roça</h3><p>Broa de fubá, pão de queijo saindo do forno, queijos da serra e café coado no pano.</p><span class="ar"><i>→</i>Reservar</span></a>
+<a class="ec" href="#reserva" style="--g:radial-gradient(circle at 50% 20%,#f08a6c,#8a1f2c 40%,#22090c 78%)"><span class="nr">03</span><small>Sob reserva · até 80 pessoas</small><h3>Eventos e festas</h3><p>Casamentos, aniversários e confraternizações com cardápio montado junto com a Dona Cida.</p><span class="ar"><i>→</i>Pedir orçamento</span></a>
+</div>
+</div></section>
+
+<section class="lt"><div class="w">
+<div class="mh"><div class="rv"><span class="ey">Quem já sentou à mesa</span><h2 class="h2" style="font-size:clamp(36px,4.6vw,64px)">O que dizem <em>por aí.</em></h2></div><div class="gr rv"><b>4,9</b><span><span class="sr">★★★★★</span><br>1.240 avaliações no Google</span></div></div>
+<div class="ts rv"><div class="tt" id="tt">
+<figure><blockquote>O frango com quiabo me levou direto para a cozinha da minha avó. Voltamos três vezes na mesma viagem.</blockquote><figcaption><i>R</i><div><b>Renata Albuquerque</b>São Paulo · <span class="sr">★★★★★</span></div></figcaption></figure>
+<figure><blockquote>Atendimento de quem gosta de receber. A Dona Cida passou na mesa para saber se estava tudo bem.</blockquote><figcaption><i>J</i><div><b>João Pedro Martins</b>Belo Horizonte · <span class="sr">★★★★★</span></div></figcaption></figure>
+<figure><blockquote>Fizemos nosso casamento na varanda. Os convidados até hoje falam do leitão à pururuca.</blockquote><figcaption><i>L</i><div><b>Larissa e Tiago</b>Juiz de Fora · <span class="sr">★★★★★</span></div></figcaption></figure>
+<figure><blockquote>Melhor café da roça da região. O pão de queijo chega na mesa ainda estalando.</blockquote><figcaption><i>M</i><div><b>Marcos Vieira</b>Rio de Janeiro · <span class="sr">★★★★★</span></div></figcaption></figure>
+</div></div>
+<div class="tc"><div class="dots" id="dots"></div><div class="arw"><button id="pv" aria-label="Anterior">←</button><button id="nx" aria-label="Próximo">→</button></div></div>
+</div></section>
+
+<section><div class="w">
+<div class="mh"><div class="rv"><span class="ey">Da serra para a panela</span><h2 class="h2">Gente que <em>planta</em> com a gente.</h2></div></div>
+<div class="pd rv">
+<div><i>Queijos</i><h4>Queijaria Serra Velha</h4><p>Canastra curado 30 dias.</p></div>
+<div><i>Carnes</i><h4>Fazenda Boa Vista</h4><p>Porco caipira criado solto.</p></div>
+<div><i>Hortaliças</i><h4>Sítio Três Irmãs</h4><p>Couve, quiabo e cheiro-verde.</p></div>
+<div><i>Café</i><h4>Café Alto do Cruzeiro</h4><p>Torra artesanal semanal.</p></div>
+</div>
+</div></section>
+
+<section class="lt" id="reserva"><div class="w">
+<div class="mh"><div class="rv"><span class="ey">Reservas</span><h2 class="h2">Sua mesa <em>está esperando.</em></h2></div><p class="rv" style="max-width:380px;margin:0">Escolha o dia, o horário e quantas pessoas vêm. Confirmamos pelo WhatsApp em poucos minutos.</p></div>
+<div class="rs">
+<form class="fm rv" id="fm" novalidate><div class="fbody">
+<div class="row"><label for="dt">Data</label><input type="date" id="dt"></div>
+<div class="row"><span class="lb">Horário</span><div class="chs" id="hrs"></div></div>
+<div class="row"><span class="lb">Pessoas</span><div class="sx"><button type="button" id="mn" aria-label="Menos">−</button><output id="pp">2 pessoas</output><button type="button" id="ps" aria-label="Mais">+</button></div></div>
+<div class="row"><span class="lb">Onde prefere sentar</span><div class="chs" id="ars"><button type="button" aria-pressed="true">Salão</button><button type="button" aria-pressed="false">Varanda com vista</button><button type="button" aria-pressed="false">Perto do fogão</button></div></div>
+<div class="row"><label for="nm">Seu nome</label><input type="text" id="nm" placeholder="Como podemos chamar você?" autocomplete="name"></div>
+<button class="bt" type="submit">Solicitar reserva <span>→</span></button>
+</div>
+<div class="ok"><i>✓</i><h3 style="font-size:36px;margin-bottom:10px">Pedido enviado!</h3><p>Esta é uma simulação. Em um site real, a reserva chegaria no WhatsApp do restaurante.</p><button class="bt gh" type="button" id="again" style="color:var(--ink);box-shadow:inset 0 0 0 1px var(--ln2);margin-top:10px">Fazer outra reserva</button></div>
+</form>
+<aside class="sm2 rv" style="--d:.15s"><small>Resumo</small><h3 id="sn">Sua reserva</h3>
+<dl><div><dt>Data</dt><dd id="sd">-</dd></div><div><dt>Horário</dt><dd id="sh">-</dd></div><div><dt>Pessoas</dt><dd id="spp">2</dd></div><div><dt>Lugar</dt><dd id="sa">Salão</dd></div></dl>
+<p class="nt">Tolerância de 15 minutos. Para grupos acima de 12 pessoas, fale com a gente sobre eventos.</p></aside>
+</div>
+</div></section>
+
+<section id="visite"><div class="w">
+<div class="mh"><div class="rv"><span class="ey">Visite</span><h2 class="h2">Venha <em>com fome.</em></h2></div></div>
+<div class="inf">
+<div class="rv"><h4>Horários</h4><ul class="hr" id="hr"></ul></div>
+<div class="rv" style="--d:.1s"><h4>Onde fica</h4><p>Rua Direita, 000 · Centro Histórico<br>Tiradentes · MG</p>
+<div class="map" aria-hidden="true"><svg viewBox="0 0 300 160" preserveAspectRatio="none"><path d="M0 40h300M0 110h300M70 0v160M180 0v160M250 0l-60 160" stroke="#3b281a" stroke-width="8"/><path d="M0 75c80 10 140-20 300 10" stroke="#4d3523" stroke-width="14" fill="none"/></svg><span class="pin2"></span></div></div>
+<div class="rv" style="--d:.2s"><h4>Bom saber</h4><ul class="hr"><li><span>Estacionamento</span><span>conveniado</span></li><li><span>Pets</span><span>na varanda</span></li><li><span>Acessibilidade</span><span>sim</span></li><li><span>Wi-Fi</span><span>gratuito</span></li><li><span>Pagamento</span><span>Pix e cartões</span></li></ul></div>
+</div>
+<div style="margin-top:90px;max-width:860px" class="rv">
+<details><summary>Preciso reservar com antecedência?</summary><p>Nos fins de semana, sim. De quinta e sexta costuma ter mesa livre, mas a reserva garante o lugar que você prefere.</p></details>
+<details><summary>Tem opção vegetariana?</summary><p>Temos. Os pratos marcados com “vegetariano” no cardápio não levam carne, e a cozinha adapta outros pratos quando possível.</p></details>
+<details><summary>Vocês fazem entrega?</summary><p>Não. A comida do fogão a lenha é para comer quentinha, aqui na mesa.</p></details>
+</div>
+</div></section>
+
+<footer><div class="w">
+<div class="fct rv"><h2>A lenha já está <em>queimando.</em></h2><a class="bt mg" href="#reserva">Reservar minha mesa <span>→</span></a></div>
+<div class="fc">
+<div><a class="lg" href="#topo"><svg viewBox="0 0 32 32" fill="none"><path d="M16 3c3 5 8 8 8 15a8 8 0 01-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-8 1-12z" fill="#ff7a2f"/><path d="M16 17c2 2 3 3 3 6a3 3 0 01-6 0c0-2 1-4 3-6z" fill="#ffd08a"/></svg>Lenha <em>Viva</em></a>
+<p style="margin-top:16px;max-width:300px">Receba o prato da semana toda segunda-feira.</p>
+<form class="nl" id="nl"><input type="email" placeholder="seu e-mail" aria-label="E-mail"><button>Assinar</button></form></div>
+<div><h5>Navegue</h5><a href="#historia">História</a><a href="#cardapio">Cardápio</a><a href="#experiencias">Experiências</a><a href="#reserva">Reservas</a></div>
+<div><h5>Contato</h5><span>(32) 0000-0000</span><span>ola@lenhaviva.com.br</span><span>Rua Direita, 000</span></div>
+<div><h5>Siga</h5><a href="#topo">Instagram</a><a href="#topo">Facebook</a><a href="#topo">TripAdvisor</a></div>
+</div>
+<div class="big">Lenha <em>Viva</em></div>
+<div class="cp"><span>© Lenha Viva. Empresa fictícia criada pela MAvision como exemplo.</span><span>Site sob medida · MAvision</span></div>
+</div></footer>
+<button class="tp" id="tp" aria-label="Voltar ao topo">↑</button>
+
+<script>
+const $=id=>document.getElementById(id),$$=s=>document.querySelectorAll(s),RM=matchMedia("(prefers-reduced-motion:reduce)").matches,FINE=matchMedia("(pointer:fine)").matches,root=document.documentElement;
+/* preloader: counts to 100, then lifts like a curtain */
+(function(){const pl=$("pl"),c=$("plc");const done=()=>{pl.classList.add("out");root.classList.add("ld");setTimeout(()=>pl.remove(),1300)};if(RM){pl.remove();root.classList.add("ld");return}
+const t0=performance.now();(function f(t){const k=Math.min((t-t0)/1300,1);c.textContent=Math.round(100*(1-Math.pow(1-k,2)));if(k<1)requestAnimationFrame(f);else setTimeout(done,150)})(t0);setTimeout(()=>{if(document.body.contains(pl))done()},2600)})();
+/* menu data: name, price, description, tags, plate colors */
+const M=[[["Pão de queijo na hora","24","Seis unidades com queijo canastra curado.",["vegetariano"],["#f0c060","#e8a83a"]],["Torresmo de barriga","38","Pururuca crocante com limão-cravo.",["da casa"],["#c9772e","#a5531a"]],["Caldo de feijão","22","Com bacon, cebolinha e torradinhas.",[],["#5a2e16","#3a1c0c"]],["Linguiça artesanal","34","Na chapa, com mandioca cozida.",[],["#a0401c","#f0dfb8"]],["Mandioca frita","26","Com manteiga de garrafa.",["vegetariano"],["#f3d28a","#e3b45a"]],["Bolinho de feijão","29","Recheado com couve e bacon.",["novo"],["#7a3c16","#4f7a2c"]]],
+[["Frango com quiabo","72","Angu de milho verde e couve fininha.",["serve 2","da casa"],["#c27a36","#3d7a2a"]],["Tutu à mineira","68","Lombo, linguiça, ovo, couve e torresmo.",["serve 2"],["#5a3016","#f5d36a"]],["Leitão à pururuca","89","Assado por 6 horas na lenha.",["da casa"],["#b4561d","#e8a050"]],["Feijão tropeiro","64","Feijão, farinha, ovo, linguiça e torresmo.",[],["#a5743a","#3d7a2a"]],["Galinhada caipira","76","Arroz com açafrão-da-terra e pequi.",["serve 2"],["#e8b23a","#c27a36"]],["Moqueca de banana-da-terra","58","Leite de coco, pimentões e arroz branco.",["vegetariano"],["#e6702a","#f3d28a"]]],
+[["Doce de leite de tacho","19","Com queijo minas frescal.",["da casa"],["#9a5a24","#f6ecd9"]],["Ambrosia","21","Receita da Dona Cida.",[],["#e6b86a","#f6e3b8"]],["Goiabada cascão","18","Com requeijão moreno.",[],["#9e1f2a","#efe0c9"]],["Pudim de leite","20","Calda de rapadura.",[],["#e8b35a","#8a4a1c"]]],
+[["Café coado no pano","9","Grãos do Alto do Cruzeiro.",[],["#3a1f10","#6e3d1d"]],["Suco de laranja com cana","14","Moído na hora.",[],["#f39a2a","#f3c25a"]],["Cachaça da casa","16","Envelhecida em barril de umburana.",["da casa"],["#d9a04a","#f0d29a"]],["Cerveja artesanal","24","Rótulo da região, 600 ml.",[],["#c98a2a","#f6ead9"]]]];
+const ml=$("ml"),tbs=$$("#tbs button"),plate=$("plate");
+const plateSvg=([a,b])=>`<svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#f1e3cc"/><circle cx="100" cy="100" r="82" fill="none" stroke="#e2cfae" stroke-width="2"/><circle cx="100" cy="100" r="68" fill="${a}"/><circle cx="78" cy="88" r="26" fill="${b}" opacity=".9"/><circle cx="122" cy="112" r="20" fill="${b}" opacity=".75"/><circle cx="116" cy="78" r="9" fill="#fff" opacity=".25"/></svg>`;
+function show(c){ml.innerHTML=M[c].map(([n,p,d,t],i)=>`<div class="mi" data-i="${i}" style="animation-delay:${i*.06}s"><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${n}</h3><span class="pr">R$ ${p}</span><p>${d}</p>${t.length?`<div class="tg">${t.map(x=>`<span${x=="da casa"?' class="h"':""}>${x}</span>`).join("")}</div>`:""}</div>`).join("");
+tbs.forEach(b=>b.setAttribute("aria-selected",b.dataset.c==c));
+if(FINE)ml.querySelectorAll(".mi").forEach(el=>{el.onpointerenter=()=>{plate.innerHTML=plateSvg(M[c][+el.dataset.i][4]);plate.classList.add("on")};el.onpointerleave=()=>plate.classList.remove("on")})}
+tbs.forEach(b=>b.onclick=()=>show(+b.dataset.c));show(0);
+/* cursor ring + floating plate follow the mouse smoothly */
+if(FINE&&!RM){const cu=$("cu");let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,px=mx,py=my,ps=.6;addEventListener("pointermove",e=>{mx=e.clientX;my=e.clientY});
+(function f(){cx+=(mx-cx)*.22;cy+=(my-cy)*.22;px+=(mx-px)*.1;py+=(my-py)*.1;ps+=((plate.classList.contains("on")?1:.6)-ps)*.15;cu.style.transform=`translate(${cx}px,${cy}px)`;plate.style.transform=`translate(${innerWidth*.6+(px-innerWidth/2)*.12}px,${py}px) scale(${ps}) rotate(${(px-mx)*.08}deg)`;requestAnimationFrame(f)})();
+document.addEventListener("pointerover",e=>cu.classList.toggle("big",!!e.target.closest("a,button,.mi,summary")))}
+/* magnetic buttons */
+if(FINE&&!RM)$$(".mg").forEach(b=>{b.onpointermove=e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.25}px,${(e.clientY-r.top-r.height/2)*.35}px)`};b.onpointerleave=()=>b.style.transform=""});
+/* header, progress, top button, mobile menu */
+const hd=$("hd"),pg=$("pg"),tp=$("tp");
+$("mb").onclick=()=>{const o=$("nv").classList.toggle("o");$("mb").classList.toggle("o",o);$("mb").setAttribute("aria-expanded",o)};
+$$("#nv a").forEach(a=>a.addEventListener("click",()=>{$("nv").classList.remove("o");$("mb").classList.remove("o")}));
+tp.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+/* open status + hours */
+const D=["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"],H={0:[11,17],4:[12,22],5:[12,23],6:[8,23]},now=new Date(),td=now.getDay(),hr=now.getHours()+now.getMinutes()/60,op=H[td]&&hr>=H[td][0]&&hr<H[td][1];
+$("st").classList.toggle("cl",!op);$("stt").textContent=op?"Aberto agora · até "+H[td][1]+"h":"Fechado agora · abrimos de quinta a domingo";
+$("hr").innerHTML=[4,5,6,0,1,2,3].map(d=>`<li${d==td?' class="td"':""}><span>${D[d]}</span><span>${H[d]?H[d][0]+"h às "+H[d][1]+"h":"fechado"}</span></li>`).join("");
+/* reveal + counters */
+function cnt(el){const n=+el.dataset.n,f=+(el.dataset.f||0),t0=performance.now();if(RM)return;(function s(t){const k=Math.min((t-t0)/1800,1);el.textContent=(n*(1-Math.pow(1-k,3))).toFixed(f).replace(".",",");if(k<1)requestAnimationFrame(s)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add("on");io.unobserve(e.target);e.target.querySelectorAll("[data-n]").forEach(cnt)}),{threshold:.15});
+$$(".rv").forEach(e=>io.observe(e));
+/* manifesto: split into words that light up with scroll */
+const mft=$("mft"),hotTxt=mft.querySelector(".hot").textContent,wrap=(t,c)=>t.trim().split(/\s+/).map(w=>`<span class="wd${c}">${w}</span>`).join(" ");
+mft.innerHTML=wrap(mft.textContent.replace(hotTxt,""),"")+" "+wrap(hotTxt," hot");
+const words=[...mft.querySelectorAll(".wd")];
+/* sticky story: swap the image when each chapter reaches the middle of the screen */
+const vis=$("vis").children;
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)[...vis].forEach((v,i)=>v.classList.toggle("on",i==e.target.dataset.s))}),{rootMargin:"-45% 0px -45% 0px"});
+$$(".stp").forEach(s=>so.observe(s));
+/* horizontal experiences: vertical scroll moves the track sideways */
+const hx=$("experiencias"),trk=$("trk");
+function sizeHx(){if(innerWidth<=980){hx.style.height="";return}hx.style.height=(innerHeight+Math.max(0,trk.scrollWidth-innerWidth+innerWidth*.08))+"px"}
+sizeHx();addEventListener("resize",sizeHx);
+function onS(){const y=scrollY,h=root.scrollHeight-innerHeight;hd.classList.toggle("s",y>40);pg.style.transform=`scaleX(${h>0?y/h:0})`;tp.classList.toggle("s",y>800);
+const r=mft.getBoundingClientRect(),p=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.35)));words.forEach((w,i)=>w.classList.toggle("lit",i<p*words.length));
+if(innerWidth>980){const hr2=hx.getBoundingClientRect(),dist=hx.offsetHeight-innerHeight,k=Math.min(1,Math.max(0,-hr2.top/dist||0));trk.style.transform=`translateX(${-k*(trk.scrollWidth-innerWidth+innerWidth*.08)}px)`;$("xn").textContent="0"+Math.min(3,1+Math.floor(k*2.999))}
+if(!RM&&y<innerHeight)$("h1").style.transform=`translateY(${y*.25}px)`}
+addEventListener("scroll",onS,{passive:true});onS();
+/* countdown to Sunday 23:59 */
+(function(){const end=new Date();end.setDate(end.getDate()+((7-end.getDay())%7));end.setHours(23,59,0,0);
+function u(){let s=Math.max(0,(end-new Date())/1000);$("cdd").textContent=Math.floor(s/86400);$("cdh").textContent=String(Math.floor(s%86400/3600)).padStart(2,"0");$("cdm").textContent=String(Math.floor(s%3600/60)).padStart(2,"0")}u();setInterval(u,30000)})();
+/* testimonials */
+(function(){const tt=$("tt"),n=tt.children.length,dots=$("dots");let i=0,tm;
+dots.innerHTML=Array.from({length:n},(_,k)=>`<button aria-label="Depoimento ${k+1}"></button>`).join("");
+function go(k){i=(k+n)%n;tt.style.transform=`translateX(-${i*100}%)`;dots.querySelectorAll("button").forEach((b,j)=>b.setAttribute("aria-current",j==i));clearInterval(tm);if(!RM)tm=setInterval(()=>go(i+1),6500)}
+dots.querySelectorAll("button").forEach((b,j)=>b.onclick=()=>go(j));$("pv").onclick=()=>go(i-1);$("nx").onclick=()=>go(i+1);go(0)})();
+/* reservation */
+(function(){const dt=$("dt"),t=new Date();t.setDate(t.getDate()+1);const iso=d=>d.toISOString().slice(0,10);dt.min=iso(new Date());dt.value=iso(t);
+const slots=["12:00","12:30","13:00","13:30","14:00","19:00","19:30","20:00","20:30","21:00"],full=["13:00","20:00"];let hs="12:30",ppl=2,ar="Salão";
+$("hrs").innerHTML=slots.map(s=>`<button type="button" aria-pressed="${s==hs}"${full.includes(s)?' disabled title="Lotado"':""}>${s}</button>`).join("");
+const fmt=v=>{if(!v)return"-";const d=new Date(v+"T12:00");return D[d.getDay()]+", "+d.toLocaleDateString("pt-BR",{day:"2-digit",month:"long"})};
+function up(){$("sd").textContent=fmt(dt.value);$("sh").textContent=hs;$("spp").textContent=ppl;$("pp").textContent=ppl+(ppl>1?" pessoas":" pessoa");$("sa").textContent=ar;const n=$("nm").value.trim();$("sn").textContent=n?"Mesa para "+n.split(" ")[0]:"Sua reserva"}
+$$("#hrs button").forEach(b=>b.onclick=()=>{hs=b.textContent;$$("#hrs button").forEach(x=>x.setAttribute("aria-pressed",x==b));up()});
+$$("#ars button").forEach(b=>b.onclick=()=>{ar=b.textContent;$$("#ars button").forEach(x=>x.setAttribute("aria-pressed",x==b));up()});
+$("mn").onclick=()=>{ppl=Math.max(1,ppl-1);up()};$("ps").onclick=()=>{ppl=Math.min(12,ppl+1);up()};dt.oninput=up;$("nm").oninput=up;
+$("fm").onsubmit=e=>{e.preventDefault();if(!$("nm").value.trim()){$("nm").focus();$("nm").style.borderColor="#e2574c";return}$("nm").style.borderColor="";$("fm").classList.add("done")};
+$("again").onclick=()=>$("fm").classList.remove("done");up()})();
+$("nl").onsubmit=e=>{e.preventDefault();e.target.querySelector("button").textContent="Assinado ✓"};
+/* living fire: additive particles rising from the bottom of the hero */
+(function(){if(RM)return;const c=$("fire"),x=c.getContext("2d"),dpr=Math.min(devicePixelRatio||1,1.5);let W,H,P=[],S=[],vis=true;
+function rs(){W=c.offsetWidth;H=c.offsetHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}rs();addEventListener("resize",rs);
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
+const spr=document.createElement("canvas");spr.width=spr.height=64;{const g=spr.getContext("2d"),r=g.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,"rgba(255,240,200,1)");r.addColorStop(.25,"rgba(255,170,70,.9)");r.addColorStop(.6,"rgba(230,80,20,.35)");r.addColorStop(1,"rgba(120,20,0,0)");g.fillStyle=r;g.fillRect(0,0,64,64)}
+(function f(){requestAnimationFrame(f);if(!vis||document.hidden)return;x.globalCompositeOperation="source-over";x.clearRect(0,0,W,H);x.globalCompositeOperation="lighter";
+const n=W<700?4:8;for(let i=0;i<n;i++){const sx=W*(.5+(Math.random()-.5)*.7*Math.random());P.push({x:sx,y:H+20,vx:(Math.random()-.5)*.6,vy:-(1.4+Math.random()*2.4),s:40+Math.random()*90,l:1,d:.009+Math.random()*.01})}
+if(Math.random()<.5)S.push({x:W*(.3+Math.random()*.4),y:H,vx:(Math.random()-.5)*1.6,vy:-(2+Math.random()*3),l:1,r:1+Math.random()*1.6});
+P=P.filter(p=>{p.x+=p.vx+Math.sin(p.y/60)*.4;p.y+=p.vy;p.l-=p.d;p.s*=.992;if(p.l<=0)return false;x.globalAlpha=Math.min(1,p.l)*.45;x.drawImage(spr,p.x-p.s/2,p.y-p.s/2,p.s,p.s);return true});
+S=S.filter(s=>{s.x+=s.vx+Math.sin(s.y/30);s.y+=s.vy;s.l-=.006;if(s.l<=0)return false;x.globalAlpha=s.l;x.fillStyle="#ffcf7a";x.beginPath();x.arc(s.x,s.y,s.r,0,7);x.fill();return true});x.globalAlpha=1})()})();
+</script>
+</body>
+</html>

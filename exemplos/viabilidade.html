@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudo de Viabilidade | Rede Movimento</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eceaf3;--pp:#fff;--tx:#1d1a2b;--mu:#666178;--ln:#e5e2ee;--p:#6c47ff;--p2:#efeaff;--ok:#1f9d63;--wr:#c98a12;--bad:#c0392b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 14.5px/1.65 Montserrat,system-ui,sans-serif}
+h1,h2,h3{margin:0;line-height:1.2}
+p{margin:0 0 10px;color:var(--mu)}
+.tag{position:fixed;right:12px;bottom:12px;z-index:9;background:rgba(29,26,43,.9);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+.doc{width:min(900px,94%);margin:30px auto 60px;background:var(--pp);border-radius:12px;box-shadow:0 20px 60px rgba(29,26,43,.12);overflow:hidden}
+.hd{background:#140f24;color:#fff;padding:34px clamp(22px,5vw,48px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hd small{font:500 11px "JetBrains Mono",monospace;letter-spacing:.12em;color:#b8a9ff;text-transform:uppercase}
+.hd h1{font-size:clamp(22px,3.2vw,30px);margin:8px 0 6px}
+.hd p{color:#c9c4da;margin:0}
+.hd dl{margin:0;display:grid;grid-template-columns:auto auto;gap:4px 14px;font-size:12px;align-self:end}
+.hd dt{color:#9b95b3}.hd dd{margin:0;font-weight:600}
+.bd{padding:clamp(22px,5vw,48px)}
+section{padding-bottom:30px;margin-bottom:30px;border-bottom:1px solid var(--ln)}
+section:last-child{border:0;margin:0;padding:0}
+h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:14px;font-weight:600}
+.vd{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:#e9f7f0;border:1px solid #bfe6d2;border-radius:12px;padding:20px 22px}
+.vd b{font-size:13px;font-weight:800;letter-spacing:.1em;color:#fff;background:var(--ok);padding:10px 16px;border-radius:8px}
+.vd p{margin:0;color:var(--tx)}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.kp div{border:1px solid var(--ln);border-radius:10px;padding:16px}
+.kp span{font-size:12px;color:var(--mu)}
+.kp strong{display:block;font-size:22px;font-weight:800;margin-top:2px;font-variant-numeric:tabular-nums}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--ln)}
+td{padding:12px 10px;border-bottom:1px solid var(--ln);vertical-align:top}
+td small{display:block;color:var(--mu);font-size:12.5px}
+.pr{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;white-space:nowrap}
+.p1{background:var(--p2);color:var(--p)}.p2{background:#f3f1f8;color:var(--mu)}
+.tw{overflow-x:auto}
+.gt{display:grid;grid-template-columns:170px repeat(10,1fr);gap:6px 0;font-size:13px;min-width:560px;align-items:center}
+.gt .h{font:500 11px "JetBrains Mono",monospace;color:var(--mu);text-align:center;border-left:1px solid var(--ln)}
+.gt .n{padding-right:10px;font-weight:500}
+.gt i{height:22px;border-radius:6px;background:var(--p);opacity:.85}
+.gt i.m{background:#3b2a99}
+.inv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.inv div{border:1px solid var(--ln);border-radius:10px;padding:18px}
+.inv strong{display:block;font-size:24px;font-weight:800;font-variant-numeric:tabular-nums;margin:4px 0}
+.inv .bs{border-color:var(--p);background:var(--p2)}
+.rk{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rk li{display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start}
+.rk em{font-style:normal;font-size:11px;font-weight:600;text-align:center;padding:3px 0;border-radius:6px}
+.lo{background:#e6f6ee;color:var(--ok)}.md{background:#fdf3e1;color:var(--wr)}
+.ft{font-size:12px;color:var(--mu);text-align:center;padding:18px;background:#faf9fd;border-top:1px solid var(--ln)}
+@media(max-width:640px){.kp,.inv{grid-template-columns:1fr}.vd{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<span class="tag">Exemplo · empresa fictícia</span>
+<article class="doc">
+<header class="hd"><div><small>Estudo de viabilidade · Nº 2026-014</small><h1>Sistema de agendamento de aulas</h1><p>Rede Movimento Academias · 4 unidades em BH e Contagem</p></div>
+<dl><dt>Preparado por</dt><dd>MAvision</dd><dt>Data</dt><dd>03/11/2026</dd><dt>Validade</dt><dd>30 dias</dd></dl></header>
+<div class="bd">
+
+<section><h2>Parecer</h2>
+<div class="vd"><b>VIÁVEL</b><p>O sistema resolve a lotação das aulas coletivas e substitui as planilhas de cada unidade. O retorno estimado vem da redução de faltas e do tempo da recepção.</p></div>
+<div class="kp"><div><span>Prazo estimado</span><strong>10 semanas</strong></div><div><span>Investimento</span><strong>R$ 18 a 26 mil</strong></div><div><span>Retorno estimado</span><strong>7 meses</strong></div></div>
+</section>
+
+<section><h2>Situação atual</h2>
+<p>Hoje cada unidade controla as vagas de spinning, funcional e pilates em planilhas e pelo WhatsApp da recepção. Isso gera aulas lotadas, alunos que reservam e não aparecem (cerca de 22% das reservas) e cerca de 3 horas por dia de recepção dedicadas a remarcações.</p>
+</section>
+
+<section><h2>Escopo proposto</h2>
+<div class="tw"><table><thead><tr><th>Módulo</th><th>Para quem</th><th>Prioridade</th></tr></thead><tbody>
+<tr><td><b>Agenda de aulas</b><small>Grade por unidade, vagas por turma e lista de espera automática.</small></td><td>Alunos</td><td><span class="pr p1">Essencial</span></td></tr>
+<tr><td><b>Reserva pelo celular</b><small>Página web que funciona como aplicativo, sem precisar baixar nada.</small></td><td>Alunos</td><td><span class="pr p1">Essencial</span></td></tr>
+<tr><td><b>Lembretes no WhatsApp</b><small>Aviso 2 horas antes e cancelamento com um toque.</small></td><td>Alunos</td><td><span class="pr p1">Essencial</span></td></tr>
+<tr><td><b>Painel da recepção</b><small>Check-in, faltas e remarcações em uma tela.</small></td><td>Equipe</td><td><span class="pr p1">Essencial</span></td></tr>
+<tr><td><b>Relatórios de ocupação</b><small>Horários mais cheios e professores mais procurados.</small></td><td>Gestão</td><td><span class="pr p2">Fase 2</span></td></tr>
+</tbody></table></div>
+</section>
+
+<section><h2>Cronograma</h2>
+<div class="tw"><div class="gt">
+<span></span><span class="h">S1</span><span class="h">S2</span><span class="h">S3</span><span class="h">S4</span><span class="h">S5</span><span class="h">S6</span><span class="h">S7</span><span class="h">S8</span><span class="h">S9</span><span class="h">S10</span>
+<span class="n">Levantamento</span><i style="grid-column:2/4"></i>
+<span class="n">Design das telas</span><i style="grid-column:3/5"></i>
+<span class="n">Desenvolvimento</span><i style="grid-column:4/10"></i>
+<span class="n">Testes na unidade piloto</span><i class="m" style="grid-column:8/11"></i>
+<span class="n">Implantação nas 4 unidades</span><i class="m" style="grid-column:10/12"></i>
+</div></div>
+</section>
+
+<section><h2>Investimento</h2>
+<div class="inv"><div><span>Versão essencial</span><strong>R$ 18.000</strong><p style="margin:0">Os 4 módulos essenciais, em 10 semanas.</p></div><div class="bs"><span>Versão completa</span><strong>R$ 26.000</strong><p style="margin:0">Inclui relatórios de ocupação, em 13 semanas.</p></div></div>
+<p style="margin-top:12px;font-size:13px">Hospedagem e envio de mensagens: cerca de R$ 290 por mês. Valores fictícios, apenas para ilustrar o formato do estudo.</p>
+</section>
+
+<section><h2>Riscos e cuidados</h2>
+<ul class="rk">
+<li><em class="md">Médio</em><span>Adesão dos alunos mais antigos ao agendamento online. <small style="color:var(--mu)">Mitigação: manter a reserva pela recepção nas primeiras 4 semanas.</small></span></li>
+<li><em class="lo">Baixo</em><span>Custo de mensagens no WhatsApp acima do previsto. <small style="color:var(--mu)">Mitigação: lembrete só para quem não confirmou.</small></span></li>
+<li><em class="lo">Baixo</em><span>Grades diferentes por unidade. <small style="color:var(--mu)">Mitigação: cadastro de grade independente em cada unidade.</small></span></li>
+</ul>
+</section>
+</div>
+<div class="ft">Documento de exemplo. Rede Movimento é uma empresa fictícia criada pela MAvision.</div>
+</article>
+</body>
+</html>

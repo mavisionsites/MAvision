@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exemplo de SEO | Clínica Sorriso Pleno</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4fa;--cd:#fff;--tx:#1d1a2b;--mu:#666178;--ln:#e3e0ee;--p:#6c47ff;--ok:#1f9d63;--bad:#c0392b;--gl:#1a0dab;--gu:#006621}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 15px/1.65 Montserrat,system-ui,sans-serif}
+h1,h2,h3{margin:0;line-height:1.2}
+p{margin:0 0 10px;color:var(--mu)}
+.w{width:min(1080px,92%);margin:auto;padding:40px 0 60px}
+.tag{position:fixed;right:12px;bottom:12px;z-index:9;background:rgba(29,26,43,.9);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
+.top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.top small{color:var(--p);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.top h1{font-size:clamp(24px,3.4vw,34px);margin:6px 0 6px}
+.sw{display:inline-flex;background:var(--cd);border:1px solid var(--ln);border-radius:99px;padding:4px}
+.sw button{font:600 14px Montserrat,sans-serif;border:0;background:transparent;color:var(--mu);padding:9px 22px;border-radius:99px;cursor:pointer;transition:.25s}
+.sw button[aria-pressed=true]{background:var(--p);color:#fff}
+.sw button.b[aria-pressed=true]{background:#3b374a}
+.box{background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:24px;margin-bottom:18px}
+.box>h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:16px;font-weight:600}
+.gs{display:flex;align-items:center;gap:10px;border:1px solid var(--ln);border-radius:99px;padding:10px 18px;margin-bottom:18px;font-family:Arial,sans-serif;font-size:15px;color:var(--tx);max-width:560px}
+.gs i{width:14px;height:14px;border:2px solid #9aa0a6;border-radius:50%;position:relative}
+.gr{font-family:Arial,sans-serif;max-width:620px}
+.gr .u{font-size:13px;color:#202124;display:flex;gap:8px;align-items:center}
+.gr .u b{width:26px;height:26px;border-radius:50%;background:#e8f0fe;display:grid;place-items:center;font-size:12px;color:var(--gl)}
+.gr .u span{color:#4d5156;font-size:12px;display:block}
+.gr h3{font-family:Arial,sans-serif;font-weight:400;font-size:20px;color:var(--gl);margin:6px 0 4px}
+.gr p{font-family:Arial,sans-serif;font-size:14px;color:#4d5156;margin:0}
+.gr mark{background:none;font-weight:700;color:#4d5156}
+.pos{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;font-size:14px;padding:6px 14px;border-radius:99px}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:18px}
+.tx h3{font-size:22px;margin-bottom:12px}
+.tx p{color:var(--tx)}
+.tx mark{background:rgba(108,71,255,.14);color:var(--tx);padding:0 3px;border-radius:4px}
+.ck{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:14px}
+.ck li{display:flex;gap:10px}
+.ck b{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff}
+.sc{display:flex;align-items:center;gap:18px;margin-bottom:18px}
+.sc svg{flex-shrink:0}
+.sc strong{font-size:15px}
+[data-v=antes] .d,[data-v=depois] .a{display:none}
+[data-v=antes] .ck b{background:var(--bad)}[data-v=depois] .ck b{background:var(--ok)}
+[data-v=antes] .pos{background:#fbe9e7;color:var(--bad)}[data-v=depois] .pos{background:#e6f6ee;color:var(--ok)}
+.ar{transition:stroke-dashoffset .8s cubic-bezier(.2,.7,.2,1)}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-v="depois">
+<span class="tag">Exemplo · empresa fictícia</span>
+<div class="w">
+<div class="top"><div><small>Ajuste de textos para SEO</small><h1>Clínica Sorriso Pleno</h1><p>Mesma página, antes e depois do ajuste. Busca simulada: “dentista em Contagem”.</p></div>
+<div class="sw" role="group" aria-label="Comparar"><button class="b" aria-pressed="false" data-s="antes">Antes</button><button aria-pressed="true" data-s="depois">Depois</button></div></div>
+
+<div class="box"><h2>Como aparece no Google</h2>
+<div class="gs"><i></i>dentista em Contagem</div>
+<div class="gr a"><div class="u"><b>S</b><div>sorrisopleno.com.br<span>https://sorrisopleno.com.br › index.php?page=1</span></div></div>
+<h3>Home - Sorriso Pleno</h3><p>Bem-vindo ao nosso site. Somos uma empresa comprometida com a excelência e a qualidade. Clique aqui para saber mais sobre nós e nossos...</p></div>
+<div class="gr d"><div class="u"><b>S</b><div>Clínica Sorriso Pleno<span>https://sorrisopleno.com.br › dentista-contagem</span></div></div>
+<h3>Dentista em Contagem | Implantes e Clareamento – Sorriso Pleno</h3><p><mark>Dentista em Contagem</mark> com atendimento de segunda a sábado. Implantes, clareamento, aparelho e limpeza. Agende sua avaliação pelo WhatsApp.</p></div>
+<span class="pos a">Posição estimada: página 4</span><span class="pos d">Posição estimada: 1ª página</span>
+</div>
+
+<div class="grid">
+<div class="box tx"><h2>Texto da página inicial</h2>
+<div class="a"><h3>Bem-vindo!</h3><p>Somos uma empresa comprometida com a excelência e a qualidade em tudo o que fazemos. Nossa missão é oferecer o melhor para nossos clientes, com profissionais qualificados e estrutura moderna.</p><p>Entre em contato e venha nos conhecer. Será um prazer atender você!</p></div>
+<div class="d"><h3><mark>Dentista em Contagem</mark> com atendimento humanizado</h3><p>A Clínica Sorriso Pleno atende no bairro Eldorado, em <mark>Contagem</mark>, de segunda a sábado. Nossa equipe faz <mark>implantes dentários</mark>, <mark>clareamento</mark>, aparelho ortodôntico e limpeza, com avaliação inicial sem custo.</p><p>Agende sua consulta pelo WhatsApp e receba a confirmação no mesmo dia.</p></div>
+</div>
+<div class="box"><h2>Nota de SEO</h2>
+<div class="sc"><svg width="88" height="88" viewBox="0 0 88 88"><circle cx="44" cy="44" r="38" fill="none" stroke="#e3e0ee" stroke-width="8"/><circle class="ar" id="ar" cx="44" cy="44" r="38" fill="none" stroke-width="8" stroke-linecap="round" stroke-dasharray="238.8" transform="rotate(-90 44 44)"/><text id="nt" x="44" y="50" text-anchor="middle" font-size="22" font-weight="800" font-family="Montserrat,sans-serif" fill="#1d1a2b"></text></svg><div><strong class="a">Precisa de ajustes</strong><strong class="d">Otimizada</strong><p style="margin:0;font-size:13px">Avaliação dos itens abaixo</p></div></div>
+<ul class="ck">
+<li><b class="a">✕</b><b class="d">✓</b><span class="a">Título genérico (“Home”)</span><span class="d">Título com serviço e cidade</span></li>
+<li><b class="a">✕</b><b class="d">✓</b><span class="a">Descrição sem palavras-chave</span><span class="d">Descrição com o que o paciente busca</span></li>
+<li><b class="a">✕</b><b class="d">✓</b><span class="a">Endereço da página confuso</span><span class="d">Endereço curto e legível</span></li>
+<li><b class="a">✕</b><b class="d">✓</b><span class="a">Texto não cita serviços nem bairro</span><span class="d">Serviços, bairro e cidade no texto</span></li>
+<li><b class="a">✕</b><b class="d">✓</b><span class="a">Sem chamada para agendar</span><span class="d">Chamada clara para o WhatsApp</span></li>
+</ul></div>
+</div>
+</div>
+<script>
+const b=document.body,ar=document.getElementById("ar"),nt=document.getElementById("nt");
+function set(v){b.dataset.v=v;document.querySelectorAll(".sw button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.s==v));const n=v=="depois"?94:38;ar.style.strokeDashoffset=238.8*(1-n/100);ar.style.stroke=v=="depois"?"#1f9d63":"#c0392b";nt.textContent=n}
+document.querySelectorAll(".sw button").forEach(x=>x.onclick=()=>set(x.dataset.s));set("depois");
+</script>
+</body>
+</html>
