@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U=' 'sha256-hNG0uW72TEBC5w3/Q9pc9ISo8quBvFeLC5DmhsKtVQc='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Lenha Viva | Cozinha mineira no fogão a lenha</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,19 +63,19 @@ nav a:hover{opacity:1}nav a:hover::after{right:0}
 .mb{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--cr);cursor:pointer;position:relative;z-index:2}
 .mb i{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:.3s}
 /* hero */
-.hero{position:relative;height:100vh;min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% 100%,#5a1c06 0,#2a1008 45%,var(--bg) 80%)}
+.hero{position:relative;min-height:100vh;padding:120px 0 0;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:radial-gradient(ellipse 70% 55% at 50% 100%,#5a1c06 0,#2a1008 45%,var(--bg) 80%)}
 #fire{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .w{position:relative;z-index:2;padding-bottom:70px}
 .st{display:inline-flex;align-items:center;gap:8px;font-size:13px;padding:7px 15px;border-radius:99px;border:1px solid var(--ln);background:rgba(16,9,5,.4);backdrop-filter:blur(6px);margin-bottom:28px}
 .st i{width:8px;height:8px;border-radius:50%;background:#59d18f;box-shadow:0 0 10px #59d18f}
 .st.cl i{background:#e2574c;box-shadow:0 0 10px #e2574c}
-.hero h1{font-size:clamp(60px,11.5vw,190px);letter-spacing:-.035em;line-height:.9;will-change:transform}
+.hero h1{font-size:clamp(48px,min(max(60px,11.5vw),17vh),190px);letter-spacing:-.035em;line-height:.9;will-change:transform}
 .hero h1 span{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
 .hero h1 span i{display:block;font-style:normal}
 .js .hero h1 span i{transform:translateY(110%)}
 .ld .hero h1 span i{transform:none;transition:transform 1.3s var(--ease)}
 .ld .hero h1 span:nth-child(2) i{transition-delay:.12s}
-.hero h1 em{font-style:italic;color:var(--em);text-shadow:0 0 60px rgba(255,122,47,.35)}
+.hero h1 em{font-style:italic;color:var(--em)}
 .hb{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-top:40px;flex-wrap:wrap}
 .hb p{max-width:440px;font-size:18px;margin:0;color:#e6d6c4;text-shadow:0 2px 14px rgba(16,9,5,.9)}
 .ac{display:flex;gap:12px;flex-wrap:wrap}

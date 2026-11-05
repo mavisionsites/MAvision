@@ -2,7 +2,7 @@
 //   src/index.template.html + i18n.js  ->  index.html (PT), en/index.html, es/index.html, sitemap.xml, robots.txt
 // Uso: node build.js
 // Caminhos dos arquivos são relativos ({{base}}), então o site funciona tanto em mavision.com.br quanto numa subpasta (GitHub Pages).
-const fs = require("fs"), path = require("path");
+const fs = require("fs"), path = require("path"), crypto = require("crypto");
 const T = require("./i18n.js");
 
 const SITE = "https://mavision.com.br";
@@ -13,6 +13,12 @@ const LANGS = {
   es: { dir: "es/", hl: "es", out: "es/index.html" },
 };
 const X_DEFAULT = "en"; // versão mostrada a quem não fala nenhum dos três idiomas
+
+// Política de segurança. O GitHub Pages não envia cabeçalhos próprios, então ela vai em uma meta tag de cada página.
+const FONTS = "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com";
+const CSP_SITE = `default-src 'none'; script-src 'self'; ${FONTS}; img-src 'self' data:; frame-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'`;
+const cspExample = scripts => `default-src 'none'; script-src ${scripts.length ? scripts.join(" ") : "'none'"}; ${FONTS}; img-src 'self' data:; base-uri 'none'; form-action 'none'`;
+const secTags = csp => `<meta http-equiv="Content-Security-Policy" content="${csp}">\n<meta name="referrer" content="strict-origin-when-cross-origin">`;
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const url = l => SITE + "/" + LANGS[l].dir;
@@ -47,7 +53,7 @@ function ld(l) {
 function page(l) {
   const t = T[l], need = k => { if (!(k in t)) throw new Error(`Texto "${k}" não existe em ${l} (i18n.js)`); return t[k]; };
   let h = tpl
-    .replace("{{hl}}", () => LANGS[l].hl).replace("{{head}}", () => head(l)).replace("{{ld}}", () => ld(l)).replace("{{lc}}", () => l.toUpperCase())
+    .replace("{{sec}}", () => secTags(CSP_SITE)).replace("{{hl}}", () => LANGS[l].hl).replace("{{head}}", () => head(l)).replace("{{ld}}", () => ld(l)).replace("{{lc}}", () => l.toUpperCase())
     .split("{{base}}").join(LANGS[l].dir ? "../" : "").split("{{home}}").join(LANGS[l].dir ? "../" : "./")
     .split("{{wa}}").join(esc(`https://wa.me/${WA}?text=${encodeURIComponent(t.wam)}`));
   h = h.replace(/(<(\w+)\b[^>]*\sdata-t="(\w+)"[^>]*>)(<\/\2>)/g, (m, open, tag, k, close) => open + esc(need(k)) + close);
@@ -65,6 +71,17 @@ for (const l of Object.keys(LANGS)) {
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, page(l));
   console.log("ok", LANGS[l].out);
+}
+
+// Exemplos: libera só os scripts exatos de cada página, pelo hash. Rodar de novo após editar um exemplo.
+for (const f of fs.readdirSync(path.join(__dirname, "exemplos")).filter(n => n.endsWith(".html"))) {
+  const p = path.join(__dirname, "exemplos", f);
+  let h = fs.readFileSync(p, "utf8").replace(/<meta http-equiv="Content-Security-Policy"[^>]*>\r?\n<meta name="referrer"[^>]*>\r?\n/, "");
+  const hashes = [...h.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)]
+    .map(m => "'sha256-" + crypto.createHash("sha256").update(m[1].replace(/\r\n?/g, "\n"), "utf8").digest("base64") + "'");
+  h = h.replace(/(<meta name="viewport"[^>]*>\r?\n)/, (m, v) => v + secTags(cspExample(hashes)) + "\n");
+  fs.writeFileSync(p, h);
+  console.log("ok exemplos/" + f, hashes.length, "script(s)");
 }
 
 const today = new Date().toISOString().slice(0, 10);

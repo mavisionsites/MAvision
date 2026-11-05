@@ -1,3 +1,5 @@
+// Clickjacking guard: GitHub Pages cannot send frame headers, so refuse to render inside another site's frame.
+if(window.top!==window.self){try{if(top.location.origin!==location.origin)throw 0}catch(e){document.documentElement.style.display="none";try{top.location.href=location.href}catch(e2){}}}
 // Each language is its own page (/, /en/, /es/) with the text already in the HTML; see build.js.
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),WA="5531972014324",L={"pt-BR":"pt",en:"en",es:"es"}[document.documentElement.lang]||"pt";
 const lgO=o=>{$("#lg").classList.toggle("o",o);$("#lg>button").setAttribute("aria-expanded",o)},nvO=o=>{$("#nv").classList.toggle("o",o);$("#mb").setAttribute("aria-expanded",o)};
@@ -13,7 +15,7 @@ $("#fm").addEventListener("submit",e=>{e.preventDefault();const f=$("#fm"),v=id=
 if(!v("n")||!telOk()||!$("#m").checkValidity()||!v("m")||!v("x")){rs.textContent=T[L].bad;rs.style.color="#c0262d";return}
 rs.style.color="";rs.textContent=T[L].resp;
 const ln=[T[L].wam,"","*"+T[L].ln+":* "+v("n"),"*"+T[L].le+":* "+(v("e")||"-"),"*WhatsApp:* "+v("w"),"*E-mail:* "+v("m"),"","*"+T[L].lx+"*",v("x")];
-window.open("https://wa.me/"+WA+"?text="+ln.map(s=>encodeURIComponent(s)).join("%0A"),"_blank","noopener");f.reset()});
+window.open("https://wa.me/"+WA+"?text="+ln.map(s=>encodeURIComponent(s)).join("%0A"),"_blank","noopener,noreferrer");f.reset()});
 (function(){const c=$("#sq");if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;
 setInterval(()=>{if(document.hidden)return;const cols=Math.ceil(c.clientWidth/64),rows=Math.ceil(c.clientHeight*.7/64),i=document.createElement("i");i.style.left=Math.floor(Math.random()*cols)*64+"px";i.style.top=Math.floor(Math.random()*rows)*64+"px";i.onanimationend=()=>i.remove();c.appendChild(i)},380)})();
 

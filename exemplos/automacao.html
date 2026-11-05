@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-az3kCv7x2ei2WriU0S+CNlQJ0wlVRQDYnEEnNv2iQps='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Gerador de Contratos | Atlas Serviços</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,8 +55,8 @@ main{padding:30px clamp(16px,4vw,50px) 70px;display:flex;flex-direction:column;a
 <div class="lg"><i>A</i>Atlas Serviços</div>
 <p>Preencha os dados e a IA monta o contrato pronto para assinar.</p>
 <form id="f">
-<label for="cl">Nome do cliente</label><input id="cl" value="Mariana Souza Lima">
-<label for="dc">CPF ou CNPJ (fictício)</label><input id="dc" value="000.000.000-00">
+<label for="cl">Nome do cliente</label><input id="cl" maxlength="120" value="Mariana Souza Lima">
+<label for="dc">CPF ou CNPJ (fictício)</label><input id="dc" maxlength="30" value="000.000.000-00">
 <label for="sv">Serviço</label><select id="sv"><option>Pintura residencial</option><option>Reforma de banheiro</option><option>Instalação elétrica</option><option>Manutenção de jardim</option></select>
 <div class="r2"><div><label for="vl">Valor (R$)</label><input id="vl" inputmode="numeric" value="4800"></div><div><label for="pz">Prazo (dias)</label><input id="pz" inputmode="numeric" value="15"></div></div>
 <div class="r2"><div><label for="dt">Início</label><input id="dt" type="date"></div><div><label for="pg">Pagamento</label><select id="pg"><option>À vista</option><option>50% + 50%</option><option>3x sem juros</option></select></div></div>
@@ -73,9 +75,10 @@ const U=["","um","dois","três","quatro","cinco","seis","sete","oito","nove","de
 function c3(n){if(n==100)return"cem";const c=Math.floor(n/100),r=n%100,p=[];if(c)p.push(C[c]);if(r<20){if(r)p.push(U[r])}else{p.push(D[Math.floor(r/10)]+(r%10?" e "+U[r%10]:""))}return p.join(" e ")}
 function ext(n){n=Math.floor(n);if(!n)return"zero reais";const m=Math.floor(n/1000),r=n%1000,p=[];if(m)p.push(m==1?"mil":c3(m)+" mil");if(r)p.push(c3(r));let s=p.join(r&&(r<100||r%100==0)?" e ":" ");return s+(n==1?" real":(r==0&&m>=1000?" de reais":" reais"))}
 const br=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const esc=t=>String(t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const fd=s=>{if(!s)return"a combinar";const[y,m,d]=s.split("-");return`${d}/${m}/${y}`};
 const pgT={"À vista":"em parcela única, na assinatura deste contrato","50% + 50%":"50% na assinatura deste contrato e 50% na entrega do serviço","3x sem juros":"em 3 parcelas mensais e iguais, sem juros, sendo a primeira na assinatura"};
-function build(){const v=+($("vl").value.replace(/\D/g,""))||0,mk=t=>`<mark>${t}</mark>`;
+function build(){const v=+($("vl").value.replace(/\D/g,""))||0,mk=t=>`<mark>${esc(t)}</mark>`;
 return[`<h1>Contrato de prestação de serviços</h1>`,
 `<p>Pelo presente instrumento, de um lado <b>ATLAS SERVIÇOS GERAIS LTDA.</b>, empresa fictícia, doravante CONTRATADA, e de outro ${mk($("cl").value||"[cliente]")}, inscrito(a) sob o nº ${mk($("dc").value||"[documento]")}, doravante CONTRATANTE, ajustam o seguinte:</p>`,
 `<h2>Cláusula 1ª – Do objeto</h2><p>A CONTRATADA prestará ao CONTRATANTE o serviço de ${mk($("sv").value.toLowerCase())}, conforme orçamento aprovado entre as partes.</p>`,
@@ -83,7 +86,7 @@ return[`<h1>Contrato de prestação de serviços</h1>`,
 `<h2>Cláusula 3ª – Do valor e pagamento</h2><p>Pelo serviço, o CONTRATANTE pagará ${mk(br(v)+" ("+ext(v)+")")}, ${mk(pgT[$("pg").value])}.</p>`,
 `<h2>Cláusula 4ª – Da rescisão</h2><p>Qualquer das partes poderá rescindir este contrato mediante aviso por escrito com 5 dias de antecedência, sendo devidos os valores dos serviços já executados.</p>`,
 `<h2>Cláusula 5ª – Do foro</h2><p>Fica eleito o foro da comarca de Belo Horizonte, MG, para dirimir quaisquer dúvidas oriundas deste contrato.</p>`,
-`<div class="sg"><div>ATLAS SERVIÇOS GERAIS LTDA.<br>Contratada</div><div>${$("cl").value||"Contratante"}<br>Contratante</div></div>`]}
+`<div class="sg"><div>ATLAS SERVIÇOS GERAIS LTDA.<br>Contratada</div><div>${esc($("cl").value||"Contratante")}<br>Contratante</div></div>`]}
 let tm;
 function gen(anim){clearTimeout(tm);const d=$("doc"),parts=build();d.classList.remove("done");$("ok").hidden=true;
 if(!anim||matchMedia("(prefers-reduced-motion:reduce)").matches){d.innerHTML=parts.join("");$("ok").hidden=false;return}
