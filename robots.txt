@@ -3,4 +3,4 @@ Allow: /
 Disallow: /exemplos/
 Disallow: /src/
 
-Sitemap: https://mavision.com.br/sitemap.xml
+Sitemap: https://www.mavision.com.br/sitemap.xml

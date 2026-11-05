@@ -1,16 +1,16 @@
 // Gera as páginas do site em cada idioma, com todo o texto já escrito no HTML (bom para o Google).
 //   src/index.template.html + i18n.js  ->  index.html (PT), en/index.html, es/index.html, sitemap.xml, robots.txt
 // Uso: node build.js
-// Caminhos dos arquivos são relativos ({{base}}), então o site funciona tanto em mavision.com.br quanto numa subpasta (GitHub Pages).
+// Caminhos dos arquivos são relativos ({{base}}), então o site funciona tanto em www.mavision.com.br quanto numa subpasta (GitHub Pages).
 const fs = require("fs"), path = require("path"), crypto = require("crypto");
 const T = require("./i18n.js");
 
-const SITE = "https://mavision.com.br";
+const SITE = "https://www.mavision.com.br";
 const WA = "5531972014324"; // André: número principal de atendimento
 const LANGS = {
-  pt: { dir: "", hl: "pt-BR", out: "index.html" },
-  en: { dir: "en/", hl: "en", out: "en/index.html" },
-  es: { dir: "es/", hl: "es", out: "es/index.html" },
+  pt: { dir: "", hl: "pt-BR", og: "pt_BR", out: "index.html" },
+  en: { dir: "en/", hl: "en", og: "en_US", out: "en/index.html" },
+  es: { dir: "es/", hl: "es", og: "es_ES", out: "es/index.html" },
 };
 const X_DEFAULT = "en"; // versão mostrada a quem não fala nenhum dos três idiomas
 
@@ -27,7 +27,10 @@ const tpl = fs.readFileSync(path.join(__dirname, "src/index.template.html"), "ut
 function head(l) {
   const t = T[l], alt = Object.keys(LANGS).map(k => `<link rel="alternate" hreflang="${LANGS[k].hl}" href="${url(k)}">`);
   alt.push(`<link rel="alternate" hreflang="x-default" href="${url(X_DEFAULT)}">`);
-  return [`<title>${esc(t.mt)}</title>`, `<meta name="description" content="${esc(t.md)}">`, `<link rel="canonical" href="${url(l)}">`, ...alt].join("\n");
+  const img = SITE + "/og-image.jpg", og = [["og:type", "website"], ["og:site_name", "MAvision"], ["og:locale", LANGS[l].og], ...Object.keys(LANGS).filter(k => k !== l).map(k => ["og:locale:alternate", LANGS[k].og]), ["og:url", url(l)], ["og:title", t.mt], ["og:description", t.md], ["og:image", img], ["og:image:width", "1200"], ["og:image:height", "630"], ["og:image:alt", "MAvision"]]
+    .map(([p, c]) => `<meta property="${p}" content="${esc(c)}">`);
+  const tw = [["twitter:card", "summary_large_image"], ["twitter:title", t.mt], ["twitter:description", t.md], ["twitter:image", img]].map(([n, c]) => `<meta name="${n}" content="${esc(c)}">`);
+  return [`<title>${esc(t.mt)}</title>`, `<meta name="description" content="${esc(t.md)}">`, `<link rel="canonical" href="${url(l)}">`, ...alt, ...og, ...tw].join("\n");
 }
 
 function ld(l) {
@@ -37,13 +40,15 @@ function ld(l) {
     "@graph": [
       {
         "@type": "ProfessionalService", "@id": SITE + "/#mavision", name: "MAvision", url: url(l), inLanguage: LANGS[l].hl,
-        slogan: "Your vision is MAvision", description: t.hs, logo: SITE + "/icon-512.png", image: SITE + "/icon-512.png",
+        slogan: "Your vision is MAvision", description: t.hs, logo: SITE + "/icon-512.png", image: SITE + "/og-image.jpg",
         email: "mavisionsites@gmail.com", telephone: "+55-31-97201-4324",
+        address: { "@type": "PostalAddress", addressLocality: "Belo Horizonte", addressRegion: "MG", addressCountry: "BR" },
         areaServed: [{ "@type": "Country", name: "Brazil" }, { "@type": "Place", name: "North America" }, { "@type": "Place", name: "Europe" }],
         availableLanguage: ["pt-BR", "en", "es"], sameAs: ["https://instagram.com/mavisiondigital"],
         makesOffer: { "@type": "Offer", itemOffered: { "@type": "Service", name: t.s1 }, priceSpecification: { "@type": "PriceSpecification", minPrice: "349.90", priceCurrency: "BRL" } },
         hasOfferCatalog: { "@type": "OfferCatalog", name: t.st, itemListElement: ["s1", "s2", "s3", "s4", "s5"].map(k => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: t[k], description: t["d" + k.slice(1)] } })) },
       },
+      { "@type": "WebSite", "@id": SITE + "/#site", url: SITE + "/", name: "MAvision", inLanguage: LANGS[l].hl, publisher: { "@id": SITE + "/#mavision" } },
       { "@type": "FAQPage", inLanguage: LANGS[l].hl, mainEntity: [1, 2, 3, 4, 5].map(n => ({ "@type": "Question", name: t["q" + n], acceptedAnswer: { "@type": "Answer", text: t["w" + n] } })) },
     ],
   };
