@@ -45,7 +45,7 @@ function ld(l) {
         address: { "@type": "PostalAddress", addressLocality: "Belo Horizonte", addressRegion: "MG", addressCountry: "BR" },
         areaServed: [{ "@type": "Country", name: "Brazil" }, { "@type": "Place", name: "North America" }, { "@type": "Place", name: "Europe" }],
         availableLanguage: ["pt-BR", "en", "es"], sameAs: ["https://instagram.com/mavisiondigital"],
-        makesOffer: { "@type": "Offer", itemOffered: { "@type": "Service", name: t.s1 }, priceSpecification: { "@type": "PriceSpecification", minPrice: "349.90", priceCurrency: "BRL" } },
+        makesOffer: { "@type": "Offer", itemOffered: { "@type": "Service", name: t.s1 }, priceSpecification: (l === "pt" ? [["349.90", "BRL"]] : [["150", "USD"], ["150", "EUR"]]).map(([minPrice, priceCurrency]) => ({ "@type": "PriceSpecification", minPrice, priceCurrency })) },
         hasOfferCatalog: { "@type": "OfferCatalog", name: t.st, itemListElement: ["s1", "s2", "s3", "s4", "s5"].map(k => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: t[k], description: t["d" + k.slice(1)] } })) },
       },
       { "@type": "WebSite", "@id": SITE + "/#site", url: SITE + "/", name: "MAvision", inLanguage: LANGS[l].hl, publisher: { "@id": SITE + "/#mavision" } },

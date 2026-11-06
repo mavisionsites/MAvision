@@ -2,6 +2,8 @@
 if(window.top!==window.self){try{if(top.location.origin!==location.origin)throw 0}catch(e){document.documentElement.style.display="none";try{top.location.href=location.href}catch(e2){}}}
 // Each language is its own page (/, /en/, /es/) with the text already in the HTML; see build.js.
 const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),WA="5531972014324",L={"pt-BR":"pt",en:"en",es:"es"}[document.documentElement.lang]||"pt";
+// EN and ES serve both regions: show euros to visitors in Europe and dollars to visitors in the Americas
+(function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}if(L=="en"&&z.startsWith("Europe/"))$("#pv").textContent="€150";if(L=="es"&&z.startsWith("America/"))$("#pv").textContent="US$ 150"})();
 const lgO=o=>{$("#lg").classList.toggle("o",o);$("#lg>button").setAttribute("aria-expanded",o)},nvO=o=>{$("#nv").classList.toggle("o",o);$("#mb").setAttribute("aria-expanded",o)};
 $("#lg>button").onclick=()=>lgO(!$("#lg").classList.contains("o"));
 document.addEventListener("click",e=>{if(!e.target.closest("#lg"))lgO(false);if(e.target.closest("nav a"))nvO(false)});
