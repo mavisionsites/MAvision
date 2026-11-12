@@ -6,7 +6,7 @@ const fs = require("fs"), path = require("path"), crypto = require("crypto");
 const T = require("./i18n.js");
 
 const SITE = "https://www.mavision.com.br";
-const WA = "5531972014324"; // André: número principal de atendimento
+const WA = "5531993688271"; // Marcos: número principal de atendimento
 const LANGS = {
   pt: { dir: "", hl: "pt-BR", og: "pt_BR", out: "index.html" },
   en: { dir: "en/", hl: "en", og: "en_US", out: "en/index.html" },
@@ -41,7 +41,7 @@ function ld(l) {
       {
         "@type": "ProfessionalService", "@id": SITE + "/#mavision", name: "MAvision", url: url(l), inLanguage: LANGS[l].hl,
         slogan: "Your vision is MAvision", description: t.hs, logo: SITE + "/icon-512.png", image: SITE + "/og-image.jpg",
-        email: "mavisionsites@gmail.com", telephone: "+55-31-97201-4324",
+        email: "mavisionsites@gmail.com", telephone: "+55-31-99368-8271",
         address: { "@type": "PostalAddress", addressLocality: "Belo Horizonte", addressRegion: "MG", addressCountry: "BR" },
         areaServed: [{ "@type": "Country", name: "Brazil" }, { "@type": "Place", name: "North America" }, { "@type": "Place", name: "Europe" }],
         availableLanguage: ["pt-BR", "en", "es"], sameAs: ["https://instagram.com/mavisiondigital"],
