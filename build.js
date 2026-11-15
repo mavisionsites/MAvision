@@ -7,6 +7,11 @@ const T = require("./i18n.js");
 
 const SITE = "https://www.mavision.com.br";
 const WA = "5531993688271"; // Marcos: número principal de atendimento
+// E-mail de contato: fica fora do código. Defina MAVISION_EMAIL no ambiente ou numa linha MAVISION_EMAIL=... do arquivo .env.
+// Sem ele, o build gera uma prévia com um e-mail de exemplo, que não deve ser publicada.
+const PLACEHOLDER_EMAIL = "contato@exemplo.com";
+const EMAIL = process.env.MAVISION_EMAIL || (() => { try { return (fs.readFileSync(path.join(__dirname, ".env"), "utf8").match(/^MAVISION_EMAIL=(.+)$/m) || [])[1]?.trim(); } catch { return ""; } })() || PLACEHOLDER_EMAIL;
+if (EMAIL === PLACEHOLDER_EMAIL) console.warn("ATENÇÃO: MAVISION_EMAIL não definido. Páginas geradas como PRÉVIA, com e-mail de exemplo. Não publique.");
 const LANGS = {
   pt: { dir: "", hl: "pt-BR", og: "pt_BR", out: "index.html" },
   en: { dir: "en/", hl: "en", og: "en_US", out: "en/index.html" },
@@ -41,11 +46,11 @@ function ld(l) {
       {
         "@type": "ProfessionalService", "@id": SITE + "/#mavision", name: "MAvision", url: url(l), inLanguage: LANGS[l].hl,
         slogan: "Your vision is MAvision", description: t.hs, logo: SITE + "/icon-512.png", image: SITE + "/og-image.jpg",
-        email: "mavisionsites@gmail.com", telephone: "+55-31-99368-8271",
+        email: EMAIL, telephone: "+55-31-99368-8271",
         address: { "@type": "PostalAddress", addressLocality: "Belo Horizonte", addressRegion: "MG", addressCountry: "BR" },
         areaServed: [{ "@type": "Country", name: "Brazil" }, { "@type": "Place", name: "North America" }, { "@type": "Place", name: "Europe" }],
         availableLanguage: ["pt-BR", "en", "es"], sameAs: ["https://instagram.com/mavisiondigital"],
-        makesOffer: { "@type": "Offer", itemOffered: { "@type": "Service", name: t.s1 }, priceSpecification: (l === "pt" ? [["349.90", "BRL"]] : [["150", "USD"], ["150", "EUR"]]).map(([minPrice, priceCurrency]) => ({ "@type": "PriceSpecification", minPrice, priceCurrency })) },
+        makesOffer: { "@type": "Offer", itemOffered: { "@type": "Service", name: t.s1 }, priceSpecification: (l === "pt" ? [["549.90", "BRL"]] : [["150", "USD"], ["150", "EUR"]]).map(([minPrice, priceCurrency]) => ({ "@type": "PriceSpecification", minPrice, priceCurrency })) },
         hasOfferCatalog: { "@type": "OfferCatalog", name: t.st, itemListElement: ["s1", "s2", "s3", "s4", "s5"].map(k => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: t[k], description: t["d" + k.slice(1)] } })) },
       },
       { "@type": "WebSite", "@id": SITE + "/#site", url: SITE + "/", name: "MAvision", inLanguage: LANGS[l].hl, publisher: { "@id": SITE + "/#mavision" } },
@@ -65,7 +70,7 @@ function page(l) {
   h = h.replace(/(<\w+\b[^>]*\sdata-p="(\w+)")/g, (m, a, k) => `${a} placeholder="${esc(need(k))}"`);
   h = h.replace(/<(\w+)\b([^>]*)\sdata-a="(\w+)"/g, (m, tag, a, k) => `<${tag}${a} data-a="${k}" ${tag.toLowerCase() === "iframe" ? "title" : "aria-label"}="${esc(need(k))}"`);
   h = h.replace(/<div class="g"><\/div>/g, '<div class="g">' + Array(6).fill(t.mq.map(w => `<span>${esc(w)}</span><span>✦</span>`).join("")).join("") + "</div>");
-  h = h.replace(new RegExp(`(<a [^>]*data-l="${l}")`), '$1 aria-current="true"');
+  h = h.replace(new RegExp(`(<a [^>]*data-l="${l}")`), '$1 aria-current="true"').split("{{email}}").join(esc(EMAIL));
   const left = h.match(/\{\{\w+\}\}|<(\w+)\b[^>]*\sdata-t="\w+"[^>]*><\/\1>/g);
   if (left) throw new Error(`Sobrou algo sem preencher em ${l}: ${left.slice(0, 3).join(" ")}`);
   return h.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n<!-- Gerado por build.js a partir de src/index.template.html e i18n.js. Não edite este arquivo; edite o modelo e rode: node build.js -->");
