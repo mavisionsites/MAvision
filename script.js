@@ -7,10 +7,10 @@ const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s),WA="5531
 (function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}const p=$("#price");if(L=="en"&&z.startsWith("Europe/"))p.textContent="€150";if(L=="es"&&z.startsWith("America/"))p.textContent="US$ 150"})();
 
 // top bar: language menu, mobile menu
-const lgO=o=>{$("#lg").classList.toggle("o",o);$("#lg>button").setAttribute("aria-expanded",o)},nvO=o=>{$("#nv").classList.toggle("o",o);$("#mb").setAttribute("aria-expanded",o)};
+const lgO=o=>{$("#lg").classList.toggle("o",o);$("#lg>button").setAttribute("aria-expanded",o)},nvO=o=>{$("#mp").classList.toggle("o",o);$("#mb").setAttribute("aria-expanded",o)};
 $("#lg>button").onclick=()=>lgO(!$("#lg").classList.contains("o"));
-$("#mb").onclick=()=>nvO(!$("#nv").classList.contains("o"));
-document.addEventListener("click",e=>{if(!e.target.closest("#lg"))lgO(false);if(e.target.closest("#nv a")||!e.target.closest(".bar"))nvO(false)});
+$("#mb").onclick=()=>nvO(!$("#mp").classList.contains("o"));$("#mpc").onclick=()=>nvO(false);
+document.addEventListener("click",e=>{if(!e.target.closest("#lg"))lgO(false);if(e.target.closest("#mp a")||!e.target.closest(".bar"))nvO(false)});
 document.addEventListener("keydown",e=>{if(e.key=="Escape"){lgO(false);nvO(false)}});
 $("#pvb").onclick=()=>$("#dg").showModal();
 
@@ -43,7 +43,7 @@ const wio=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("
 if(!RM)$$(".wk").forEach(w=>wio.observe(w));
 
 // scroll-linked: the hero site straightens up, the process line fills, the bar gains its backdrop
-const tp=$("#tp"),bar=$("#bar"),mock=$("#mock"),phone=$(".m-phone"),tl=$("#tl"),steps=[...$$("#tl li")],links=[...$$("#nv a")],secs=links.map(a=>$(a.getAttribute("href")));
+const tp=$("#tp"),bar=$("#bar"),mock=$("#mock"),phone=$(".m-phone"),tl=$("#tl"),steps=[...$$("#tl li")],links=[...$$("#nv a,#mp nav a")],secs=links.map(a=>$(a.getAttribute("href")));
 let ticking=false;
 function frame(){ticking=false;const y=scrollY,vh=innerHeight;
   bar.classList.toggle("s",y>24);tp.classList.toggle("s",y>600);
