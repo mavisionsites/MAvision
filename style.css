@@ -336,6 +336,7 @@ main,.foot{position:relative;z-index:1}
 .mb{display:none;align-items:center;height:38px;padding:0 16px;border-radius:999px;border:0;background:var(--f);color:var(--ink);font:600 14px var(--ff);cursor:pointer}
 .mp{display:none}
 @media(max-width:1080px){
+  .mb{display:inline-flex}
   .mp{display:block;position:fixed;z-index:80;top:calc(10px + env(safe-area-inset-top,0px));right:12px;left:12px;margin-left:auto;max-width:400px;padding:14px 14px 16px;border-radius:26px;background:rgba(16,13,26,.82);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);box-shadow:0 28px 70px -18px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.14),inset 0 1px 0 rgba(255,255,255,.18);transform-origin:100% 0;transform:scale(.6);opacity:0;visibility:hidden;transition:transform .4s var(--ease),opacity .25s,visibility 0s .4s}
   .mp.o{transform:none;opacity:1;visibility:visible;transition:transform .4s var(--ease),opacity .25s}
   .mp-h{display:flex;align-items:center;justify-content:space-between;padding:0 0 10px 14px}
