@@ -7,7 +7,22 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],WA=
 (function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}const p=$("#price");if(L=="en"&&z.startsWith("Europe/"))p.textContent="€150";if(L=="es"&&z.startsWith("America/"))p.textContent="US$ 150"})();
 
 // opening: the violet square leaves after its animation (shown once per visit, see boot.js)
-setTimeout(()=>$("#intro").classList.add("done"),RM||SEEN?0:2000);
+const intro=$("#intro");setTimeout(()=>intro.classList.add("done"),RM||SEEN?0:3000);intro.addEventListener("click",()=>intro.classList.add("done"));
+// the opening's aurora: three curtains of thin vertical rays that wave and change colour (only while the opening is on screen)
+(function(){if(RM||SEEN)return;const sq=intro.querySelector(".intro-sq"),c=document.createElement("canvas");c.className="auc";sq.prepend(c);const x=c.getContext("2d");let w,h,d;
+  function rs(){d=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d}rs();
+  const G=[178,192,215,250,272,296,320].map(hh=>{const g=x.createLinearGradient(0,0,0,1);g.addColorStop(0,`hsla(${hh},100%,70%,0)`);g.addColorStop(.55,`hsla(${hh},100%,66%,.18)`);g.addColorStop(.9,`hsla(${hh},100%,80%,.95)`);g.addColorStop(1,`hsla(${hh},100%,85%,0)`);return g});
+  const cur=[{b:.42,a:.075,f:.0032,sp:.7,hg:.3,ph:0},{b:.56,a:.06,f:.0047,sp:-.5,hg:.22,ph:2.1},{b:.3,a:.05,f:.0026,sp:.4,hg:.2,ph:4.2}],t0=performance.now();
+  function fr(now){if(intro.classList.contains("done"))return;const t=(now-t0)/1000;x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,c.width,c.height);x.globalCompositeOperation="lighter";
+    for(const k of cur)for(let px=0;px<w;px+=2){
+      const y=h*(k.b+k.a*Math.sin(px*k.f+t*k.sp+k.ph)+.025*Math.sin(px*k.f*3.3-t*1.4+k.ph));
+      const hh=h*k.hg*(.55+.45*Math.sin(px*.012+t*1.6+k.ph)*Math.sin(px*.0043-t*.5+k.ph));
+      let q=(px/w*.9+t*.06+k.ph*.13)%1;const gi=Math.min(6,Math.floor(q*7));
+      const edge=Math.min(1,Math.min(px,w-px)/(w*.16));x.globalAlpha=edge*(.5+.5*Math.pow(Math.sin(px*.06+t*2.2+k.ph),2))*.8;
+      x.setTransform(d,0,0,d*Math.max(4,hh),px*d,(y-hh)*d);x.fillStyle=G[gi];x.fillRect(0,0,1.6,1)}
+    x.globalAlpha=1;requestAnimationFrame(fr)}
+  requestAnimationFrame(fr)})();
+
 
 // top bar: language menu, phone menu, privacy policy
 const lgO=o=>{$("#lg").classList.toggle("o",o);$("#lg>button").setAttribute("aria-expanded",o)},nvO=o=>{$("#mp").classList.toggle("o",o);$("#mb").setAttribute("aria-expanded",o)};
@@ -19,8 +34,8 @@ $("#pvb").onclick=()=>$("#dg").showModal();
 
 // reveal: parts rise and come into focus as they arrive
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});
-$$(".rv").forEach((el,i)=>{if(el.closest(".hero"))el.style.transitionDelay=(RM?0:(SEEN?.1:1.1)+i*.08)+"s";io.observe(el)});
-setTimeout(()=>$$(".hero .rv").forEach(el=>el.style.transitionDelay=""),3000);
+$$(".rv").forEach((el,i)=>{if(el.closest(".hero"))el.style.transitionDelay=(RM?0:(SEEN?.1:2.1)+i*.08)+"s";io.observe(el)});
+setTimeout(()=>$$(".hero .rv").forEach(el=>el.style.transitionDelay=""),4000);
 
 // hero: the visitor's business name runs through the five steps
 (function(){const biz=$("#biz"),slug=$("#slug"),dom=$("#dom"),stx=$("#stx"),want=$("#want"),nodes=$$(".node");
@@ -36,12 +51,12 @@ setTimeout(()=>$$(".hero .rv").forEach(el=>el.style.transitionDelay=""),3000);
     want.href="https://wa.me/"+WA+"?text="+encodeURIComponent(t.lvm+(name||"…"))}
   let deb;biz.addEventListener("input",()=>{paint();clearTimeout(deb);deb=setTimeout(run,250)});
   $("#pipe").addEventListener("submit",e=>{e.preventDefault();want.click()});
-  paint();setTimeout(run,RM?0:(SEEN?400:1600))})();
+  paint();setTimeout(run,RM?0:(SEEN?400:2600))})();
 
 // about: the words light up as the violet field crosses the screen
 const words=$("#words"),field=$("#field");
-words.innerHTML=words.textContent.trim().split(/\s+/).map(w=>"<span>"+w.replace(/&/g,"&amp;").replace(/</g,"&lt;")+"</span>").join(" ");
-const ws=$$("#words span");
+[...words.children].forEach(c=>{const ws=c.textContent.trim().split(/\s+/);c.textContent="";ws.forEach((w,i)=>{const s=document.createElement("span");s.className="w";s.textContent=w;c.appendChild(s);if(i<ws.length-1)c.appendChild(document.createTextNode(" "))})});
+const ws=$$("#words .w");
 function lightWords(){const r=field.getBoundingClientRect(),vh=innerHeight,p=RM?1:Math.min(1,Math.max(0,(vh*.85-r.top)/(r.height+vh*.2))),n=Math.round(p*ws.length*1.15);ws.forEach((w,i)=>w.classList.toggle("on",i<n))}
 
 // process: tap a prism to read its step
@@ -72,9 +87,10 @@ const tel=()=>$("#w").value.replace(/\D/g,"").length,telOk=()=>L=="pt"?tel()>=10
 if(L!="pt")$("#w").addEventListener("input",e=>{e.target.value=e.target.value.replace(/[^\d+\-() ]/g,"").replace(/(?!^)\+/g,"").slice(0,20)});
 else $("#w").addEventListener("input",e=>{const d=e.target.value.replace(/\D/g,"").slice(0,11);let o="";if(d.length)o="("+d.slice(0,2);if(d.length>2)o+=") "+d.slice(2,3);if(d.length>3)o+=" "+d.slice(3,7);if(d.length>7)o+="-"+d.slice(7);e.target.value=o});
 $("#fm").addEventListener("submit",e=>{e.preventDefault();const f=$("#fm"),v=id=>$("#"+id).value.trim(),rs=$("#rs");
-  if(!v("n")||!telOk()||!v("x")){rs.textContent=t.zBad;rs.classList.add("err");return}
+  if(!v("n")||!telOk()||!v("m")||!$("#m").checkValidity()||!v("x")){rs.textContent=t.bad;rs.classList.add("err");return}
   rs.classList.remove("err");rs.textContent=t.resp;
-  const ln=[t.wam,"","*"+t.ln+":* "+v("n"),"*WhatsApp:* "+v("w"),"","*"+t.lx+"*",v("x")];
+  const sv=$$("#fm input[name=sv]:checked").map(c=>t["zSv"+c.value]).join(", ");
+  const ln=[t.wam,"","*"+t.ln+":* "+v("n"),"*"+t.le+":* "+(v("e")||"-"),"*WhatsApp:* "+v("w"),"*E-mail:* "+v("m")].concat(sv?["*"+t.zNeedW+":* "+sv]:[],["","*"+t.lx+"*",v("x")]);
   window.open("https://wa.me/"+WA+"?text="+ln.map(s=>encodeURIComponent(s)).join("%0A"),"_blank","noopener,noreferrer");f.reset()});
 
 // scroll: bar backdrop, back-to-top, active link, the about words
