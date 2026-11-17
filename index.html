@@ -34,195 +34,210 @@
 <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#07060c">
+<meta name="theme-color" content="#07060b">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://www.mavision.com.br/#mavision","name":"MAvision","url":"https://www.mavision.com.br/","inLanguage":"pt-BR","slogan":"Your vision is MAvision","description":"Sites, sistemas e automações com IA em Belo Horizonte e para todo o Brasil, feitos para atrair, convencer e converter.","logo":"https://www.mavision.com.br/icon-512.png","image":"https://www.mavision.com.br/og-image.jpg","email":"mavisionsites@gmail.com","telephone":"+55-31-99368-8271","address":{"@type":"PostalAddress","addressLocality":"Belo Horizonte","addressRegion":"MG","addressCountry":"BR"},"areaServed":[{"@type":"Country","name":"Brazil"},{"@type":"Place","name":"North America"},{"@type":"Place","name":"Europe"}],"availableLanguage":["pt-BR","en","es"],"sameAs":["https://instagram.com/mavisiondigital"],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sites institucionais"},"priceSpecification":[{"@type":"PriceSpecification","minPrice":"549.90","priceCurrency":"BRL"}]},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sites institucionais","description":"Criação a partir de modelos prontos ou de um site informativo com estrutura simples e objetiva."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sites sob medida e design avançado","description":"Desenvolvidos conforme a sua solicitação: temática, cores principais, animações básicas, imagens e textos."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Ajuste de textos para SEO","description":"Revisão do conteúdo do site com métodos de SEO para ampliar a visibilidade no Google."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Automação com Inteligência Artificial","description":"Automatização de processos, como a criação e instalação de um sistema básico de emissão de contratos."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Orçamento e viabilidade de sistemas","description":"Avaliamos a necessidade e a viabilidade de um sistema personalizado e apresentamos o orçamento."}}]}},{"@type":"WebSite","@id":"https://www.mavision.com.br/#site","url":"https://www.mavision.com.br/","name":"MAvision","inLanguage":"pt-BR","publisher":{"@id":"https://www.mavision.com.br/#mavision"}},{"@type":"FAQPage","inLanguage":"pt-BR","mainEntity":[{"@type":"Question","name":"Quanto tempo leva para criar um site?","acceptedAnswer":{"@type":"Answer","text":"Sites institucionais costumam levar de 2 a 5 dias úteis. Projetos sob medida variam conforme a complexidade."}},{"@type":"Question","name":"O site funcionará bem no celular?","acceptedAnswer":{"@type":"Answer","text":"Sim. Todos os projetos são responsivos e otimizados para diferentes aparelhos."}},{"@type":"Question","name":"Vocês cuidam do SEO?","acceptedAnswer":{"@type":"Answer","text":"Sim. Ajustamos textos e estrutura para melhorar o posicionamento no Google."}},{"@type":"Question","name":"Posso pedir um sistema personalizado?","acceptedAnswer":{"@type":"Answer","text":"Sim. Avaliamos a viabilidade e enviamos um orçamento conforme a sua necessidade."}},{"@type":"Question","name":"Como funciona o pagamento?","acceptedAnswer":{"@type":"Answer","text":"As condições são definidas no orçamento, depois de entendermos o escopo do projeto."}}]}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" id="gf" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=Montserrat:wght@300;400;600;700;800&display=swap">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=Montserrat:wght@300;400;600;700;800&display=swap"></noscript>
+<link rel="preload" as="style" id="gf" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 <link rel="stylesheet" href="style.css">
 <script src="boot.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">MAvision</a>
-<div class="bg" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i></div>
 
-<header class="bar" id="bar"><div class="w bar-in">
-<a class="brand" href="#hero" aria-label="MAvision"><img src="logo-sm.webp" alt="" width="180" height="134"><span><b>MA</b>vision</span></a>
-<nav id="nv" aria-label="MAvision"><a href="#cases" data-t="n3">Cases</a><a href="#servicos" data-t="n2">Serviços</a><a href="#preco" data-t="k1x">Preço</a><a href="#processo" data-t="n4">Processo</a><a href="#faq">FAQ</a></nav>
+<!-- opening: the violet square with the M shrinks into the page (first visit of the session only) -->
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-sq"><span class="intro-ic"><img src="logo-sm.webp" alt="" width="180" height="134"></span></div></div>
+<canvas id="ribbon" aria-hidden="true"></canvas>
+
+<header class="bar" id="bar">
+<a class="brand" href="#hero" aria-label="MAvision"><span class="mk"><img src="logo-sm.webp" alt="" width="180" height="134"></span>MAvision</a>
+<nav id="nv" aria-label="MAvision"><a href="#cases" data-t="n3">Cases</a><a href="#servicos" data-t="n2">Serviços</a><a href="#processo" data-t="n4">Processo</a><a href="#preco" data-t="k1x">Preço</a><a href="#faq">FAQ</a></nav>
 <div class="tools">
+<span class="live mono"><i></i><span data-t="zLive">3 sites no ar</span></span>
 <div class="lang" id="lg"><button type="button" aria-haspopup="true" aria-expanded="false" data-a="al" aria-label="Idioma"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5a14.5 14.5 0 010 19M12 2.5a14.5 14.5 0 000 19"/></svg><span id="lc">PT</span></button>
 <ul><li><a href="./" hreflang="pt-BR" lang="pt-BR" data-l="pt" aria-current="true">Português</a></li><li><a href="en/" hreflang="en" lang="en" data-l="en">English</a></li><li><a href="es/" hreflang="es" lang="es" data-l="es">Español</a></li></ul></div>
-<a class="btn btn-sm" href="#contato" data-t="b1">Solicitar orçamento</a>
+<a class="btn btn-v btn-sm" href="#contato" data-t="b1">Solicitar orçamento</a>
 <button class="mb" id="mb" type="button" aria-expanded="false" aria-controls="mp" data-a="am" aria-label="Abrir menu"><span data-t="mnu">Menu</span></button>
-</div></div>
+</div>
 <div class="mp" id="mp">
 <div class="mp-h"><span data-t="mnu">Menu</span><button type="button" class="mp-x" id="mpc" data-t="mcl">Fechar</button></div>
-<nav class="mp-n" aria-label="MAvision"><a href="#hero" data-t="mhm">Início</a><a href="#cases" data-t="n3">Cases</a><a href="#servicos" data-t="n2">Serviços</a><a href="#preco" data-t="k1x">Preço</a><a href="#processo" data-t="n4">Processo</a><a href="#sobre" data-t="n1">Sobre</a><a href="#faq">FAQ</a><a href="#contato" data-t="n5">Contato</a></nav>
+<nav class="mp-n" aria-label="MAvision"><a href="#hero" data-t="mhm">Início</a><a href="#cases" data-t="n3">Cases</a><a href="#sobre" data-t="n1">Sobre</a><a href="#servicos" data-t="n2">Serviços</a><a href="#processo" data-t="n4">Processo</a><a href="#preco" data-t="k1x">Preço</a><a href="#faq">FAQ</a><a href="#contato" data-t="n5">Contato</a></nav>
 <div class="mp-l"><a href="./" hreflang="pt-BR" lang="pt-BR" data-l="pt" aria-current="true">PT</a><a href="en/" hreflang="en" lang="en" data-l="en">EN</a><a href="es/" hreflang="es" lang="es" data-l="es">ES</a></div>
-</div></header>
+</div>
+</header>
 
 <main id="main">
-<!-- HERO: headline, then the visitor builds their own site -->
+
+<!-- HERO: the visitor's business runs through the five steps -->
 <section class="hero" id="hero">
-<div class="hero-grid" aria-hidden="true"></div>
-<div class="w hero-in">
-<a class="chip chip-hero r0" href="#contato"><b data-t="hi">Olá!</b><span data-t="badge">Pronto para começar?</span><i aria-hidden="true">→</i></a>
-<h1 class="r0"><span data-t="h1a">Criação de sites que</span> <em data-t="h1b">elevam a sua empresa</em></h1>
-<p class="lead r0" data-t="hs">Sites, sistemas e automações com IA em Belo Horizonte e para todo o Brasil, feitos para atrair, convencer e converter.</p>
-<div class="hero-acts r0"><a class="btn btn-lg" href="#contato"><span data-t="b1">Solicitar orçamento</span><i class="ar" aria-hidden="true">→</i></a><a class="btn btn-ghost btn-lg" id="wb" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1121 11.5z"/></svg><span data-t="bw">Falar no WhatsApp</span></a></div>
+<div class="hero-copy">
+<span class="tag mono rv"><i></i><span data-t="zTag">belo horizonte / todo o brasil</span></span>
+<h1 class="rv"><span data-t="zHa">Sites que trabalham</span><br><em data-t="zHb">por você.</em></h1>
+<p class="lead rv" data-t="zLead">Sites, sistemas e automações com IA, feitos para serem encontrados no Google, abrirem rápido no celular e levarem o cliente direto para o seu WhatsApp.</p>
+<div class="ctas rv"><a class="btn btn-v" href="#contato" data-t="b1">Solicitar orçamento</a><a class="btn btn-g" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer"><span class="pl" aria-hidden="true">▸</span><span data-t="bw">Falar no WhatsApp</span></a></div>
+<p class="fine mono rv" data-t="zFine">orçamento em 24h / no ar em 2 a 5 dias úteis / a partir de R$ 549,90</p>
 </div>
 
-<div class="w stage r0" id="stage">
-<form class="cmd" id="live" novalidate>
-<label for="lvn" data-t="lvl">Como se chama o seu negócio?</label>
-<div class="cmd-row">
-<input id="lvn" maxlength="40" autocomplete="organization" data-p="lvp" placeholder="Ex.: Padaria Pão de Minas">
-<div class="sw" role="radiogroup" aria-labelledby="lvcl"><span id="lvcl" class="vh" data-t="lvc">Cor da marca</span><input type="radio" name="lvc" id="c1" value="#7c5cff" checked><label for="c1" style="--c:#7c5cff" aria-label="Roxo"></label><input type="radio" name="lvc" id="c2" value="#10b981"><label for="c2" style="--c:#10b981" aria-label="Verde"></label><input type="radio" name="lvc" id="c3" value="#f97316"><label for="c3" style="--c:#f97316" aria-label="Laranja"></label><input type="radio" name="lvc" id="c4" value="#3b82f6"><label for="c4" style="--c:#3b82f6" aria-label="Azul"></label><input type="radio" name="lvc" id="c5" value="#e11d74"><label for="c5" style="--c:#e11d74" aria-label="Rosa"></label></div>
-<a class="btn" id="lvb" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer" data-t="lvb">Quero um site assim</a>
+<form class="pipe rv" id="pipe" novalidate>
+<div class="pipe-top mono"><span><span data-t="zProj">projeto</span> / <b id="slug" data-t="zSlug">seu-negocio</b></span><span class="dim" data-t="zSteps">5 etapas · 1 entrega</span><span class="st" id="st"><i></i><em id="stx" data-t="zBuild">construindo</em></span></div>
+<label class="pipe-in" for="biz"><span class="mono" data-t="lvl">Como se chama o seu negócio?</span></label>
+<input id="biz" type="text" maxlength="40" autocomplete="organization" data-p="lvp" placeholder="Ex.: Padaria Pão de Minas">
+<div class="graph" aria-hidden="true">
+<svg class="wires" viewBox="0 0 600 260" preserveAspectRatio="none"><path d="M118 130 C150 130,150 130,182 130"/><path d="M298 130 C330 130,330 62,362 62"/><path d="M298 130 C330 130,330 198,362 198"/><path d="M478 62 C500 62,500 130,516 130"/><path d="M478 198 C500 198,500 130,516 130"/><path class="flow" d="M118 130 C150 130,150 130,182 130"/><path class="flow" d="M298 130 C330 130,330 62,362 62"/><path class="flow" d="M298 130 C330 130,330 198,362 198"/><path class="flow" d="M478 62 C500 62,500 130,516 130"/><path class="flow" d="M478 198 C500 198,500 130,516 130"/></svg>
+<div class="node n1" data-k="0"><b data-t="zN1">Briefing</b><span class="mono" data-t="zN1s">whatsapp · 24h</span></div>
+<div class="node n2" data-k="1"><b data-t="zN2">Layout</b><span class="mono" data-t="zN2s">aprovado por você</span></div>
+<div class="node n3" data-k="2"><b data-t="zN3">SEO</b><span class="mono" data-t="zN3s">título · schema</span></div>
+<div class="node n4" data-k="2"><b data-t="zN4">Celular</b><span class="mono" data-t="zN4s">390px → 1440px</span></div>
+<div class="node n5" data-k="3"><b data-t="zN5">No ar</b><span class="mono" id="dom" data-t="zDom">seunegocio.com.br</span></div>
 </div>
+<div class="log mono"><span class="dim" data-t="zLog">últimas entregas</span>
+<ul><li><i></i>www.bouzada.com.br<span data-t="zC1">advocacia</span><em data-t="zOn">no ar</em></li><li><i></i>rumobh.onrender.com<span data-t="zC2">app / educação</span><em data-t="zOn">no ar</em></li><li><i></i>www.lenmel.com.br<span data-t="zC3">consultoria</span><em data-t="zOn">no ar</em></li></ul></div>
+<a class="btn btn-v btn-block" id="want" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer"><span data-t="lvb">Quero um site assim</span> →</a>
 </form>
-<div class="tilt" id="tilt">
-<div class="mock" id="mock" data-ui aria-hidden="true">
-<div class="m-top"><i></i><i></i><i></i><span class="m-url"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg><span id="lvurl">suamarca</span>.com.br</span><span class="m-live" data-t="mon">No ar</span></div>
-<div class="m-body">
-<div class="m-nav"><span class="m-logo"><i id="lvini">S</i><b class="lvname" data-t="mk">Sua marca</b></span><span data-t="n2">Serviços</span><span data-t="n1">Sobre</span><span data-t="n5">Contato</span><span class="m-cta" data-t="mag">Agendar</span></div>
-<div class="m-hero"><div><b class="m-name"><span class="lvh" data-t="mhn">Seu negócio</span><span data-t="mhx">, pronto para ser</span> <em data-t="mhy">encontrado.</em></b><p data-t="mp">Serviços, horários e contato no mesmo lugar.</p><div class="m-btns"><span data-t="bw">Falar no WhatsApp</span><span data-t="b2">Conheça os serviços</span></div></div><div class="m-pic"><span class="m-grid"></span><span class="m-arc"></span></div></div>
-<div class="m-feat"><div><i><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></i><b data-t="n2">Serviços</b><small data-t="mc1">Tudo o que você oferece.</small></div><div><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><b data-t="mc2t">Horários</b><small data-t="mc2">Sempre atualizados.</small></div><div><i><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><b data-t="mc3t">Onde fica</b><small data-t="mc3">Rota em um toque.</small></div></div>
+</section>
+
+<!-- STATEMENT -->
+<section class="state">
+<span class="tag mono rv"><i></i><span data-t="zPb">o problema</span></span>
+<h2 class="rv"><span data-t="zSa">A maior parte de um site é</span> <em data-t="zSb">invisível</em>.</h2>
+<div class="state-g">
+<p class="rv" data-t="zSp">Título que o Google entende. Página que abre em um segundo no 4G. Botão que leva para o WhatsApp certo. Ninguém elogia essas coisas, mas é por elas que o cliente chega até você.</p>
+<ul class="mono rv"><li><b data-t="zL1">SEO</b><span data-t="zL1t">textos e estrutura para ranquear</span></li><li><b data-t="zL2">Velocidade</b><span data-t="zL2t">imagens leves, nada sobrando</span></li><li><b data-t="zL3">Celular</b><span data-t="zL3t">pensado primeiro para a tela pequena</span></li><li><b data-t="zL4">1 canal</b><span data-t="zL4t">todo contato cai no seu WhatsApp</span></li></ul>
 </div>
+</section>
+
+<!-- CASES -->
+<section class="sec" id="cases">
+<div class="sh"><span class="tag mono rv"><i></i><span data-t="n3">Cases</span></span><h2 class="rv"><span data-t="zCa">Projetos reais,</span> <em data-t="zCb">no ar</em> <span data-t="zCc">agora.</span></h2><p class="rv" data-t="zCd">Passe o mouse sobre um case para rolar a página inteira.</p></div>
+<div class="cases">
+<a class="case rv" href="https://www.bouzada.com.br/" target="_blank" rel="noopener noreferrer"><div class="cbar mono"><i></i><i></i><i></i><span>www.bouzada.com.br</span><em data-t="zOn">no ar</em></div><div class="shot"><img src="projeto-bouzada.webp" alt="Página inicial do site da Bouzada Advogados, escritório de advocacia em Belo Horizonte" width="820" height="8416" loading="lazy"></div><div class="cap"><span class="mono" data-t="zK1">01 / advocacia</span><h3>Bouzada Advogados</h3><p data-t="p3">Site do escritório Bouzada Advogados, em Belo Horizonte, para militares, servidores públicos, concursos e direito tributário, com teses em destaque e uma verificação rápida que envia o caso pronto para o WhatsApp.</p><span class="go" data-t="vs">Visitar o site</span></div></a>
+<a class="case rv" href="https://rumobh.onrender.com/" target="_blank" rel="noopener noreferrer"><div class="cbar mono"><i></i><i></i><i></i><span>rumobh.onrender.com</span><em data-t="zOn">no ar</em></div><div class="shot"><img src="projeto-rumo.webp" alt="Página inicial do RUMO, app para escolher faculdade" width="820" height="9760" loading="lazy"></div><div class="cap"><span class="mono" data-t="zK2">02 / app de educação</span><h3>RUMO</h3><p data-t="p2">Site de apresentação do RUMO, app que ajuda estudantes a escolher a faculdade comparando mensalidade, bolsas, nota do MEC e distância, com recomendações para o perfil e chat com IA.</p><span class="go" data-t="vs">Visitar o site</span></div></a>
+<a class="case rv" href="https://www.lenmel.com.br" target="_blank" rel="noopener noreferrer"><div class="cbar mono"><i></i><i></i><i></i><span>www.lenmel.com.br</span><em data-t="zOn">no ar</em></div><div class="shot"><img src="projeto-lenmel.webp" alt="Página inicial do site da LENMEL, consultoria empresarial e tributária" width="820" height="6230" loading="lazy"></div><div class="cap"><span class="mono" data-t="zK3">03 / consultoria</span><h3>LENMEL</h3><p data-t="p1">Site institucional de uma empresa de consultoria empresarial e tributária, para divulgar serviços e informações da empresa.</p><span class="go" data-t="vs">Visitar o site</span></div></a>
 </div>
-<div class="m-phone" aria-hidden="true"><div class="m-nav"><span class="m-logo"><i class="lvini2">S</i><b class="lvname" data-t="mk">Sua marca</b></span><b class="m-burger"><i></i><i></i><i></i></b></div><b class="m-name"><span class="lvh" data-t="mhn">Seu negócio</span><span data-t="mhx">, pronto para ser</span> <em data-t="mhy">encontrado.</em></b><p data-t="mp">Serviços, horários e contato no mesmo lugar.</p><span class="m-b" data-t="bw">Falar no WhatsApp</span><div class="m-pic"><span class="m-grid"></span><span class="m-arc"></span></div></div>
+<a class="next rv" href="#contato"><span class="plus" aria-hidden="true">+</span><span><b data-t="ch">Seu case aqui</b><small data-t="cx">Case dedicado a um futuro cliente da MAvision. Este espaço está reservado para o próximo projeto, e pode ser o seu.</small></span><span class="go" data-t="cv">Quero ser o próximo case</span></a>
+</section>
+
+<!-- ABOUT: the violet field, words light up as you scroll -->
+<section class="field-w" id="sobre">
+<div class="field" id="field">
+<img class="field-m" src="logo-sm.webp" alt="" width="180" height="134" loading="lazy">
+<h2 class="mono" data-t="zWho">quem somos</h2>
+<p class="words" id="words" data-t="zMan">A MAvision nasceu de um problema que se repete: empresas que pagaram por um site e não viram resultado. Por isso a gente começa olhando o que você já tem, entende como foi feito, e só então muda o que precisa mudar.</p>
 </div>
-<div class="facts">
-<p><b>24h</b><span data-t="k2">para receber o orçamento</span></p>
-<p><b data-t="k3v">2 a 5</b><span data-t="k3">dias úteis para o site ir ao ar</span></p>
-<p><b>100%</b><span data-t="x4full">Funciona no celular, no tablet e no computador</span></p>
-<p><b>5</b><span data-t="x2">serviços digitais</span></p>
+</section>
+
+<!-- SERVICES: each card opens a working example -->
+<section class="sec" id="servicos">
+<div class="sh sh-row"><div><span class="tag mono rv"><i></i><span data-t="n2">Serviços</span></span><h2 class="rv"><span data-t="zVa">Cinco serviços,</span> <em data-t="zVb">um</em> <span data-t="zVc">atendimento.</span></h2></div><p class="rv" data-t="zVd">Do site simples ao sistema sob medida. Cada cartão abre um exemplo do que entregamos.</p></div>
+<div class="bento">
+<article class="sv sv-a ex rv" data-ex="exemplos/institucional.html" tabindex="0" role="button"><div class="sv-t"><span class="mono">01</span><h3 data-t="s1">Sites institucionais</h3><p data-t="d1">Criação a partir de modelos prontos ou de um site informativo com estrutura simples e objetiva.</p><span class="go" data-t="vx">Ver exemplo</span></div><div class="sv-img"><img src="img/ex-institucional.webp" alt="Exemplo de site institucional para um escritório de contabilidade" width="1264" height="790" loading="lazy"></div></article>
+<article class="sv sv-b ex rv" data-ex="exemplos/sob-medida.html" tabindex="0" role="button"><div class="sv-t"><span class="mono">02</span><h3 data-t="s2">Sites sob medida e design avançado</h3><p data-t="d2">Desenvolvidos conforme a sua solicitação: temática, cores principais, animações básicas, imagens e textos.</p><span class="go" data-t="vx">Ver exemplo</span></div><div class="sw" aria-hidden="true"><i style="--c:#7B5CFF"></i><i style="--c:#E85D75"></i><i style="--c:#F2B544"></i><i style="--c:#3FB68B"></i><i style="--c:#4EA8F5"></i></div></article>
+<article class="sv sv-c ex rv" data-ex="exemplos/seo.html" tabindex="0" role="button"><div class="sv-t"><span class="mono">03</span><h3 data-t="s3">Ajuste de textos para SEO</h3><p data-t="d3">Revisão do conteúdo do site com métodos de SEO para ampliar a visibilidade no Google.</p><span class="go" data-t="vx">Ver exemplo</span></div><div class="serp" aria-hidden="true"><div class="mono" data-t="zSerp">google.com / criação de sites bh</div><div class="r r1"><span>1</span><b data-t="mhn">Seu negócio</b></div><div class="r"><span>2</span><i></i></div><div class="r"><span>3</span><i></i></div></div></article>
+<article class="sv sv-d ex rv" data-ex="exemplos/automacao.html" tabindex="0" role="button"><div class="sv-t"><span class="mono">04</span><h3 data-t="s4">Automação com Inteligência Artificial</h3><p data-t="d4">Automatização de processos, como a criação e instalação de um sistema básico de emissão de contratos.</p><span class="go" data-t="vx">Ver exemplo</span></div><div class="run mono" aria-hidden="true"><div><span data-t="zR1">✓ ler pedido</span><i style="--w:80%"></i></div><div><span data-t="zR2">✓ preencher contrato</span><i style="--w:56%"></i></div><div><span data-t="zR3">→ enviar para assinar</span><i style="--w:22%"></i></div></div></article>
+<article class="sv sv-e ex rv" data-ex="exemplos/viabilidade.html" tabindex="0" role="button"><div class="sv-t"><span class="mono">05</span><h3 data-t="s5">Orçamento e viabilidade de sistemas</h3><p data-t="d5">Avaliamos a necessidade e a viabilidade de um sistema personalizado e apresentamos o orçamento.</p><span class="go" data-t="vx">Ver exemplo</span></div><div class="sv-img"><img src="img/ex-viabilidade.webp" alt="Exemplo de estudo de viabilidade de um sistema" width="1264" height="790" loading="lazy"></div></article>
+</div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="sec" id="comparar">
+<div class="sh sh-row"><div><span class="tag mono rv"><i></i><span data-t="bfa">Antes</span> / <span data-t="bfb">Depois</span></span><h2 class="rv"><span data-t="zBa">O mesmo site,</span> <em data-t="zBb">outra</em> <span data-t="zBc">empresa.</span></h2></div><p class="rv" data-t="bfd">Arraste para comparar o mesmo site antes e depois do trabalho da MAvision.</p></div>
+<div class="ba rv" id="cmp" style="--p:50%">
+<img src="antes-lenmel.webp" alt="Site da LENMEL antes da reformulação" width="1400" height="670" loading="lazy">
+<div class="ba-a"><img src="depois-lenmel.webp" alt="Site da LENMEL depois da reformulação feita pela MAvision" width="1400" height="670" loading="lazy"></div>
+<span class="ba-l mono" data-t="bfb">Depois</span><span class="ba-r mono" data-t="bfa">Antes</span>
+<div class="ba-h" aria-hidden="true"><span>⟷</span></div>
+<input type="range" min="0" max="100" value="50" id="cr" data-a="ac" aria-label="Comparar antes e depois">
+</div>
+</section>
+
+<!-- PROCESS: five steps that rise -->
+<section class="sec" id="processo">
+<div class="proc">
+<div class="proc-t">
+<span class="tag mono rv"><i></i><span data-t="n4">Processo</span></span>
+<h2 class="rv"><span data-t="zPa">Um método</span> <em data-t="zPb2">sem</em> <span data-t="zPc">surpresas.</span></h2>
+<p class="rv" data-t="zPd">Cinco etapas, sempre na mesma ordem. Toque em uma etapa para ver o que acontece nela.</p>
+<div class="step-d rv" aria-live="polite"><span class="mono"><span data-t="et">Etapa</span> <span id="stepn">05</span></span><b id="stept" data-t="r5">Desenvolver</b><p id="stepx" data-t="e5">Construímos, testamos e publicamos o projeto.</p></div>
+</div>
+<div class="iso rv" id="iso" role="tablist" data-a="n4" aria-label="Processo">
+<button class="col" type="button" role="tab" aria-selected="false" data-i="0"><svg viewBox="0 0 100 90" aria-hidden="true"><g class="pr" style="transition-delay:0.00s"><polygon class="l" points="0,15 50,30 50,90 0,75"/><polygon class="r" points="50,30 100,15 100,75 50,90"/><polygon class="top" points="0,15 50,0 100,15 50,30"/></g></svg><span><b>01</b> <i data-t="r1">Analisar</i></span></button>
+<button class="col" type="button" role="tab" aria-selected="false" data-i="1"><svg viewBox="0 0 100 145" aria-hidden="true"><g class="pr" style="transition-delay:0.12s"><polygon class="l" points="0,15 50,30 50,145 0,130"/><polygon class="r" points="50,30 100,15 100,130 50,145"/><polygon class="top" points="0,15 50,0 100,15 50,30"/></g></svg><span><b>02</b> <i data-t="r2">Entender</i></span></button>
+<button class="col" type="button" role="tab" aria-selected="false" data-i="2"><svg viewBox="0 0 100 200" aria-hidden="true"><g class="pr" style="transition-delay:0.24s"><polygon class="l" points="0,15 50,30 50,200 0,185"/><polygon class="r" points="50,30 100,15 100,185 50,200"/><polygon class="top" points="0,15 50,0 100,15 50,30"/></g></svg><span><b>03</b> <i data-t="r3">Estruturar</i></span></button>
+<button class="col" type="button" role="tab" aria-selected="false" data-i="3"><svg viewBox="0 0 100 255" aria-hidden="true"><g class="pr" style="transition-delay:0.36s"><polygon class="l" points="0,15 50,30 50,255 0,240"/><polygon class="r" points="50,30 100,15 100,240 50,255"/><polygon class="top" points="0,15 50,0 100,15 50,30"/></g></svg><span><b>04</b> <i data-t="r4">Projetar</i></span></button>
+<button class="col on" type="button" role="tab" aria-selected="true" data-i="4"><svg viewBox="0 0 100 310" aria-hidden="true"><g class="pr" style="transition-delay:0.48s"><polygon class="l" points="0,15 50,30 50,310 0,295"/><polygon class="r" points="50,30 100,15 100,295 50,310"/><polygon class="top" points="0,15 50,0 100,15 50,30"/></g></svg><span><b>05</b> <i data-t="r5">Desenvolver</i></span></button>
 </div>
 </div>
 </section>
 
-
-<!-- CASES -->
-<section class="sec" id="cases"><div class="w">
-<div class="sh r"><span class="chip" data-t="n3">Cases</span><h2 data-t="wkt">Sites no ar</h2><p data-t="wkd">Projetos reais, publicados e funcionando. Passe o mouse para rolar cada página.</p></div>
-<div class="work">
-<a class="card wk r" href="https://www.lenmel.com.br" target="_blank" rel="noopener noreferrer"><div class="frame" data-ui><div class="f-top"><i></i><i></i><i></i><span>www.lenmel.com.br</span></div><div class="f-view"><img src="projeto-lenmel.webp" alt="Página inicial do site da LENMEL, consultoria empresarial e tributária" width="820" height="6230" loading="lazy"></div></div><div class="wk-t"><div><h3>LENMEL</h3><p data-t="p1">Site institucional de uma empresa de consultoria empresarial e tributária, para divulgar serviços e informações da empresa.</p></div><span class="go" data-t="vs">Visitar o site</span></div></a>
-<a class="card wk r" href="https://rumobh.onrender.com/" target="_blank" rel="noopener noreferrer"><div class="frame" data-ui><div class="f-top"><i></i><i></i><i></i><span>rumobh.onrender.com</span></div><div class="f-view"><img src="projeto-rumo.webp" alt="Página inicial do RUMO, app para escolher faculdade" width="820" height="9760" loading="lazy"></div></div><div class="wk-t"><div><h3>RUMO</h3><p data-t="p2">Site de apresentação do RUMO, app que ajuda estudantes a escolher a faculdade comparando mensalidade, bolsas, nota do MEC e distância, com recomendações para o perfil e chat com IA.</p></div><span class="go" data-t="vs">Visitar o site</span></div></a>
-<a class="card wk r" href="https://www.bouzada.com.br/" target="_blank" rel="noopener noreferrer"><div class="frame" data-ui><div class="f-top"><i></i><i></i><i></i><span>www.bouzada.com.br</span></div><div class="f-view"><img src="projeto-bouzada.webp" alt="Página inicial do site da Bouzada Advogados, escritório de advocacia em Belo Horizonte" width="820" height="8416" loading="lazy"></div></div><div class="wk-t"><div><h3>Bouzada Advogados</h3><p data-t="p3">Site do escritório Bouzada Advogados, em Belo Horizonte, para militares, servidores públicos, concursos e direito tributário, com teses em destaque e uma verificação rápida que envia o caso pronto para o WhatsApp.</p></div><span class="go" data-t="vs">Visitar o site</span></div></a>
+<!-- NUMBERS -->
+<section class="sec">
+<div class="sh"><span class="tag mono rv"><i></i><span data-t="zNm">em números</span></span><h2 class="rv"><span data-t="zNa">Números que não precisam de</span> <em data-t="zNb">asterisco</em>.</h2></div>
+<div class="nums">
+<div class="num rv"><span class="mono" data-t="zQ1">orçamento</span><b><span data-n="24">24</span>h</b><p data-t="k2">para receber o orçamento</p></div>
+<div class="num rv"><span class="mono" data-t="zQ2">prazo</span><b><span data-n="2">2</span> <span data-t="zTo">a</span> <span data-n="5">5</span></b><p data-t="k3">dias úteis para o site ir ao ar</p></div>
+<div class="num rv"><span class="mono" data-t="zQ3">no ar</span><b><span data-n="3">3</span></b><p data-t="zQ3t">sites de clientes publicados e funcionando agora.</p></div>
+<div class="num rv"><span class="mono" data-t="zQ4">canal</span><b><span data-n="1">1</span></b><p data-t="zQ4t">lugar para o cliente falar com você: o WhatsApp.</p></div>
 </div>
-<a class="card next r" href="#contato"><span class="plus" aria-hidden="true">+</span><div><h3 data-t="ch">Seu case aqui</h3><p data-t="cx">Case dedicado a um futuro cliente da MAvision. Este espaço está reservado para o próximo projeto, e pode ser o seu.</p></div><span class="go" data-t="cv">Quero ser o próximo case</span></a>
-</div></section>
-
-<!-- BEFORE / AFTER -->
-<section class="sec" id="comparar"><div class="w">
-<div class="sh r"><span class="chip"><span data-t="bfa">Antes</span> · <span data-t="bfb">Depois</span></span><h2 data-t="bfx">O mesmo site, antes e depois</h2><p data-t="bfd">Arraste para comparar o mesmo site antes e depois do trabalho da MAvision.</p></div>
-<div class="cmw r" data-ui><div class="f-top"><i></i><i></i><i></i><span>www.lenmel.com.br</span></div>
-<div class="cmp" id="cmp" style="--x:50%"><div class="cm-b"><img src="depois-lenmel.webp" alt="Site da LENMEL depois da reformulação feita pela MAvision" width="1400" height="670" loading="lazy"></div><div class="cm-a"><img src="antes-lenmel.webp" alt="Site da LENMEL antes da reformulação" width="1400" height="670" loading="lazy"></div>
-<span class="tag ta" data-t="bfa">Antes</span><span class="tag tb" data-t="bfb">Depois</span>
-<div class="hdl"><i><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></i></div><input class="rg" id="cr" type="range" min="0" max="100" value="50" data-a="ac" aria-label="Comparar antes e depois"></div></div>
-<div class="vs2">
-<div class="card r"><h3 data-t="bfa">Antes</h3><ul class="no"><li data-t="bfa1">Site genérico, com cara de feito por IA</li><li data-t="bfa2">Informação em excesso na tela</li><li data-t="bfa3">Contatos e canais espalhados</li></ul></div>
-<div class="card card-hi r"><h3 data-t="bfb">Depois</h3><ul class="yes"><li data-t="bfb1">Design personalizado e moderno</li><li data-t="bfb2">Apenas o necessário, de forma chamativa</li><li data-t="bfb3">Clientes centralizados em um único canal</li><li data-t="bfb4">Todos direcionados para o WhatsApp</li></ul></div>
-</div>
-</div></section>
-
-<!-- SERVICES (kept: one row per service with its working example) -->
-<section class="sec" id="servicos"><div class="w">
-<div class="sh r"><span class="chip" data-t="n2">Serviços</span><h2 data-t="st">Serviços</h2><p data-t="sd">Soluções digitais para cada estágio do seu negócio.</p></div>
-<div class="svl">
-<article class="sv ex r" data-ex="exemplos/institucional.html" tabindex="0" role="button"><div class="sv-t"><h3 data-t="s1">Sites institucionais</h3><p data-t="d1">Criação a partir de modelos prontos ou de um site informativo com estrutura simples e objetiva.</p><span class="go" data-t="vx">Ver exemplo</span></div><figure><img src="img/ex-institucional.webp" alt="Exemplo de site institucional para um escritório de contabilidade" width="1264" height="790" loading="lazy"></figure></article>
-<article class="sv ex r" data-ex="exemplos/sob-medida.html" tabindex="0" role="button"><div class="sv-t"><h3 data-t="s2">Sites sob medida e design avançado</h3><p data-t="d2">Desenvolvidos conforme a sua solicitação: temática, cores principais, animações básicas, imagens e textos.</p><span class="go" data-t="vx">Ver exemplo</span></div><figure><img src="img/ex-sob-medida.webp" alt="Exemplo de site sob medida para um restaurante mineiro" width="1264" height="790" loading="lazy"></figure></article>
-<article class="sv ex r" data-ex="exemplos/seo.html" tabindex="0" role="button"><div class="sv-t"><h3 data-t="s3">Ajuste de textos para SEO</h3><p data-t="d3">Revisão do conteúdo do site com métodos de SEO para ampliar a visibilidade no Google.</p><span class="go" data-t="vx">Ver exemplo</span></div><figure><img src="img/ex-seo.webp" alt="Exemplo de ajuste de SEO mostrando o resultado no Google" width="1264" height="790" loading="lazy"></figure></article>
-<article class="sv ex r" data-ex="exemplos/automacao.html" tabindex="0" role="button"><div class="sv-t"><h3 data-t="s4">Automação com Inteligência Artificial</h3><p data-t="d4">Automatização de processos, como a criação e instalação de um sistema básico de emissão de contratos.</p><span class="go" data-t="vx">Ver exemplo</span></div><figure><img src="img/ex-automacao.webp" alt="Exemplo de gerador de contratos automatizado" width="1264" height="790" loading="lazy"></figure></article>
-<article class="sv ex r" data-ex="exemplos/viabilidade.html" tabindex="0" role="button"><div class="sv-t"><h3 data-t="s5">Orçamento e viabilidade de sistemas</h3><p data-t="d5">Avaliamos a necessidade e a viabilidade de um sistema personalizado e apresentamos o orçamento.</p><span class="go" data-t="vx">Ver exemplo</span></div><figure><img src="img/ex-viabilidade.webp" alt="Exemplo de estudo de viabilidade de um sistema" width="1264" height="790" loading="lazy"></figure></article>
-</div>
-</div></section>
+</section>
 
 <!-- PRICE -->
-<section class="sec" id="preco"><div class="w">
-<div class="sh r"><span class="chip" data-t="k1x">Preço</span><h2 data-t="pht">Preço claro, prazo curto.</h2><p data-t="phd">Você sabe quanto vai pagar antes de começar: o orçamento chega em até 24 horas e o site fica pronto em poucos dias.</p></div>
-<div class="pr-g">
-<div class="card pr-main r"><div class="pr-top"><span data-t="k1">a partir de</span><b id="price" data-t="pv">R$ 549,90</b></div>
-<h3 data-t="phi">O que vem no seu site</h3>
-<ul class="yes"><li data-t="bfb1">Design personalizado e moderno</li><li data-t="mp">Serviços, horários e contato no mesmo lugar.</li><li data-t="bfb3">Clientes centralizados em um único canal</li><li data-t="x4full">Funciona no celular, no tablet e no computador</li><li data-t="d3">Revisão do conteúdo do site com métodos de SEO para ampliar a visibilidade no Google.</li></ul>
-<a class="btn btn-lg btn-block" href="#contato"><span data-t="b1">Solicitar orçamento</span><i class="ar" aria-hidden="true">→</i></a></div>
-<div class="pr-side">
-<div class="card stat r"><b>24h</b><span data-t="k2">para receber o orçamento</span></div>
-<div class="card stat r"><b data-t="k3v">2 a 5</b><span data-t="k3">dias úteis para o site ir ao ar</span></div>
-<div class="card stat r"><b>1</b><span data-t="x3">canal de atendimento</span></div>
+<section class="sec" id="preco">
+<div class="sh"><span class="tag mono rv"><i></i><span data-t="k1x">Preço</span></span><h2 class="rv"><span data-t="zPra">Você sabe o preço</span> <em data-t="zPrb">antes</em> <span data-t="zPrc">de começar.</span></h2></div>
+<div class="price rv">
+<div class="pr-l"><span class="mono" data-t="zPrl">site institucional</span><div class="pr-v"><small data-t="k1">a partir de</small><b id="price" data-t="pv">R$ 549,90</b></div><p data-t="zPrd">O orçamento chega em até 24 horas e o site fica pronto em poucos dias. Projetos sob medida, SEO e sistemas são orçados conforme o escopo.</p><a class="btn btn-v" href="#contato" data-t="b1">Solicitar orçamento</a></div>
+<ul class="pr-r"><li><i>✓</i><span data-t="bfb1">Design personalizado e moderno</span></li><li><i>✓</i><span data-t="mp">Serviços, horários e contato no mesmo lugar.</span></li><li><i>✓</i><span data-t="bfb3">Clientes centralizados em um único canal</span></li><li><i>✓</i><span data-t="x4full">Funciona no celular, no tablet e no computador</span></li><li><i>✓</i><span data-t="zPr5">Textos revisados com método de SEO</span></li></ul>
 </div>
-</div>
-</div></section>
-
-<!-- PROCESS -->
-<section class="sec" id="processo"><div class="w">
-<div class="sh r"><span class="chip" data-t="n4">Processo</span><h2 data-t="rt">Nosso processo</h2><p data-t="rd">Cinco etapas para transformar uma necessidade em um resultado.</p></div>
-<ol class="tl" id="tl">
-<li class="r"><span class="dot" aria-hidden="true"></span><div class="card"><h3 data-t="r1">Analisar</h3><p data-t="e1">Avaliamos o cenário, o site atual e o mercado.</p><p class="sub" data-t="fb1">Avaliamos estrutura, design, desempenho e conteúdo do site existente.</p></div></li>
-<li class="r"><span class="dot" aria-hidden="true"></span><div class="card"><h3 data-t="r2">Entender</h3><p data-t="e2">Identificamos objetivos, público e pontos de melhoria.</p><p class="sub" data-t="fb2">Ajustes graduais, validados com você, até atingir o ponto esperado.</p></div></li>
-<li class="r"><span class="dot" aria-hidden="true"></span><div class="card"><h3 data-t="r3">Estruturar</h3><p data-t="e3">Organizamos conteúdo, páginas e jornada do cliente.</p><p class="sub" data-t="fb4">Configuramos títulos e conteúdo para ranquear melhor no Google.</p></div></li>
-<li class="r"><span class="dot" aria-hidden="true"></span><div class="card"><h3 data-t="r4">Projetar</h3><p data-t="e4">Definimos o design e a experiência em cada dispositivo.</p><p class="sub" data-t="fb3">Refinamos o visual e a experiência em cada tamanho de tela.</p></div></li>
-<li class="r"><span class="dot" aria-hidden="true"></span><div class="card"><h3 data-t="r5">Desenvolver</h3><p data-t="e5">Construímos, testamos e publicamos o projeto.</p><p class="sub" data-t="fb6">Publicamos o site e entregamos o projeto pronto para uso.</p></div></li>
-</ol>
-</div></section>
-
-<!-- ABOUT -->
-<section class="sec" id="sobre"><div class="w">
-<div class="sh r"><span class="chip" data-t="n1">Sobre</span><h2 data-t="at">Sobre a MAvision</h2></div>
-<div class="ab-g">
-<div class="card ab-s r"><p class="statement" data-t="a1">A MAvision nasceu da observação de um problema recorrente no mercado: muitas empresas investiram em sites que não entregaram resultado por falta de estruturação, planejamento e cuidado técnico.</p><p data-t="a2">Diante disso, adotamos uma abordagem diferente. Antes de criar, analisamos o site existente, compreendemos como foi concebido e estruturado e, somente então, definimos as melhorias necessárias.</p><p data-t="a3">Com esse método, aprimoramos o design, otimizamos o acesso em diferentes dispositivos, posicionamos o site no Google por meio de conteúdo otimizado com SEO e centralizamos o contato com os clientes em um único canal de atendimento.</p></div>
-<div class="nums">
-<div class="card stat r"><b data-n="5">5</b><span data-t="x1">etapas de método</span></div>
-<div class="card stat r"><b data-n="5">5</b><span data-t="x2">serviços digitais</span></div>
-<div class="card stat r"><b data-n="1">1</b><span data-t="x3">canal de atendimento</span></div>
-<div class="card stat r"><b data-n="100" data-s="%">100%</b><span data-t="x4">responsivo</span></div>
-</div>
-</div>
-</div></section>
+</section>
 
 <!-- FAQ -->
-<section class="sec" id="faq"><div class="w">
-<div class="sh r"><span class="chip">FAQ</span><h2 data-t="fqt">Perguntas frequentes</h2><p data-t="fd">Dúvidas frequentes sobre nossos serviços.</p></div>
-<div class="qs">
-<details class="r"><summary data-t="q1">Quanto tempo leva para criar um site?</summary><p data-t="w1">Sites institucionais costumam levar de 2 a 5 dias úteis. Projetos sob medida variam conforme a complexidade.</p></details>
-<details class="r"><summary data-t="q2">O site funcionará bem no celular?</summary><p data-t="w2">Sim. Todos os projetos são responsivos e otimizados para diferentes aparelhos.</p></details>
-<details class="r"><summary data-t="q3">Vocês cuidam do SEO?</summary><p data-t="w3">Sim. Ajustamos textos e estrutura para melhorar o posicionamento no Google.</p></details>
-<details class="r"><summary data-t="q4">Posso pedir um sistema personalizado?</summary><p data-t="w4">Sim. Avaliamos a viabilidade e enviamos um orçamento conforme a sua necessidade.</p></details>
-<details class="r"><summary data-t="q5">Como funciona o pagamento?</summary><p data-t="w5">As condições são definidas no orçamento, depois de entendermos o escopo do projeto.</p></details>
+<section class="sec" id="faq">
+<div class="faq">
+<div><span class="tag mono rv"><i></i>FAQ</span><h2 class="rv"><span data-t="zFa">Perguntas</span> <em data-t="zFb">frequentes</em>.</h2></div>
+<div class="qs rv">
+<details><summary data-t="q1">Quanto tempo leva para criar um site?</summary><p data-t="w1">Sites institucionais costumam levar de 2 a 5 dias úteis. Projetos sob medida variam conforme a complexidade.</p></details>
+<details><summary data-t="q2">O site funcionará bem no celular?</summary><p data-t="w2">Sim. Todos os projetos são responsivos e otimizados para diferentes aparelhos.</p></details>
+<details><summary data-t="q3">Vocês cuidam do SEO?</summary><p data-t="w3">Sim. Ajustamos textos e estrutura para melhorar o posicionamento no Google.</p></details>
+<details><summary data-t="q4">Posso pedir um sistema personalizado?</summary><p data-t="w4">Sim. Avaliamos a viabilidade e enviamos um orçamento conforme a sua necessidade.</p></details>
+<details><summary data-t="q5">Como funciona o pagamento?</summary><p data-t="w5">As condições são definidas no orçamento, depois de entendermos o escopo do projeto.</p></details>
 </div>
-</div></section>
+</div>
+</section>
 
 <!-- CONTACT -->
-<section class="sec" id="contato"><div class="w">
-<div class="panel r">
-<div class="ct-l"><span class="chip" data-t="n5">Contato</span><h2 data-t="kt">Vamos conversar</h2><p data-t="kd">Conte o que você precisa construir ou melhorar. Retornamos o mais breve possível.</p>
-<ul class="chs">
-<li><a href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer"><i><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 01-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1121 11.5z"/></svg></i><span><b>WhatsApp</b><small data-t="cw">Resposta rápida, direto com quem faz o site</small></span></a></li>
-<li><a href="https://instagram.com/mavisiondigital" target="_blank" rel="noopener noreferrer"><i><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></i><span><b>@mavisiondigital</b><small data-t="cg">Bastidores e novos projetos</small></span></a></li>
-<li><a href="mailto:mavisionsites@gmail.com"><i><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i><span><b>mavisionsites@gmail.com</b><small data-t="ce">Para propostas e documentos</small></span></a></li>
-</ul></div>
-<form class="fm" id="fm" novalidate><h3 data-t="fh">Peça seu orçamento</h3>
+<section class="sec" id="contato">
+<div class="cta">
+<div class="cta-l rv">
+<a class="brand" href="#hero" aria-label="MAvision"><span class="mk"><img src="logo-sm.webp" alt="" width="180" height="134" loading="lazy"></span>MAvision</a>
+<p data-t="zCt">Sites, sistemas e automações com IA em Belo Horizonte e para todo o Brasil.</p>
+<ul class="mono"><li><a href="https://wa.me/5531993688271" target="_blank" rel="noopener noreferrer">WhatsApp Marcos · (31) 99368-8271</a></li><li><a href="https://wa.me/5531972014324" target="_blank" rel="noopener noreferrer">WhatsApp André · (31) 97201-4324</a></li><li><a href="mailto:mavisionsites@gmail.com">mavisionsites@gmail.com</a></li><li><a href="https://instagram.com/mavisiondigital" target="_blank" rel="noopener noreferrer">@mavisiondigital</a></li></ul>
+</div>
+<form class="cta-r rv" id="fm" novalidate>
+<span class="mono" data-t="zF24">orçamento em até 24h</span>
+<h2><span data-t="zFh1">Conte o que você</span> <em data-t="zFh2">precisa</em> <span data-t="zFh3">construir.</span></h2>
 <div class="fg">
-<div><label for="n" data-t="ln">Nome</label><input id="n" required maxlength="100" autocomplete="name" data-p="pn" placeholder="Como podemos chamar você?"></div>
-<div><label for="e" data-t="le">Empresa</label><input id="e" maxlength="120" autocomplete="organization" data-p="pe" placeholder="Nome da empresa"></div>
-<div><label for="w">WhatsApp</label><input id="w" required maxlength="20" inputmode="tel" autocomplete="tel" data-p="pw" placeholder="(31) 9 0000-0000"></div>
-<div><label for="m" data-t="lm">E-mail</label><input id="m" type="email" required maxlength="254" autocomplete="email" data-p="pm" placeholder="voce@empresa.com"></div>
-<div class="full"><label for="x" data-t="lx">O que precisa construir ou melhorar?</label><textarea id="x" required maxlength="2000" data-p="px" placeholder="Conte rapidamente o cenário e o objetivo."></textarea></div>
+<label><span class="vh" data-t="ln">Nome</span><input id="n" required maxlength="100" autocomplete="name" data-p="pn" placeholder="Como podemos chamar você?"></label>
+<label><span class="vh">WhatsApp</span><input id="w" required maxlength="20" inputmode="tel" autocomplete="tel" data-p="pw" placeholder="(31) 9 0000-0000"></label>
 </div>
-<button class="btn btn-lg btn-block" type="submit" data-t="send">Enviar mensagem →</button><p class="rs" data-t="resp" id="rs">Resposta em até 1 dia útil</p></form>
+<label><span class="vh" data-t="lx">O que precisa construir ou melhorar?</span><textarea id="x" rows="3" required maxlength="2000" data-p="px" placeholder="Conte rapidamente o cenário e o objetivo."></textarea></label>
+<div class="fm-b"><button class="btn btn-k" type="submit" data-t="zSend">Enviar pelo WhatsApp →</button><p class="rs" id="rs" data-t="resp">Resposta em até 1 dia útil</p></div>
+</form>
 </div>
-</div></section>
+</section>
 </main>
 
-<footer class="foot"><div class="w"><div class="ft"><div><img src="logo-sm.webp" alt="MAvision" width="180" height="134" loading="lazy" class="ft-logo"><div class="ft-brand"><b>MA</b><span>VISION</span></div><p class="sl">Your vision is MAvision</p></div>
-<div><h4 data-t="fn">Navegação</h4><ul><li><a href="#sobre" data-t="n1">Sobre</a></li><li><a href="#servicos" data-t="n2">Serviços</a></li><li><a href="#cases" data-t="n3">Cases</a></li><li><a href="#processo" data-t="n4">Processo</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contato" data-t="n5">Contato</a></li></ul></div>
-<div><h4 data-t="fc">Canais</h4><ul><li><a href="https://instagram.com/mavisiondigital" target="_blank" rel="noopener noreferrer">Instagram @mavisiondigital</a></li><li><a href="https://wa.me/5531972014324" target="_blank" rel="noopener noreferrer">WhatsApp André · (31) 97201-4324</a></li><li><a href="https://wa.me/5531993688271" target="_blank" rel="noopener noreferrer">WhatsApp Marcos · (31) 99368-8271</a></li><li><a href="mailto:mavisionsites@gmail.com">mavisionsites@gmail.com</a></li></ul></div></div>
-<div class="cp"><span>&copy; 2026 MAvision. <span data-t="rg">Todos os direitos reservados.</span></span><button type="button" id="pvb" data-t="pp">Política de privacidade</button></div></div></footer>
+<footer class="foot">
+<div class="foot-t mono"><span><i></i><span data-t="zLive">3 sites no ar</span></span><span data-t="zCity">belo horizonte · mg</span><span data-t="resp">Resposta em até 1 dia útil</span></div>
+<div class="foot-g">
+<div><a class="brand" href="#hero" aria-label="MAvision"><span class="mk"><img src="logo-sm.webp" alt="" width="180" height="134" loading="lazy"></span>MAvision</a><p class="sl">Your vision is MAvision</p><p class="mono cp">&copy; 2026 MAvision. <span data-t="rg">Todos os direitos reservados.</span></p><button type="button" class="mono pvb" id="pvb" data-t="pp">Política de privacidade</button></div>
+<div><h4 class="mono" data-t="zNav">navegação</h4><a href="#cases" data-t="n3">Cases</a><a href="#sobre" data-t="n1">Sobre</a><a href="#servicos" data-t="n2">Serviços</a><a href="#processo" data-t="n4">Processo</a><a href="#preco" data-t="k1x">Preço</a><a href="#faq">FAQ</a></div>
+<div><h4 class="mono" data-t="zChan">canais</h4><a href="https://instagram.com/mavisiondigital" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="mailto:mavisionsites@gmail.com">E-mail</a></div>
+</div>
+</footer>
 
 <button class="tp" id="tp" type="button" data-a="at2" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<a class="wa" id="wa" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"/></svg></a>
+<a class="wa" id="wa" href="https://wa.me/5531993688271?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20MAvision%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20site%2Fsistema." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.3z"/></svg></a>
 
 <dialog id="ex" class="exd"><div class="exw"><div class="f-top"><i></i><i></i><i></i><span id="exu"></span><a id="exo" href="#" target="_blank" rel="noopener noreferrer" data-t="xo">Abrir em tela cheia ↗</a><button type="button" id="exc" data-a="ax" aria-label="Fechar">&times;</button></div><iframe id="exf" sandbox="allow-scripts allow-forms" data-a="ae" title="Exemplo de projeto"></iframe></div></dialog>
 <dialog id="dg" class="pold"><h3 data-t="pp">Política de privacidade</h3><p data-t="pt2" class="pol">Última atualização: novembro de 2026.
@@ -237,7 +252,7 @@ Compartilhamento: ao enviar, a mensagem é aberta no WhatsApp, serviço da Meta.
 
 Prazo: guardamos as conversas enquanto durar o atendimento ou o contrato, e depois apagamos.
 
-Seus direitos: você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento pelo e-mail acima.</p><form method="dialog"><button class="btn">OK</button></form></dialog>
+Seus direitos: você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento pelo e-mail acima.</p><form method="dialog"><button class="btn btn-v">OK</button></form></dialog>
 
 <script src="i18n.js"></script>
 <script src="script.js"></script>
