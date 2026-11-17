@@ -69,7 +69,6 @@ function page(l) {
   h = h.replace(/(<(\w+)\b[^>]*\sdata-t="(\w+)"[^>]*>)(<\/\2>)/g, (m, open, tag, k, close) => open + esc(need(k)) + close);
   h = h.replace(/(<\w+\b[^>]*\sdata-p="(\w+)")/g, (m, a, k) => `${a} placeholder="${esc(need(k))}"`);
   h = h.replace(/<(\w+)\b([^>]*)\sdata-a="(\w+)"/g, (m, tag, a, k) => `<${tag}${a} data-a="${k}" ${tag.toLowerCase() === "iframe" ? "title" : "aria-label"}="${esc(need(k))}"`);
-  h = h.replace(/<div class="g"><\/div>/g, '<div class="g">' + Array(6).fill(t.mq.map(w => `<span>${esc(w)}</span><span>✦</span>`).join("")).join("") + "</div>");
   h = h.replace(new RegExp(`(<a [^>]*data-l="${l}")`, "g"), '$1 aria-current="true"').split("{{email}}").join(esc(EMAIL));
   const left = h.match(/\{\{\w+\}\}|<(\w+)\b[^>]*\sdata-t="\w+"[^>]*><\/\1>/g);
   if (left) throw new Error(`Sobrou algo sem preencher em ${l}: ${left.slice(0, 3).join(" ")}`);

@@ -190,12 +190,6 @@ a:hover .go::after,.sv:hover .go::after,.sv:focus-visible .go::after{transform:t
 .facts p{margin:0;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px;font-size:15px;color:var(--t2)}
 .facts b{font-size:clamp(24px,2.2vw,32px);font-weight:700;letter-spacing:-.03em;color:var(--t0)}
 
-/* marquee */
-.band{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:24px 0;margin-top:clamp(56px,6vw,96px);-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.band-in{display:inline-flex;animation:mq 45s linear infinite}
-.band .g{display:inline-flex;font-size:clamp(20px,2vw,28px);font-weight:600;letter-spacing:-.03em;color:var(--t2)}
-.band .g span{padding:0 24px}.band .g span:nth-child(even){color:var(--v400)}
-@keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---------- cases ---------- */
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
