@@ -597,6 +597,42 @@ html:not(.js) #ribbon{display:none}
 @keyframes land{0%{transform:rotate(-6deg) scale(1)}40%{transform:rotate(-6deg) scale(1.22)}100%{transform:rotate(-6deg) scale(1)}}
 @media(max-width:640px){.intro-ic{width:72px;height:72px;border-radius:20px}.intro-ic img{width:48px}}
 
+/* ============ round 5: nothing may push a card wider than the screen (Safari on iPhone) ============ */
+html,body{max-width:100%;overflow-x:hidden}
+.hero,.cases,.bento,.nums,.cta,.proc,.faq,.price,.state-g,.fd-g,.foot-g,.fg{min-width:0}
+.hero>*,.cases>*,.bento>*,.nums>*,.cta>*,.proc>*,.faq>*,.price>*,.state-g>*,.fd-g>*,.foot-g>*,.fg>*,.sh>*,.sh-row>div>*{min-width:0;max-width:100%}
+/* the hero card: one column that never grows past the card */
+.pipe{grid-template-columns:minmax(0,1fr);min-width:0;width:100%;max-width:100%;overflow:hidden}
+.pipe>*{min-width:0;max-width:100%}
+#biz{display:block;width:100%;min-width:0;max-width:100%;-webkit-appearance:none;appearance:none}
+.pipe-top{flex-wrap:wrap;row-gap:8px;min-width:0}
+.pipe-top>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st{flex:none}
+.log li{grid-template-columns:auto minmax(0,1fr) auto auto;min-width:0}
+.log li{white-space:nowrap}
+.log li>span,.log li{overflow:hidden;text-overflow:ellipsis}
+.graph{width:100%;min-width:0;overflow:visible}
+/* form fields and text areas never wider than their box */
+.cta-r input:not([type=checkbox]),.cta-r textarea{width:100%;min-width:0;max-width:100%;-webkit-appearance:none;appearance:none}
+.cta-r,.cta-l{min-width:0;max-width:100%}
+@media(max-width:1080px){
+  .hero,.cases,.cta,.proc,.faq,.price,.state-g{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:640px){
+  .bento,.nums,.fg,.fd-g{grid-template-columns:minmax(0,1fr)}
+  .log li{grid-template-columns:auto minmax(0,1fr) auto}
+  /* the last step sits flush right and keeps its label on one line */
+  .n5{left:auto;right:0;width:auto;min-width:15%}
+  .n1,.n2,.n3,.n4{width:auto;min-width:19%}
+  .node{max-width:24%}
+  .node b{font-size:12px;white-space:nowrap}
+  .chl small{max-width:100%}
+}
+.col{flex:1 1 0;min-width:0}
+.col span{max-width:100%;overflow:hidden}
+.col span i{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:400px){.iso{gap:4px;padding:12px 8px}.col span{font-size:8.5px}}
+
 @media(prefers-reduced-motion:reduce){
   .intro{display:none}
   .rv{opacity:1;transform:none;filter:none;transition:none}
