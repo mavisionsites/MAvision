@@ -572,6 +572,31 @@ html:not(.js) #ribbon{display:none}
 .mk img{width:23px;height:auto;filter:none}
 .brand:hover .mk{transform:rotate(0) scale(1.06)}
 
+/* ============ round 4: opening made of the page's own light fibres; the M lands in the top bar ============ */
+.intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;pointer-events:auto;cursor:pointer;background:none}
+.intro::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 50% 50%,rgba(91,60,255,.2),transparent 70%),var(--ink);transition:opacity .75s var(--ease)}
+.intro .inc{position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s var(--ease)}
+.intro-c{position:relative;z-index:1;display:grid;justify-items:center;gap:14px;animation:none}
+.intro-ic{width:84px;height:84px;border-radius:24px;background:var(--ink);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;
+  box-shadow:0 0 60px rgba(160,140,255,.6),0 0 140px rgba(127,231,234,.18);transform:scale(.4) rotate(-20deg);opacity:0;
+  animation:icIn2 .9s cubic-bezier(.2,1.4,.3,1) .95s forwards;transition:transform .9s cubic-bezier(.65,0,.2,1),box-shadow .9s,border-radius .9s}
+@keyframes icIn2{to{transform:none;opacity:1}}
+.intro-ic img{width:56px;height:auto;filter:none}
+.intro-ic.fly{box-shadow:0 8px 20px -8px rgba(160,140,255,.55)}
+.intro-w span:nth-child(1){animation-delay:1.15s}.intro-w span:nth-child(2){animation-delay:1.20s}.intro-w span:nth-child(3){animation-delay:1.25s}.intro-w span:nth-child(4){animation-delay:1.30s}.intro-w span:nth-child(5){animation-delay:1.35s}.intro-w span:nth-child(6){animation-delay:1.40s}.intro-w span:nth-child(7){animation-delay:1.45s}.intro-w span:nth-child(8){animation-delay:1.50s}
+.intro-s{animation-delay:1.6s}
+.intro-w,.intro-s{transition:opacity .35s,transform .5s var(--ease)}
+.intro.leave{pointer-events:none}
+.intro.leave::before,.intro.leave .inc{opacity:0}
+.intro.leave .intro-w,.intro.leave .intro-s{opacity:0;transform:translateY(10px)}
+.intro.leave .intro-w span,.intro.leave .intro-s{animation:none;opacity:0}
+.intro.done{display:none}
+/* the top bar's logo waits for the M, then takes it over with a small bounce */
+.intro-on .bar .mk{opacity:0}
+.bar .mk.land{animation:land .6s cubic-bezier(.2,1.6,.3,1)}
+@keyframes land{0%{transform:rotate(-6deg) scale(1)}40%{transform:rotate(-6deg) scale(1.22)}100%{transform:rotate(-6deg) scale(1)}}
+@media(max-width:640px){.intro-ic{width:72px;height:72px;border-radius:20px}.intro-ic img{width:48px}}
+
 @media(prefers-reduced-motion:reduce){
   .intro{display:none}
   .rv{opacity:1;transform:none;filter:none;transition:none}

@@ -7,21 +7,42 @@ const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],WA=
 (function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}const p=$("#price");if(L=="en"&&z.startsWith("Europe/"))p.textContent="€150";if(L=="es"&&z.startsWith("America/"))p.textContent="US$ 150"})();
 
 // opening: the violet square leaves after its animation (shown once per visit, see boot.js)
-const intro=$("#intro");setTimeout(()=>intro.classList.add("done"),RM||SEEN?0:3000);intro.addEventListener("click",()=>intro.classList.add("done"));
-// the opening's aurora: three curtains of thin vertical rays that wave and change colour (only while the opening is on screen)
-(function(){if(RM||SEEN)return;const sq=intro.querySelector(".intro-sq"),c=document.createElement("canvas");c.className="auc";sq.prepend(c);const x=c.getContext("2d");let w,h,d;
-  function rs(){d=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d}rs();
-  const G=[178,192,215,250,272,296,320].map(hh=>{const g=x.createLinearGradient(0,0,0,1);g.addColorStop(0,`hsla(${hh},100%,70%,0)`);g.addColorStop(.55,`hsla(${hh},100%,66%,.18)`);g.addColorStop(.9,`hsla(${hh},100%,80%,.95)`);g.addColorStop(1,`hsla(${hh},100%,85%,0)`);return g});
-  const cur=[{b:.42,a:.075,f:.0032,sp:.7,hg:.3,ph:0},{b:.56,a:.06,f:.0047,sp:-.5,hg:.22,ph:2.1},{b:.3,a:.05,f:.0026,sp:.4,hg:.2,ph:4.2}],t0=performance.now();
-  function fr(now){if(intro.classList.contains("done"))return;const t=(now-t0)/1000;x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,c.width,c.height);x.globalCompositeOperation="lighter";
-    for(const k of cur)for(let px=0;px<w;px+=2){
-      const y=h*(k.b+k.a*Math.sin(px*k.f+t*k.sp+k.ph)+.025*Math.sin(px*k.f*3.3-t*1.4+k.ph));
-      const hh=h*k.hg*(.55+.45*Math.sin(px*.012+t*1.6+k.ph)*Math.sin(px*.0043-t*.5+k.ph));
-      let q=(px/w*.9+t*.06+k.ph*.13)%1;const gi=Math.min(6,Math.floor(q*7));
-      const edge=Math.min(1,Math.min(px,w-px)/(w*.16));x.globalAlpha=edge*(.5+.5*Math.pow(Math.sin(px*.06+t*2.2+k.ph),2))*.8;
-      x.setTransform(d,0,0,d*Math.max(4,hh),px*d,(y-hh)*d);x.fillStyle=G[gi];x.fillRect(0,0,1.6,1)}
-    x.globalAlpha=1;requestAnimationFrame(fr)}
-  requestAnimationFrame(fr)})();
+// opening: two bundles of light fibres, the same as the page's background, meet in the middle and light up the M;
+// then the M flies up into the logo of the top bar and the page appears (once per visit, see boot.js)
+const intro=$("#intro");
+(function(){const root=document.documentElement,end=()=>{intro.classList.add("done");root.classList.remove("intro-on")};
+  if(RM||SEEN){end();return}
+  root.classList.add("intro-on");
+  const c=intro.querySelector(".inc"),x=c.getContext("2d"),ic=intro.querySelector(".intro-ic");let w,h,d,t0=null,left=false,stop=false;
+  function rs(){d=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0)}rs();
+  const N=innerWidth<700?44:76,SEG=72;
+  function fr(ms){if(stop)return;if(t0===null)t0=ms;const tt=(ms-t0)/1000,g=Math.min(1,tt/1.1),gE=1-Math.pow(1-g,3);
+    x.clearRect(0,0,w,h);x.globalCompositeOperation="lighter";
+    const mob=w<900,Lr=Math.hypot(w,h)*.62,kx=w*.5,ky=h*.5,rot=(h>w?-1.08:-.62)+Math.sin(tt*.35)*.04,dx=Math.cos(rot),dy=Math.sin(rot),spread=(mob?.55:.42)*Math.max(w,h);
+    // a soft violet glow that grows with the knot
+    const gl=x.createRadialGradient(kx,ky,0,kx,ky,Lr*.5);gl.addColorStop(0,`rgba(150,120,255,${(.24*gE).toFixed(3)})`);gl.addColorStop(.45,`rgba(110,80,255,${(.07*gE).toFixed(3)})`);gl.addColorStop(1,"rgba(110,80,255,0)");x.fillStyle=gl;x.fillRect(0,0,w,h);
+    const uMin=1-gE;   // the strands are drawn from both ends in towards the knot
+    for(let i=0;i<N;i++){const s=i/(N-1)-.5,ph=i*.37,hue=258-(s+.5)*70,edge=1-Math.abs(s)*1.6;
+      x.strokeStyle=`hsla(${hue},95%,${64+edge*12}%,${(.07+edge*.3).toFixed(3)})`;x.lineWidth=edge>.8?1.5:1;
+      for(const side of[-1,1]){x.beginPath();
+        for(let j=0;j<=SEG/2;j++){const au=1-(1-uMin)*j/(SEG/2),u=side*au;
+          const wdt=.025+Math.pow(au,1.25)*.9,tw=Math.cos(u*2.6+tt*.6+s*.8);
+          const across=s*spread*wdt*tw+Math.sin(u*3+tt*.9+ph)*14*au+u*u*spread*.35,along=u*Lr*.95;
+          const px=kx+along*dx-across*dy,py=ky+along*dy+across*dx;j?x.lineTo(px,py):x.moveTo(px,py)}
+        x.stroke()}}
+    // the knot flares as the strands arrive, and the M is born from it
+    const fl=Math.max(0,Math.min(1,(tt-.8)/.4))*(left?.35:1),rad=Math.min(w,h)*(.12+.14*fl);
+    if(fl>0){const gr=x.createRadialGradient(kx,ky,0,kx,ky,rad);gr.addColorStop(0,`rgba(240,235,255,${(.6*fl).toFixed(3)})`);gr.addColorStop(.3,`rgba(170,150,255,${(.28*fl).toFixed(3)})`);gr.addColorStop(1,"rgba(120,90,255,0)");x.fillStyle=gr;x.fillRect(kx-rad,ky-rad,rad*2,rad*2)}
+    x.globalCompositeOperation="source-over";requestAnimationFrame(fr)}
+  requestAnimationFrame(fr);
+  // the M flies into the logo of the top bar
+  function leave(){if(left)return;left=true;const mk=$(".bar .mk"),a=ic.getBoundingClientRect(),b=mk.getBoundingClientRect();
+    ic.style.animation="none";ic.style.opacity="1";ic.style.transform="none";void ic.offsetWidth;
+    const k=b.width/a.width,dx=b.left+b.width/2-(a.left+a.width/2),dy=b.top+b.height/2-(a.top+a.height/2);
+    intro.classList.add("leave");ic.classList.add("fly");ic.style.transform=`translate(${dx}px,${dy}px) scale(${k}) rotate(-6deg)`;
+    setTimeout(()=>{root.classList.remove("intro-on");mk.classList.add("land")},880);
+    setTimeout(()=>{stop=true;intro.classList.add("done");setTimeout(()=>mk.classList.remove("land"),700)},1000)}
+  setTimeout(leave,2350);intro.addEventListener("click",leave);addEventListener("resize",rs)})();
 
 
 // top bar: language menu, phone menu, privacy policy
@@ -34,7 +55,7 @@ $("#pvb").onclick=()=>$("#dg").showModal();
 
 // reveal: parts rise and come into focus as they arrive
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});
-$$(".rv").forEach((el,i)=>{if(el.closest(".hero"))el.style.transitionDelay=(RM?0:(SEEN?.1:2.1)+i*.08)+"s";io.observe(el)});
+$$(".rv").forEach((el,i)=>{if(el.closest(".hero"))el.style.transitionDelay=(RM?0:(SEEN?.1:2.25)+i*.08)+"s";io.observe(el)});
 setTimeout(()=>$$(".hero .rv").forEach(el=>el.style.transitionDelay=""),4000);
 
 // hero: the visitor's business name runs through the five steps
