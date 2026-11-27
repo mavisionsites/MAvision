@@ -4,7 +4,7 @@ if(window.top!==window.self){try{if(top.location.origin!==location.origin)throw 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],WA="5531993688271",L={"pt-BR":"pt",en:"en",es:"es"}[document.documentElement.lang]||"pt",t=T[L],RM=matchMedia("(prefers-reduced-motion:reduce)").matches,FINE=matchMedia("(pointer:fine)").matches,SEEN=document.documentElement.classList.contains("seen");
 
 // EN and ES serve both regions: euros for visitors in Europe, dollars for the Americas
-(function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}const p=$("#price");if(L=="en"&&z.startsWith("Europe/"))p.textContent="€150";if(L=="es"&&z.startsWith("America/"))p.textContent="US$ 150"})();
+(function(){let z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}const p=$("#price");if(L=="en"&&z.startsWith("Europe/"))p.textContent="€305";if(L=="es"&&z.startsWith("America/"))p.textContent="US$ 299,90"})();
 
 // opening: the violet square leaves after its animation (shown once per visit, see boot.js)
 // opening: two bundles of light fibres, the same as the page's background, meet in the middle and light up the M;
